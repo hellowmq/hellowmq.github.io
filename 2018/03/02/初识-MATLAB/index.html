@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>初识 MATLAB | 文茂权</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MATLAB 是矩阵实验室（Matrix&amp;amp;Laboratory）的简称，由 Mathwork 公司开发，广泛应用于数据分析，无线通信，深度学习，量化金融，计算机视觉和信号处理等方面，同时对于大学生数学建模竞赛也是相当重要的工具。    出于 MATLAB 自身库函数的完备性和易用性，本人主张将 MATLAB 作为一种数学工具而并非 C/C++一样的程序设计语言，也不需要过多的专研数据结构与">
+<meta name="keywords" content="MATLAB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识 MATLAB">
+<meta property="og:url" content="http://yoursite.com/2018/03/02/初识-MATLAB/index.html">
+<meta property="og:site_name" content="文茂权">
+<meta property="og:description" content="MATLAB 是矩阵实验室（Matrix&amp;amp;Laboratory）的简称，由 Mathwork 公司开发，广泛应用于数据分析，无线通信，深度学习，量化金融，计算机视觉和信号处理等方面，同时对于大学生数学建模竞赛也是相当重要的工具。    出于 MATLAB 自身库函数的完备性和易用性，本人主张将 MATLAB 作为一种数学工具而并非 C/C++一样的程序设计语言，也不需要过多的专研数据结构与">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-29T23:14:48.795Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识 MATLAB">
+<meta name="twitter:description" content="MATLAB 是矩阵实验室（Matrix&amp;amp;Laboratory）的简称，由 Mathwork 公司开发，广泛应用于数据分析，无线通信，深度学习，量化金融，计算机视觉和信号处理等方面，同时对于大学生数学建模竞赛也是相当重要的工具。    出于 MATLAB 自身库函数的完备性和易用性，本人主张将 MATLAB 作为一种数学工具而并非 C/C++一样的程序设计语言，也不需要过多的专研数据结构与">
+  
+    <link rel="alternate" href="/atom.xml" title="文茂权" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">文茂权</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个简单的程序员</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-初识-MATLAB" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/02/初识-MATLAB/" class="article-date">
+  <time datetime="2018-03-01T19:40:04.000Z" itemprop="datePublished">2018-03-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      初识 MATLAB
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MATLAB 是矩阵实验室（Matrix&amp;Laboratory）的简称，由 Mathwork 公司开发，广泛应用于数据分析，无线通信，深度学习，量化金融，计算机视觉和信号处理等方面，同时对于大学生数学建模竞赛也是相当重要的工具。 </p>
+<hr>
+<blockquote>
+<p>出于 MATLAB 自身库函数的完备性和易用性，本人主张将 MATLAB 作为一种数学工具而并非 C/C++一样的程序设计语言，也不需要过多的专研数据结构与算法，也不一一展示 MATLAB 数量众多的函数和工具包。所以本文档的目标旨在教会读者编写简洁高效的，合理地使用 MATLAB 的内置工具实现目的。<br>注：使用的版本为 MATLAB R2015b 版本。  </p>
+</blockquote>
+<hr>
+<a id="more"></a>
+<h3 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a><strong>用户界面</strong></h3><p>打开 MATLAB 软件后，默认的用户界面中有三个主要区域，包括文件区、命令行和工作区。分别具有以下作用：  </p>
+<ul>
+<li><p>文件区(Current Folder) 显示脚本文件、函数文件和资源文件</p>
+</li>
+<li><p>命令行(Command Window) 输入命令和输出变量的区域</p>
+</li>
+<li><p>工作区(Workspaces)     存放变量（创建或导入）  </p>
+</li>
+</ul>
+<h3 id="MATLAB-文件"><a href="#MATLAB-文件" class="headerlink" title="MATLAB 文件"></a><strong>MATLAB 文件</strong></h3><p>MATLAB中所有文件都以 .m 作为后缀名，有两种文件：一种为脚本文件（调用仅运行），另一种为函数（可以传入指定参数，输出指定参数），以 m 文件第一行是否有保留字 function 区分。可以通过面板左上角的 new 新建一个文件，编写程序。  </p>
+<h4 id="脚本文件实例"><a href="#脚本文件实例" class="headerlink" title="脚本文件实例"></a>脚本文件实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">theta = [-0.5*pi : 0.02 * pi : 0.5 * pi ]; </span><br><span class="line">gain =abs(sin (4 .* theta)./(theta .* 4));</span><br><span class="line">polar(theta ,gain ,&apos;r-&apos;);</span><br><span class="line">title(&apos;\bfAtntenna Gain vs \theta&apos;);</span><br></pre></td></tr></table></figure>
+<h4 id="函数文件实例（函数文件名为-distance，d-为输出变量，a-和-b-为输入变量）"><a href="#函数文件实例（函数文件名为-distance，d-为输出变量，a-和-b-为输入变量）" class="headerlink" title="函数文件实例（函数文件名为 distance，d 为输出变量，a 和 b 为输入变量）"></a>函数文件实例（函数文件名为 distance，d 为输出变量，a 和 b 为输入变量）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function [ d ] = distance( a,b )</span><br><span class="line">%UNTITLED Summary of this function goes here</span><br><span class="line">%   Detailed explanation goes here</span><br><span class="line"></span><br><span class="line">c = a - b;</span><br><span class="line">d = c .^ 2;</span><br><span class="line">d = sqrt(sum(d));</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h3 id="最简单的命令"><a href="#最简单的命令" class="headerlink" title="最简单的命令"></a><strong>最简单的命令</strong></h3><p>在 MATLAB 中，变量的基本形式为矩阵。不妨从创建一个变量开始。<br>如果已经创建 m 文件，键入以下命令，点击运行（run）；如果选择在命令行运行，只需在命令行中输入以下命令（无需提前声明变量）如果计算机自动创建一个1×1的矩阵，值为1，这时在工作区中可以找到变量名为a的矩阵。  </p>
+<p>命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = 1</span><br></pre></td></tr></table></figure>
+<p>命令行输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a </span><br><span class="line"></span><br><span class="line">    = 1</span><br></pre></td></tr></table></figure>
+<h3 id="尝试执行更多命令"><a href="#尝试执行更多命令" class="headerlink" title="尝试执行更多命令"></a><strong>尝试执行更多命令</strong></h3><ol>
+<li>可以直接用赋值语句对相应的数学关系的变量赋值  </li>
+</ol>
+<p>命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b = 3</span><br><span class="line">c = a + b</span><br></pre></td></tr></table></figure>
+<p>命令行输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">b</span><br><span class="line"></span><br><span class="line">    = 3</span><br><span class="line">c</span><br><span class="line"></span><br><span class="line">    = 4</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>百分号 % 可以作为单行注释，接在%后的语句不作为 MATLAB 命令输入，如果需要使用%，这时需要使用 %%； MATLAB 中没有多行注释，但是可以选中后使用快捷键 Ctrl + R 注释，Ctrl + T 取消注释。  </li>
+</ol>
+<p>命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% a = 2 单行注释，不执行</span><br><span class="line">c = a + b</span><br></pre></td></tr></table></figure>
+<p>命令行输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c</span><br><span class="line"></span><br><span class="line">    = 4</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>英文分号 ; 表示一句语句的结束，特别的对于变量，语句末加上会终止命令行对该变量的输出  </li>
+</ol>
+<p>命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 2;</span><br><span class="line">c = a + b</span><br></pre></td></tr></table></figure>
+<p>命令行输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c</span><br><span class="line"></span><br><span class="line">    = 5</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>… 表示语句未结束，接续到下一行（注意 … 前留空格）</li>
+</ol>
+<p>命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d = 1 + 2 ...</span><br><span class="line">    + 3</span><br></pre></td></tr></table></figure>
+<p>命令行输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d</span><br><span class="line"></span><br><span class="line">    = 6</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>不指定变量名时，计算机默认赋值给一个通用变量 ans  </li>
+</ol>
+<p>命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 + 2 + 3</span><br></pre></td></tr></table></figure>
+<p>命令行输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ans</span><br><span class="line"></span><br><span class="line">    = 6</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>MATLAB 中计算的优先级和一般的数学理解一致，但无论多少层优先级都只使用小括号</li>
+</ol>
+<p>命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2*1^3+(4*5-6/(1+2))</span><br></pre></td></tr></table></figure>
+<p>命令行输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ans</span><br><span class="line"></span><br><span class="line">    = 20</span><br></pre></td></tr></table></figure>
+<h4 id="重要的命令行操作"><a href="#重要的命令行操作" class="headerlink" title="重要的命令行操作"></a>重要的命令行操作</h4><p>这一部分的命令都十分强大和重要，稍微掌握即可大大减少用户的时间，但是难以给出演示，希望读者能够多加尝试，至少掌握其中高光的条目。  </p>
+<ol>
+<li>clc 清空命令行</li>
+<li>clear 清空工作区</li>
+<li>clf 清空绘图</li>
+<li>close 关闭窗口</li>
+<li><strong>Ctrl + C 强制中断正在运行的程序（仅光标在命令行时按下 Ctrl + C 有效）</strong></li>
+<li>! 调用操作系统命令行（如：!explorer.exe 调用系统资源管理器）</li>
+<li>diary xxx 创建记录文件，默认文件名为 diary（不输入 xxx 时）, （当你需要记录调试过程或者输出到文件的时候可以使用，用于记录命令行窗口的输入输出）</li>
+<li>diary on 打开记录文件（开始记录）</li>
+<li>diary off 关闭记录文件（停止记录）</li>
+<li>save xxx 创建数据文件，保存为 xxx.mat ，默认为 matlab.mat<br>（当你需要保存某次数据而希望在之后恢复原有数据时，或者不得不暂时中断分多步运行时，可以使用save命令保存多个或者所有变量）</li>
+<li>load xxx  加载读取数据，save 的反操作，读取并恢复xxx.mat的数据</li>
+<li>who 查询workspace的变量</li>
+<li>whos x 返回变量 x 的数据类型，维度，占用字节数，默认为所有变量</li>
+<li><strong>help xxx 战略核武器，用于显示 MATLAB 内置函数 xxx 的详细帮助信息（优势：详细的使用说明；缺陷：慢，有时候在浏览器上看可能更舒服）</strong>  </li>
+<li><strong>lookfor xxx 顾名思义，检索关键词为 xxx 的文件，检索的优先级满足</strong><ul>
+<li>已存在的变量</li>
+<li>内置函数</li>
+<li>现有目录的文件</li>
+<li>所有目录的文件</li>
+</ul>
+</li>
+</ol>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>MATLAB 是一种高级的解释性语言，在用于很多方面都有很大的用处，对用户十分友好。一般来说，用户可以依照 MATLAB 提示完成所有操作。当然个人也推荐遇事不决问度娘，搜索引擎能帮我们了解更多的解决途径。如有疑问，可以向我提出，我会尽可能解答。</p>
+<h4 id="REF"><a href="#REF" class="headerlink" title="REF"></a>REF</h4><ol>
+<li>MATLAB Programming for Engineers - 4th Edition Ch</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/02/初识-MATLAB/" data-id="cjjmv7ndg000hr89kk15p8x1z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/03/MATLAB-矩阵（一）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MATLAB 矩阵（一）
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/MATLAB/" style="font-size: 20px;">MATLAB</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/21/佐藤可士和超整理术/">佐藤可士和的超整理术</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/04/HTTP学习笔记/">HTTP学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/MATLAB-绘图（二）/">MATLAB 绘图（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/MATLAB-绘图（一）/">MATLAB 绘图（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/18/MATLAB-函数（二）/">MATLAB 函数（二）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 文茂权<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

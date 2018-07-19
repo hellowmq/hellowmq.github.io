@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>MATLAB 函数（一） | 文茂权</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述 过了很久才更一次的 MATLAB 笔记。  这次主要讲讲 MATALB 中的函数的基础部分。函数就是有封装的特定功能的代码实现，说白了就是一段可以实现自定义功能的代码。使用函数的好处在于简化了代码同时增加了代码的可读性。">
+<meta name="keywords" content="MATLAB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MATLAB 函数（一）">
+<meta property="og:url" content="http://yoursite.com/2018/03/15/MATLAB-函数（一）/index.html">
+<meta property="og:site_name" content="文茂权">
+<meta property="og:description" content="概述 过了很久才更一次的 MATLAB 笔记。  这次主要讲讲 MATALB 中的函数的基础部分。函数就是有封装的特定功能的代码实现，说白了就是一段可以实现自定义功能的代码。使用函数的好处在于简化了代码同时增加了代码的可读性。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-29T23:14:50.478Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MATLAB 函数（一）">
+<meta name="twitter:description" content="概述 过了很久才更一次的 MATLAB 笔记。  这次主要讲讲 MATALB 中的函数的基础部分。函数就是有封装的特定功能的代码实现，说白了就是一段可以实现自定义功能的代码。使用函数的好处在于简化了代码同时增加了代码的可读性。">
+  
+    <link rel="alternate" href="/atom.xml" title="文茂权" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">文茂权</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个简单的程序员</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-MATLAB-函数（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/15/MATLAB-函数（一）/" class="article-date">
+  <time datetime="2018-03-14T20:24:16.000Z" itemprop="datePublished">2018-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MATLAB 函数（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
+<p>过了很久才更一次的 MATLAB 笔记。</p>
+</blockquote>
+<p>这次主要讲讲 MATALB 中的函数的基础部分。函数就是有封装的特定功能的代码实现，说白了就是一段可以实现自定义功能的代码。使用函数的好处在于简化了代码同时增加了代码的可读性。</p>
+<a id="more"></a>
+<h3 id="编写-MATLAB-函数"><a href="#编写-MATLAB-函数" class="headerlink" title="编写 MATLAB 函数"></a><strong>编写 MATLAB 函数</strong></h3><h4 id="方法一：使用-MATLAB-的自动生成"><a href="#方法一：使用-MATLAB-的自动生成" class="headerlink" title="方法一：使用 MATLAB 的自动生成"></a>方法一：使用 MATLAB 的自动生成</h4><p>点击工具栏标签 new 下拉菜单中的 function 按钮，系统自动创建一个未命名的函数 Untitled ，<br>进入编辑状态，格式如下：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ output_args ]</span> = <span class="title">Untitled</span><span class="params">( input_args )</span></span></span><br><span class="line"><span class="comment">%UNTITLED 此处显示有关此函数的摘要</span></span><br><span class="line"><span class="comment">%   此处显示详细说明</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>这里逐项来解释以上内容：</p>
+<ul>
+<li>function 是 MATLAB 中的一个关键字（保留字，只允许作为语法结构使用），可以用于定义函数。</li>
+<li>[ output_args ] 输出参数列表</li>
+<li>= 赋值符号</li>
+<li>Untitle 函数名，可以自定义只要与文件名字相同（检索的时候只根据文件名检索） </li>
+<li>( input_args ) 输入参数列表</li>
+<li>第二行的 % 及之后的内容 函数的摘要（可以被 lookfor 命令检索的内容）</li>
+<li>之后的% 及之后的内容 函数的帮助文档（可以简单介绍一下变量的含义，方便修改）</li>
+<li>接着就是函数的主体 </li>
+<li>end 宣告函数已经写完<h4 id="方法二：依照函数语法编写-m-文件"><a href="#方法二：依照函数语法编写-m-文件" class="headerlink" title="方法二：依照函数语法编写 m 文件"></a>方法二：依照函数语法编写 m 文件</h4>依照 MATLAB 给出的标准函数格式，你也可以直接使用 edit 命令编写一个新的 m 文件，依照语法编写后，MATLAB 会自动保存为相应的函数文件。<br>当你熟悉了 MATLAB 语法后，即可使用方法二定义自己需要的函数，在此之前，建议先使用方法一快速创建 MATLAB 函数。<h4 id="自定义-MATLAB-函数"><a href="#自定义-MATLAB-函数" class="headerlink" title="自定义 MATLAB 函数"></a>自定义 MATLAB 函数</h4>既然已经各个组分的含义，不妨自己来修改它。</li>
+</ul>
+<ol>
+<li>尝试将函数名改为 my_fun（一般取一些有意义且不要重名的函数名）。</li>
+<li>输出参数设为 y (只有一个变量时可不加中括号)</li>
+<li>输入参数设为 x</li>
+<li>函数内容写上： y = x * x;</li>
+<li>Ctrl + S 保存文件名为 my_fun.m<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ y ]</span> = <span class="title">my_fun</span><span class="params">(x)</span></span></span><br><span class="line"><span class="comment">%UNTITLED 此处显示有关此函数的摘要 </span></span><br><span class="line"><span class="comment">%   此处显示详细说明 </span></span><br><span class="line">y = x * x;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>恭喜你，第一个能够计算平方的 MATLAB 函数大功告成。</p>
+<h3 id="调用-MATLAB-函数"><a href="#调用-MATLAB-函数" class="headerlink" title="调用 MATLAB 函数"></a><strong>调用 MATLAB 函数</strong></h3><p>在命令行或者脚本文件（同一个文件夹）中使用 my_fun(x) 可以调用该函数。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; y1 = my_fun(<span class="number">3</span>)</span><br><span class="line">y1 =</span><br><span class="line">     <span class="number">9</span></span><br><span class="line">&gt;&gt; x2 = <span class="number">4</span>;</span><br><span class="line">&gt;&gt; y2 = my_fun(x2)</span><br><span class="line">y2 =</span><br><span class="line">    <span class="number">16</span></span><br></pre></td></tr></table></figure></p>
+<p>那么问题来了：函数可不可以调用另一个函数呢？可以！<br>新建另一个 MATLAB 函数，保存到同一个文件夹，像命令行使用即可。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ y ]</span> = <span class="title">my_fun_2</span><span class="params">(x)</span></span></span><br><span class="line"><span class="comment">%UNTITLED 此处显示有关此函数的摘要 </span></span><br><span class="line"><span class="comment">%   y = x*(x+1)</span></span><br><span class="line">y = my_fun(x) + x;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p> <em>大胆的想法</em></p>
+<blockquote>
+<p>函数可不可以调用他自己呢？<br>可以的！在函数主体中调用自身就可以了。为了不至于发生死循环（无穷无尽的调用下去），可以通过限制调用的次数并逐次返回函数结果。这种方法叫做递归，斐波那契数列就可以用这种方法解决。</p>
+</blockquote>
+<h3 id="更多需求"><a href="#更多需求" class="headerlink" title="更多需求"></a><strong>更多需求</strong></h3><h4 id="需求一：更多输出参数"><a href="#需求一：更多输出参数" class="headerlink" title="需求一：更多输出参数"></a>需求一：更多输出参数</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 将多个输出参数在括号中用中逗号隔开即可</span></span><br><span class="line"><span class="comment">% 这时中括号不可省略</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[y1,y2]</span> = <span class="title">my_mutiply</span><span class="params">(x1)</span></span></span><br><span class="line">y1 = x * x;</span><br><span class="line">y2 = x * x * x;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="需求二：更多输入参数"><a href="#需求二：更多输入参数" class="headerlink" title="需求二：更多输入参数"></a>需求二：更多输入参数</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 将多个输入参数在括号中用逗号隔开即可</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">my_add</span><span class="params">(x1,x2,x3)</span></span></span><br><span class="line">y = x1 + x2 + x3;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="需求三：不需要输入参数"><a href="#需求三：不需要输入参数" class="headerlink" title="需求三：不需要输入参数"></a>需求三：不需要输入参数</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 这时加不加小括号都可以</span></span><br><span class="line"><span class="comment">% function y = my_rand_100()</span></span><br><span class="line"><span class="comment">% function y = my_rand_100</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">my_rand_100</span></span></span><br><span class="line"><span class="comment">% 产生一个 1-100 的随机整数</span></span><br><span class="line">y = randperm(<span class="number">100</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="需求四：不需要输出"><a href="#需求四：不需要输出" class="headerlink" title="需求四：不需要输出"></a>需求四：不需要输出</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% function 后直接加函数名字即可</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_print</span><span class="params">(x1,x2)</span></span></span><br><span class="line">y2 = x1 + x2;</span><br><span class="line"><span class="built_in">disp</span>(y2);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="需求五：不想写-end"><a href="#需求五：不想写-end" class="headerlink" title="需求五：不想写 end"></a>需求五：不想写 end</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_say_hello</span></span></span><br><span class="line"><span class="built_in">disp</span>(<span class="string">'hello'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="需求六：交互方式使用函数"><a href="#需求六：交互方式使用函数" class="headerlink" title="需求六：交互方式使用函数"></a>需求六：交互方式使用函数</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> = <span class="title">my_square</span></span></span><br><span class="line">    a = input(<span class="string">'enter your number'</span>);</span><br><span class="line">    a = a^<span class="number">2</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h4 id="需求七：输入参数是矩阵"><a href="#需求七：输入参数是矩阵" class="headerlink" title="需求七：输入参数是矩阵"></a>需求七：输入参数是矩阵</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% MATLAB 才不会管你输入的是什么</span></span><br><span class="line"><span class="comment">% 传递的变量都可以在函数里操作</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">average</span> = <span class="title">my_average</span><span class="params">(x)</span></span></span><br><span class="line">average = sum(x)/<span class="built_in">length</span>(x);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h3 id="设计-MATLAB-函数"><a href="#设计-MATLAB-函数" class="headerlink" title="设计 MATLAB 函数"></a><strong>设计 MATLAB 函数</strong></h3><p>我们该如何从头开始设计一个 MATLAB 函数？以计算存款的利息为例：<br>有复利计算公式如下</p>
+<blockquote>
+<p>利息=本金*(1+利率)^存期-本金 </p>
+</blockquote>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>先确定需要的函数成分：输入参数、输出参数和中间变量</p>
+<ol>
+<li>输入参数：三个<ol>
+<li>本金（present_value）</li>
+<li>计息期数（number_of_periods）</li>
+<li>利率（interest_rate）</li>
+</ol>
+</li>
+<li>输出参数：利息（interest）</li>
+<li>中间变量：终值（future_value）</li>
+<li>函数名：interest_calculator<h4 id="编写"><a href="#编写" class="headerlink" title="编写"></a>编写</h4><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">interest</span> = <span class="title">interest_calculator</span><span class="params">(present_value,number_of_periods,interest_rate)</span></span></span><br><span class="line"><span class="comment">% interest calculator with present_value, number_of_periods and interest_rate</span></span><br><span class="line"><span class="comment">% 原理：利息=本金*(1+利率)^计息期数-本金</span></span><br><span class="line">future_value = present_value * (<span class="number">1</span> + interest_rate)^number_of_periods;</span><br><span class="line">interest = future_value - present_value;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h4><p><del>这样一来函数就完成了。</del></p>
+<p>想得美，每段代码都应该经过重复重复再重复的调试。在脚本文件中键入以下内容并运行：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_present_value = <span class="number">10000</span>;</span><br><span class="line">my_number_of_periods = <span class="number">2</span>;</span><br><span class="line">my_interest_rate = <span class="number">0.02</span>;</span><br><span class="line">my_interest = interest_calculator(my_present_value,my_number_of_periods,my_interest_rate)</span><br></pre></td></tr></table></figure>
+<p>输出结果为</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_interest =</span><br><span class="line">   <span class="number">404</span></span><br></pre></td></tr></table></figure>
+<p>（多次）确认没有问题后就可以宣告结束了。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>MATLAB 函数部分的内容确实比较多，以我拙劣的水平只能多花些时间挑出来，尽可能无误地、简明地写完。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/15/MATLAB-函数（一）/" data-id="cjjmv7ne2000or89kfryg46u8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/18/MATLAB-函数（二）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MATLAB 函数（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/06/MATLAB-语法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MATLAB 语法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/MATLAB/" style="font-size: 20px;">MATLAB</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/21/佐藤可士和超整理术/">佐藤可士和的超整理术</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/04/HTTP学习笔记/">HTTP学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/MATLAB-绘图（二）/">MATLAB 绘图（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/MATLAB-绘图（一）/">MATLAB 绘图（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/18/MATLAB-函数（二）/">MATLAB 函数（二）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 文茂权<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

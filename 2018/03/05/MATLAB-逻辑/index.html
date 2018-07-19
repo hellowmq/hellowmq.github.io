@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>MATLAB 逻辑 | 文茂权</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述上一节的内容中，我们介绍了索引的使用方法。索引的目的是为了取出矩阵中的一部分元素，因此我们知道通过元素在矩阵中的位置我们可以实现索引。在本节中，我们将介绍 MATLAB 中的逻辑变量以及通过逻辑变量索引的方法。">
+<meta name="keywords" content="MATLAB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MATLAB 逻辑">
+<meta property="og:url" content="http://yoursite.com/2018/03/05/MATLAB-逻辑/index.html">
+<meta property="og:site_name" content="文茂权">
+<meta property="og:description" content="概述上一节的内容中，我们介绍了索引的使用方法。索引的目的是为了取出矩阵中的一部分元素，因此我们知道通过元素在矩阵中的位置我们可以实现索引。在本节中，我们将介绍 MATLAB 中的逻辑变量以及通过逻辑变量索引的方法。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-29T23:14:49.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MATLAB 逻辑">
+<meta name="twitter:description" content="概述上一节的内容中，我们介绍了索引的使用方法。索引的目的是为了取出矩阵中的一部分元素，因此我们知道通过元素在矩阵中的位置我们可以实现索引。在本节中，我们将介绍 MATLAB 中的逻辑变量以及通过逻辑变量索引的方法。">
+  
+    <link rel="alternate" href="/atom.xml" title="文茂权" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">文茂权</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个简单的程序员</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-MATLAB-逻辑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/05/MATLAB-逻辑/" class="article-date">
+  <time datetime="2018-03-04T19:46:58.000Z" itemprop="datePublished">2018-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MATLAB 逻辑
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><p>上一节的内容中，我们介绍了索引的使用方法。索引的目的是为了取出矩阵中的一部分元素，因此我们知道通过元素在矩阵中的位置我们可以实现索引。在本节中，我们将介绍 MATLAB 中的逻辑变量以及通过逻辑变量索引的方法。</p>
+<a id="more"></a>
+<blockquote>
+<p>MATLAB 中存在一种 logical（逻辑）类型用于表示逻辑上的真和假。在其他程序语言中，这样的一种类型也叫做 bool 型变量。这一种变量本身只有两种值，分别为 true 和 false。规定 false 对应数值 0，true 对应其他值（特别地，使用时可以用任意非零值代表 true，但存储时会自动转为 1 代表 true，这样的好处是只需要占用一个比特的空间）。</p>
+</blockquote>
+<h3 id="逻辑变量"><a href="#逻辑变量" class="headerlink" title="逻辑变量"></a><strong>逻辑变量</strong></h3><p>logical 变量只存在两种值 true（真）或者 false（假），规定分别用数字 1 和 0 存储。以逻辑值组成的矩阵称为逻辑矩阵。一般有以下几种创建逻辑矩阵的方法，各有用处。  </p>
+<h4 id="方法一：直接赋值法"><a href="#方法一：直接赋值法" class="headerlink" title="方法一：直接赋值法"></a>方法一：直接赋值法</h4><p>直接用 true，false 直接赋值到一个矩阵，缺点操作复杂，一般不考虑这种方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = [true false] % 正确实例</span><br><span class="line">A = [1 0] % 错误实例</span><br><span class="line">whos</span><br></pre></td></tr></table></figure></p>
+<p>输出值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x =</span><br><span class="line">     1     0</span><br><span class="line">A =</span><br><span class="line">     1     0</span><br><span class="line">% 尽管两个语句的输出一样</span><br><span class="line">% 但是通过 whos 命令可以看到变量的类型不一样</span><br><span class="line">% 可以看到只有用 true，false 直接赋值才能创建逻辑矩阵</span><br><span class="line">% 一般不考虑这种方法</span><br><span class="line">  Name      Size            Bytes  Class      Attributes</span><br><span class="line"></span><br><span class="line">  A         1x2                16  double               </span><br><span class="line">  x         1x2                 2  logical</span><br></pre></td></tr></table></figure></p>
+<h4 id="方法二：logical-函数法"><a href="#方法二：logical-函数法" class="headerlink" title="方法二：logical 函数法"></a>方法二：logical 函数法</h4><p>logical 函数是将数值或矩阵转换为逻辑值的函数。遵循的转换规则为：非零值为逻辑 1，零值为逻辑 0。这种方法将一个矩阵非零值对应转为逻辑矩阵中的 1。可以用作非零值的逻辑索引。</p>
+<p>函数法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">% logical</span><br><span class="line">A = [1 0 3;0 5 6];</span><br><span class="line">x1 = logical(1)</span><br><span class="line">whos</span><br><span class="line">% 对于传入的数值或矩阵</span><br><span class="line">% 非零值为逻辑 1，零值为逻辑 0</span><br><span class="line">x2 = logical(0)</span><br><span class="line">x3 = logical(2)</span><br><span class="line">x4 = logical(A)</span><br><span class="line">% 生成的逻辑矩阵作为索引，可以取出矩阵中对应位置为 true 的元素</span><br><span class="line">x5 = A(logical(A))</span><br></pre></td></tr></table></figure></p>
+<p>命令行输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">% logical</span><br><span class="line">x1 =</span><br><span class="line">     1</span><br><span class="line">% 观察两个变量的类型（Class）和比特数（Bytes）</span><br><span class="line">% A 属于 double 类型（占用 48 比特）</span><br><span class="line">% x1 属于 logical 类型（占用 1 比特）</span><br><span class="line">  Name      Size            Bytes  Class      Attributes</span><br><span class="line">  A         2x3                48  double               </span><br><span class="line">  x1        1x1                 1  logical              </span><br><span class="line">x2 =</span><br><span class="line">     0</span><br><span class="line">x3 =</span><br><span class="line">     1</span><br><span class="line">x4 =</span><br><span class="line">     1     0     1</span><br><span class="line">     0     1     1  </span><br><span class="line">% 形如 A(logical(A)) 可以取出 A 中的非零元素</span><br><span class="line">x5 =</span><br><span class="line">     1</span><br><span class="line">     5</span><br><span class="line">     3</span><br><span class="line">     6</span><br></pre></td></tr></table></figure></p>
+<h4 id="方法三：借用逻辑表达式（命题）"><a href="#方法三：借用逻辑表达式（命题）" class="headerlink" title="方法三：借用逻辑表达式（命题）"></a>方法三：借用逻辑表达式（命题）</h4><p>命题就是判断一个事件的陈述句。对于数值来说一个判断的陈述句通过关系运算符连接。<br>MATLAB 的关系运算符共 6 个：等于（==），不等于（~=），大于等于（&gt;=），大于（&gt;），小于等于（&lt;=），小于（&lt;）。<br>这种方法创建逻辑矩阵最为常见，能够很高效地创建对应的逻辑矩阵，同时进行逻辑运算并作为索引</p>
+<p>逻辑表达式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">% 逻辑表达式</span><br><span class="line">A = [1 0 3;0 5 6];</span><br><span class="line">x1 = (3 == 2)</span><br><span class="line">x2 = (3 ~= 2) </span><br><span class="line">x3 = (3 &gt;= 2)</span><br><span class="line">x4 = (3 &gt;  2)</span><br><span class="line">x5 = (3 &lt;= 2)</span><br><span class="line">x6 = (3 &lt;  2)</span><br><span class="line">% 特别地，对矩阵使用关系运算符返回一个相应的逻辑矩阵</span><br><span class="line">x7 = (A &lt; 4)</span><br><span class="line">% 返回的矩阵是逻辑矩阵，又可以作为索引，取出矩阵中满足判断条件的元素</span><br><span class="line">x8 = A(A &lt; 4)</span><br></pre></td></tr></table></figure></p>
+<p>命令行输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">% 逻辑表达式</span><br><span class="line">% 对于仅由数值构成的逻辑表达式，返回该表达式的真假性</span><br><span class="line">x1 =</span><br><span class="line">     0</span><br><span class="line">x2 =</span><br><span class="line">     1</span><br><span class="line">x3 =</span><br><span class="line">     1</span><br><span class="line">x4 =</span><br><span class="line">     1</span><br><span class="line">x5 =</span><br><span class="line">     0</span><br><span class="line">x6 =</span><br><span class="line">     0</span><br><span class="line">% 对于由矩阵构成的逻辑表达式，返回和该矩阵等大小的逻辑矩阵</span><br><span class="line">% 逻辑矩阵的值是矩阵相应位置元素的判断情况</span><br><span class="line">x7 =</span><br><span class="line">     1     1     1</span><br><span class="line">     1     0     0</span><br><span class="line">% 第一行全行，第二行 1 个元素大于 4，满足判断记为 1，其他值记为 0</span><br><span class="line">% 这里的 A(A &lt; 4) 就对应取出 A 中小于 4 的元素</span><br><span class="line">x8 =</span><br><span class="line">     1</span><br><span class="line">     0</span><br><span class="line">     0</span><br><span class="line">     3</span><br></pre></td></tr></table></figure></p>
+<p>逻辑表达式的运算</p>
+<p>对于逻辑值之间的运算，可以实现逻辑表达式的复合运算，这时可以实现联合条件的逻辑索引。有四种运算：逻辑与（&amp;，&amp;&amp;），逻辑或（|，||），逻辑异或（xor 函数）和逻辑非（~）。这四种逻辑运算服从以下的真值表。</p>
+<p>逻辑真值表</p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>A&amp;B</th>
+<th>A&#124;B</th>
+<th>xor(A,B)</th>
+<th>~A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>应用实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">A = [1 0 3;0 5 6];</span><br><span class="line">x1 = A((A &lt; 4)&amp;(A &gt; 2))</span><br><span class="line">x2 = A((A &lt; 4)|(A &gt; 2))</span><br><span class="line">x3 = A(xor((A &lt; 4),(A &gt; 2)))</span><br><span class="line">x4 = A(~(A &lt; 4))</span><br><span class="line">% &amp;&amp; 和 || 是 &amp; 和 | 的变体</span><br><span class="line">% 只能用于标量，不能用于矩阵，但速度更快</span><br><span class="line">x5 = (3 &gt; 4)&amp;&amp;(3 &gt; 2)</span><br><span class="line">x6 = (3 &gt; 2)||(3 &gt; 4)</span><br></pre></td></tr></table></figure></p>
+<p>命令行输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">% &amp; 与</span><br><span class="line">x1 =</span><br><span class="line">     3</span><br><span class="line">% | 或</span><br><span class="line">x2 =</span><br><span class="line">     1</span><br><span class="line">     0</span><br><span class="line">     0</span><br><span class="line">     5</span><br><span class="line">     3</span><br><span class="line">     6</span><br><span class="line">% xor 函数 异或</span><br><span class="line">x3 =</span><br><span class="line">     1</span><br><span class="line">     0</span><br><span class="line">     0</span><br><span class="line">     5</span><br><span class="line">     6</span><br><span class="line">% ~ 取非，取反</span><br><span class="line">x4 =</span><br><span class="line">     5</span><br><span class="line">     6</span><br><span class="line">% &amp;&amp; 适用于标量的与（利用逻辑与的特性加速运算）</span><br><span class="line">% （如果第一个值为 0，立即判断该值为 0）</span><br><span class="line">x5 =</span><br><span class="line">     0</span><br><span class="line">% || 适用于标量的或（利用逻辑或的特性加速运算）</span><br><span class="line">% （如果第一个值为 1，立即判断该值为 1）</span><br><span class="line">x6 =</span><br><span class="line">     1</span><br></pre></td></tr></table></figure></p>
+<h3 id="find-函数——逻辑索引的辅助工具"><a href="#find-函数——逻辑索引的辅助工具" class="headerlink" title="find 函数——逻辑索引的辅助工具"></a>find 函数——逻辑索引的辅助工具</h3><p>find 函数是将逻辑矩阵索引直接转换为直接索引（下标位置）的函数。我们有时候作出了判断，但是却需要直接索引的信息，这时可以利用find 函数进行转换；另一个用处是，找到前n个满足条件的索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">% find函数</span><br><span class="line">A = [2 5 4 0 0 6];</span><br><span class="line">x1 = A &gt; 2</span><br><span class="line">x2 = find(A &gt; 2)</span><br><span class="line">B = [2 5 4;0 0 6];</span><br><span class="line">% 按列产生线性地址索引</span><br><span class="line">x3 = find(B &gt; 2)</span><br><span class="line">x4 = B(find(B &gt; 2))</span><br><span class="line">% 满足条件的前两个值的索引</span><br><span class="line">x5 = find(B &gt; 2,2)</span><br></pre></td></tr></table></figure>
+<p>命令行输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">% find函数</span><br><span class="line">% 逻辑索引</span><br><span class="line">x1 =</span><br><span class="line">     0     1     1     0     0     1</span><br><span class="line">% 线性地址索引</span><br><span class="line">x2 =</span><br><span class="line">     2     3     6</span><br><span class="line">% 根据这个输出，可以发现，按列产生线性地址索引</span><br><span class="line">x3 =</span><br><span class="line">     3</span><br><span class="line">     5</span><br><span class="line">     6</span><br><span class="line">% 因为是线性地址索引，B(find(B &gt; 2)) 依然有效，结果与 B(B &gt; 2) 一样</span><br><span class="line">x4 =</span><br><span class="line">     5</span><br><span class="line">     4</span><br><span class="line">     6</span><br><span class="line">% 满足条件的前两个值的索引</span><br><span class="line">x5 =</span><br><span class="line">     3</span><br><span class="line">     5</span><br></pre></td></tr></table></figure></p>
+<h3 id="重在应用"><a href="#重在应用" class="headerlink" title="重在应用"></a><strong>重在应用</strong></h3><p>以下是逻辑数组的三种基本应用，根据判断条件进行，逻辑索引查找，替换和删除。</p>
+<p>1.一组数据 [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3]，依次找出其中在区间 [2,6] 中的数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% 查找</span><br><span class="line">A = [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3];</span><br></pre></td></tr></table></figure></p>
+<p>2.一组数据 [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3]，依次将其中在区间 [2,6] 中的数替换为 10。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% 替换</span><br><span class="line">A = [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3];</span><br></pre></td></tr></table></figure></p>
+<p>3.一组数据 [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3]，删除其中在区间 [2,6] 中的数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% 删除(要求在矩阵 A 中改变值)</span><br><span class="line">A = [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3];</span><br></pre></td></tr></table></figure></p>
+<p>参考思路</p>
+<p>1.一组数据 [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3]，依次找出其中在区间 [2,6] 中的数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">% 查找</span><br><span class="line">A = [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3];</span><br><span class="line">B = A((A&gt;=2)&amp;(A&lt;=6))</span><br></pre></td></tr></table></figure></p>
+<p>2.一组数据 [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3]，依次将其中在区间 [2,6] 中的数替换为 10。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">% 替换</span><br><span class="line">A = [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3];</span><br><span class="line">A((A&gt;=2)&amp;(A&lt;=6)) = 10</span><br></pre></td></tr></table></figure></p>
+<p>3.一组数据 [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3]，删除其中在区间 [2,6] 中的数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">% 删除</span><br><span class="line">A = [1 2 4 6 7 8 9 0 4 5 3 2 4 2 2 3 4 2 3];</span><br><span class="line">A=A(~( (A&gt;=2) &amp; (A&lt;=6) ))</span><br></pre></td></tr></table></figure></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h3><p>本节内容不多，但是逻辑索引比起线性地址的等间距索引索引的产生要更加普遍，所以，希望读者熟练掌握这三种基本应用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/05/MATLAB-逻辑/" data-id="cjjmv7ndc000cr89kywhjy5xj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/06/MATLAB-语法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MATLAB 语法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/04/MATLAB-矩阵（二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MATLAB 矩阵（二）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/MATLAB/" style="font-size: 20px;">MATLAB</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/21/佐藤可士和超整理术/">佐藤可士和的超整理术</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/04/HTTP学习笔记/">HTTP学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/MATLAB-绘图（二）/">MATLAB 绘图（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/MATLAB-绘图（一）/">MATLAB 绘图（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/18/MATLAB-函数（二）/">MATLAB 函数（二）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 文茂权<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

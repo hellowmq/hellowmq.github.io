@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>MATLAB 矩阵（一） | 文茂权</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述本次内容涉及 MATLAB 中的矩阵，这是我们使用 MATLAB 处理数据的基本元素，学习本节的内容可以掌握基本的如何处理矩阵。    本次的内容几乎都可以凭借线性代数的了解来学习，代码块中的代码可以 复制粘贴到 MATLAB 中运行，或者将一个代码块复制到一个新文件选择单步运行（step run），在该命令下每次只执行一个语句，逐个观察输出即可。部分函数的用法很多不能穷举，举出来的函数一般">
+<meta name="keywords" content="MATLAB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MATLAB 矩阵（一）">
+<meta property="og:url" content="http://yoursite.com/2018/03/03/MATLAB-矩阵（一）/index.html">
+<meta property="og:site_name" content="文茂权">
+<meta property="og:description" content="概述本次内容涉及 MATLAB 中的矩阵，这是我们使用 MATLAB 处理数据的基本元素，学习本节的内容可以掌握基本的如何处理矩阵。    本次的内容几乎都可以凭借线性代数的了解来学习，代码块中的代码可以 复制粘贴到 MATLAB 中运行，或者将一个代码块复制到一个新文件选择单步运行（step run），在该命令下每次只执行一个语句，逐个观察输出即可。部分函数的用法很多不能穷举，举出来的函数一般">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-29T23:14:49.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MATLAB 矩阵（一）">
+<meta name="twitter:description" content="概述本次内容涉及 MATLAB 中的矩阵，这是我们使用 MATLAB 处理数据的基本元素，学习本节的内容可以掌握基本的如何处理矩阵。    本次的内容几乎都可以凭借线性代数的了解来学习，代码块中的代码可以 复制粘贴到 MATLAB 中运行，或者将一个代码块复制到一个新文件选择单步运行（step run），在该命令下每次只执行一个语句，逐个观察输出即可。部分函数的用法很多不能穷举，举出来的函数一般">
+  
+    <link rel="alternate" href="/atom.xml" title="文茂权" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">文茂权</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个简单的程序员</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-MATLAB-矩阵（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/03/MATLAB-矩阵（一）/" class="article-date">
+  <time datetime="2018-03-02T19:46:31.000Z" itemprop="datePublished">2018-03-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MATLAB 矩阵（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><p>本次内容涉及 MATLAB 中的矩阵，这是我们使用 MATLAB 处理数据的基本元素，学习本节的内容可以掌握基本的如何处理矩阵。  </p>
+<blockquote>
+<p>本次的内容几乎都可以凭借线性代数的了解来学习，代码块中的代码可以 复制粘贴到 MATLAB 中运行，或者将一个代码块复制到一个新文件选择单步运行（step run），在该命令下每次只执行一个语句，逐个观察输出即可。部分函数的用法很多不能穷举，举出来的函数一般来说足够使用，读者在使用之前也可以先调用 help 命令查看该函数的其他用法。  </p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h3 id="创建矩阵"><a href="#创建矩阵" class="headerlink" title="创建矩阵"></a><strong>创建矩阵</strong></h3><p>在上一节中，我们认识了 MATLAB 的基本操作，其中一种定义变量的方法为直接赋值如：a=1，事实上，这种操作的本质上就是定义了一个最简单的 1×1 的矩阵（这一现象可以在 workspace 中观察到）。<br>一个矩阵的基本形式可以表达为以下形式 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">% 两种形式是完全等价的，但是更推荐使用第一种形式。</span><br><span class="line">[1,2,3,4;-5,6,7,8] </span><br><span class="line">[1 2 3 4;-5 6 7 8]  </span><br><span class="line">% 个人推荐第一种表达形式的原因：</span><br><span class="line">[1,2,3,4;-5,-6,-7,8] % 正确</span><br><span class="line">[1 2 3 4;-5 -6 -7 8] % 正确</span><br><span class="line">[1 2 3 4;- 5 -6 -7 8] % 正确</span><br><span class="line">% [1 2 3 4;- 5 - 6 -7 8] % 错误，这样的表示会让计算机误判为（-5-6）是一个变量</span><br></pre></td></tr></table></figure>
+<p>其中，上述矩阵为行数为 2，列数为 4 的矩阵，一个 MATLAB 矩阵遵循以下原则；</p>
+<ul>
+<li>矩阵的元素以方括号包含；</li>
+<li>同一行不同列以逗号分隔；</li>
+<li>同一列不同行以分号分隔； </li>
+<li>每行（或者每列）必须有相同数量的元素；</li>
+<li>矩阵元素可以是数值（不区分整数，浮点数和复数）或者字符串之一。    </li>
+</ul>
+<h4 id="1-直接创建"><a href="#1-直接创建" class="headerlink" title="1.直接创建"></a>1.直接创建</h4><p>一般来说可以使用直接赋值的思路直接创建，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">% 创建一维行向量（行矩阵）;</span><br><span class="line">a = [1,2,3,4];</span><br><span class="line">% 创建一维列向量（列矩阵）;</span><br><span class="line">b = [1;2;3;4];</span><br><span class="line">% 创建二维矩阵;</span><br><span class="line">c = [4,6,-6;2,-3,0;-9,5,7];</span><br><span class="line">% 矩阵元素可以是表达式</span><br><span class="line">d = [1+2,3 * 4,5];</span><br><span class="line">% 矩阵可以为字符矩阵(不是字符串矩阵)</span><br><span class="line">str = [&apos;hello world&apos;]; % 单行字符矩阵</span><br><span class="line">str1 = [&apos;hello&apos;,&apos; &apos;,&apos;world&apos;]; % 单行字符矩阵</span><br><span class="line">% str2 = [&apos;hello&apos;; &apos; &apos;;&apos;world&apos;];% 报错！每一行字符数量不等长。</span><br><span class="line">%矩阵的一些特殊值</span><br><span class="line">e = [eps,inf,-inf,nan,pi,i,j];</span><br><span class="line">% eps 绝对值最小的浮点数（机器所能表示的最小分度）；</span><br><span class="line">% inf 正无穷大 1/0；</span><br><span class="line">% -inf 负无穷大 -1/0；</span><br><span class="line">% nan(或者 NaN) 无意义的数（Not a Number）0/0；</span><br><span class="line">% pi 圆周率 π 的值</span><br><span class="line">% i 虚数单位</span><br><span class="line">% j 还是虚数单位（EE 工程师专用版本）</span><br><span class="line">% 绝对不要用以上的名字作为变量名！</span><br><span class="line">% 绝对不要用以上的名字作为变量名！</span><br><span class="line">% 绝对不要用以上的名字作为变量名！</span><br></pre></td></tr></table></figure></p>
+<p>事实上，这种直接赋值的方法实在过于费时费力，我们通常还会使用另一种方法：用冒号运算符创建等差数列(a:b:c)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1:2:10 % (a:b:c)中 a 为等差数列首项的值，b 为公差，c 为区间限，数列储存为行向量；</span><br><span class="line">1:10 % b = 1时，b 可以省略；</span><br><span class="line">10:-2:1 % 公差也可以是负数；</span><br><span class="line">1:-2:10 % 等差数列找不到区间限 c 时（或者 b=0），会返回空矩阵；</span><br><span class="line">2.^(1:5) % 加上指数操作就成了等比数列</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-调用函数"><a href="#2-调用函数" class="headerlink" title="2.调用函数"></a>2.调用函数</h4><p>MATLAB 的库函数中含有很多快速创建矩阵的函数，常见的有：ones，zeros，eye，rand，magic，true，false，这里逐项给出说明：  </p>
+<p>ones 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ones(n); % 创建 n×n 的方阵，每个元素的值都为 1；</span><br><span class="line">ones(m,n); % 创建 m×n 的矩阵，每个元素的值都为 1；</span><br><span class="line">ones(k,m,n); % 创建 k×m×n 的三维矩阵，每个元素的值都为 1；</span><br></pre></td></tr></table></figure></p>
+<p>zeros 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zeros(n); % 创建 n×n 的方阵，每个元素的值都为 0；</span><br><span class="line">zeros(m,n); % 创建 m×n 的矩阵，每个元素的值都为 0；</span><br><span class="line">zeros(k,m,n); % 创建 k×m×n 的三维矩阵，每个元素的值都为 0；</span><br></pre></td></tr></table></figure></p>
+<p>eye 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eye(n); % 创建 n×n 的单位阵，即正对角线上的每个元素的值都为 1；</span><br></pre></td></tr></table></figure></p>
+<p>rand 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rand(n); % 创建 n×n 的方阵，元素的值服从区间 0-1 的均匀随机分布；</span><br><span class="line">rand(m,n); % 创建 m×n 的矩阵，元素的值服从区间 0-1 的均匀随机分布；</span><br><span class="line">rand(k,m,n); % 创建 k×m×n 的三维矩阵，元素的值服从区间 0-1 的均匀随机分布；</span><br></pre></td></tr></table></figure></p>
+<p>randn 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">% randn函数只是 rand 的变体，元素服从标准正态分布。</span><br><span class="line">randn(n); % 创建 n×n 的方阵，元素的值服从标准正态分布；</span><br><span class="line">randn(m,n); % 创建 m×n 的矩阵，元素的值服从标准正态分布；</span><br><span class="line">randn(k,m,n); % 创建 k×m×n 的三维矩阵，元素的值服从标准正态分布；</span><br></pre></td></tr></table></figure></p>
+<p>magic 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">magic(n); % 创建 n×n 的方阵，该方阵满足每行每列对角线和相等；</span><br></pre></td></tr></table></figure></p>
+<p>true 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">true(n); % 创建 n×n 的逻辑方阵，该方阵所有元素都是 true；</span><br></pre></td></tr></table></figure></p>
+<p>false 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">false(n); % 创建 n×n 的逻辑方阵，该方阵所有元素都是 true；</span><br></pre></td></tr></table></figure></p>
+<p>这里还有另一类生成函数，能快速生成一维矩阵：linspace，logspace 等。<br>linspace 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">linspace(x1,x2); % 直接将区间 x1-x2 划分为 100 个线性等分的点，返回间隔点向量；</span><br><span class="line">linspace(x1,x2,n); % 直接将区间 x1-x2 划分为 n 个线性等分的点，返回间隔点向量；</span><br><span class="line">% 这里补充一点，你可能觉得之前的基于冒号操作符（:）创建等差数列的方法也可以产生一样的结果</span><br><span class="line">% 但是二者是有本质区别的。</span><br><span class="line">% linspace 产生的结果是必然以 x2 作为最后一个变量，它实现的是区间的等分，并且 x1,x2 都可以是复数</span><br><span class="line">% 冒号操作符仅能从一端以公差检索，不能确保包含 x2；此外，x1 和 x2 都必须是实数。</span><br><span class="line">% 你也可以处于好奇尝试一下：n = 1;n &lt;= 0;n 不是整数的情况，看看 linspace 的返回值。</span><br></pre></td></tr></table></figure></p>
+<p>logspace 函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">logspace(x1,x2); % 直接将区间 x1-x2 划分为 100 个对数间隔的点，返回间隔点向量；</span><br><span class="line">logspace(x1,x2,n); % 直接将区间 x1-x2 划分为 n 个对数间隔的点，返回间隔点向量；</span><br><span class="line">% 感觉吧，就是linspace的兄弟函数，x1 和 x2 都可以是复数</span><br><span class="line">% 你也可以处于好奇尝试一下：n = 1;n &lt;= 0;n 不是整数的情况</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a><strong>运算符</strong></h3><p>比较走运的是，MATLAB 中运算符的优先级和一般的数理知识并不冲突，运算符和变量不要求强制的空格，「我加空格纯粹为了美观，当然取负号时最好不要加空格」，因此只需要认识 MATLAB 的一些运算符，就可以比较容易的上手矩阵运算。矩阵的运算这一部分的内容与线性代数的内容一致，已经有线性代数基础的应该容易理解，没有线性代数的基础的同学建议单步执行以下命令，仔细观察结果的变化，熟悉这些运算符的作用。<br>运算符操作总体上分为两类：数组运算符和矩阵运算符。 </p>
+<h4 id="1-数组运算符"><a href="#1-数组运算符" class="headerlink" title="1.数组运算符"></a>1.数组运算符</h4><p>数组运算符可以理解为针对矩阵元素的运算，与矩阵本身的性质无关，也是逐个的运算。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">%% 数组运算符</span><br><span class="line">% 测试样例</span><br><span class="line">a = [2,3,-4;6,7,8] % 2×3 的矩阵</span><br><span class="line">b = [1,2,-1;2,1,1] % 2×3 的矩阵</span><br><span class="line"></span><br><span class="line">% 一元加运算符（+）相当于数学上的正号</span><br><span class="line">+a % 相当于数学上的正号，鸡肋无疑，实际上并没有什么作用。</span><br><span class="line"></span><br><span class="line">% 一元减运算符（-）相当于数学上的正号</span><br><span class="line">-a % 相当于数学上的取负号，返回相反数。</span><br><span class="line"></span><br><span class="line">% 二元加运算符（+）和减运算符（-）的规则与线性代数一致;</span><br><span class="line">% 这一类的二元运算符存在三种情况：标量 + 标量，矩阵 + 标量，矩阵 + 矩阵</span><br><span class="line">a + 1 % 矩阵 + 标量的结果，矩阵中每个值都加上该标量；</span><br><span class="line">a + b % 矩阵 + 矩阵的结果，矩阵中每个值都加上该标量；</span><br><span class="line">% a + [1,0;0,1] % 此时语句报错，矩阵 + 矩阵运算时，必须要求矩阵的维度匹配（行列数量一致）；</span><br><span class="line"></span><br><span class="line">% 逐元素乘运算符（.*）是逐元素操作的，也就是对应矩阵元素位置的相乘</span><br><span class="line">a .* 2 % 矩阵 .* 标量的结果，矩阵中每个值都加上该标量；</span><br><span class="line">a .* b % 两个矩阵对应位置的元素相乘，要求矩阵的维度匹配（行列数量一致）；</span><br><span class="line"></span><br><span class="line">% 逐元素乘方运算符（.^）是逐元素操作的，也就是对应矩阵元素位置的乘方</span><br><span class="line">a .^ 2 % 矩阵 .^ 标量的结果，矩阵中每个值都为对应位置元素的标量次幂；</span><br><span class="line">2 .^ a % 标量 .^ 矩阵的结果，矩阵中每个值都为以该标量为底，以对应位置元素为指数的值；</span><br><span class="line">a .^ b % 两个矩阵对应位置的元素相乘，要求矩阵的维度匹配（行列数量一致）；</span><br><span class="line"></span><br><span class="line">% 逐元素右除运算符（./）是逐元素操作的，也就是对应矩阵元素位置的右除</span><br><span class="line">a ./ 2 % 矩阵 ./ 标量返回一个商矩阵，矩阵元素为被除数，该标量为除数；</span><br><span class="line">2 ./ a % 标量 ./ 矩阵返回一个商矩阵，该标量为被除数，矩阵元素为除数；</span><br><span class="line">a ./ b % 矩阵 .\ 矩阵返回一个商矩阵，左矩阵元素为被除数，右矩阵元素为除数</span><br><span class="line">% 这时要求矩阵的维度匹配（行列数量一致）；</span><br><span class="line"></span><br><span class="line">% 逐元素左除运算符（.\）是逐元素操作的，也就是对应矩阵元素位置的左除</span><br><span class="line">a .\ 2 % 矩阵 .\ 标量返回一个商矩阵，矩阵元素为除数，该标量为被除数；</span><br><span class="line">2 .\ a % 矩阵 .\ 标量返回一个商矩阵，该标量为除数，矩阵元素为被除数；</span><br><span class="line">a .\ b % 矩阵 .\ 矩阵返回一个商矩阵，左矩阵元素为除数，右矩阵元素为被除数</span><br><span class="line">% 这时要求矩阵的维度匹配（行列数量一致）；</span><br><span class="line"></span><br><span class="line">% 提醒：左除右除运算符的区别只要记住斜杠上的是分子，斜杠下的为分母即可。</span><br><span class="line"></span><br><span class="line">% 数组转置（.&apos;），行列交换得到转置矩阵</span><br><span class="line">a.&apos; % 返回矩阵的数组转置，相当于矩阵的行和列互换，得到新的矩阵；</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-矩阵运算符"><a href="#2-矩阵运算符" class="headerlink" title="2.矩阵运算符"></a>2.矩阵运算符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">%% 矩阵运算符</span><br><span class="line">% 测试样例</span><br><span class="line">a = [2,3,-4;6,7,8] % 2×3的矩阵</span><br><span class="line">b = [0,1,-5,3;2,-3,5,5;-1,4,2,3] % 3×4的矩阵</span><br><span class="line">c = [1;2]</span><br><span class="line"></span><br><span class="line">% 矩阵乘法运算符（*） 矩阵相乘得到线性代数上的矩阵乘积，</span><br><span class="line">a * 2 % 矩阵 * 标量的结果，矩阵中每个值都加上该标量；</span><br><span class="line">a * b % 满足矩阵相乘的规则，要求矩阵的维度匹配（左矩阵列 = 右矩阵行）；</span><br><span class="line"></span><br><span class="line">% 矩阵乘方运算符（^）矩阵必须为方阵(或者标量)，</span><br><span class="line">[0,1;2,0] ^ 2  % 矩阵 .^ 标量，方阵的标量次幂；</span><br><span class="line">2 .* [0,1;2,0] % 标量 .^ 矩阵基于特征值和特征向量求解，线性代数内容（个人目前还没用过）；</span><br><span class="line"></span><br><span class="line">% 矩阵左除运算符（\）矩阵左除（线性代数没有这玩意）</span><br><span class="line">% 注解：线性方程组如果可以表示为 A*x=B，那么解方程组时就应该在两式用 A 的逆阵（暂且叫做 Ai）左乘，这时式子化为 x=Ai*B，矩阵左除运算结果 A\B=Ai*B。同理可以推演右除</span><br><span class="line">a \ c % 矩阵\矩阵相当于解线性方程组 a*x=c</span><br><span class="line"></span><br><span class="line">% 矩阵右除运算符（/）矩阵右除</span><br><span class="line">a \ c % 矩阵\矩阵相当于解线性方程组x*a=c</span><br><span class="line"></span><br><span class="line">% 共轭转置（&apos;），针对与矩阵而言，行列交换并求共轭得到共轭转置矩阵</span><br><span class="line">a&apos; % 返回矩阵的共轭转置，相当于矩阵的行和列互换再求共轭，得到新的矩阵;</span><br><span class="line">% 但是由于一般都是操作实数，取共轭不会有影响，平时更常用（&apos;）而不使用（.&apos;）；</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h3><p>本次的内容几乎都只要复制粘贴到 MATLAB 中执行即可，几乎只需要观察即可。生成函数很多不需要死记，函数名几乎可以直译，开始用几次就可以无压力记住（即使记错了某个字母，MATLAB 也会提示正确的名字）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/03/MATLAB-矩阵（一）/" data-id="cjjmv7nd10003r89kef3naiiq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/04/MATLAB-矩阵（二）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          MATLAB 矩阵（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/02/初识-MATLAB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">初识 MATLAB</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/MATLAB/" style="font-size: 20px;">MATLAB</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/21/佐藤可士和超整理术/">佐藤可士和的超整理术</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/04/HTTP学习笔记/">HTTP学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/MATLAB-绘图（二）/">MATLAB 绘图（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/MATLAB-绘图（一）/">MATLAB 绘图（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/18/MATLAB-函数（二）/">MATLAB 函数（二）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 文茂权<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

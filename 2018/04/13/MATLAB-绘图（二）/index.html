@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>MATLAB 绘图（二） | 文茂权</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="概述本次的内容涉及到除了线图以外的绘图，包括离散绘图、极坐标绘图、曲面绘图和统计绘图。  离散绘图：茎干图、阶梯图和散点图 极坐标绘图：polar前缀 曲面绘图：surf 曲面图和 mesh 网格图 统计绘图：条形图、统计直方图和饼状图">
+<meta name="keywords" content="MATLAB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MATLAB 绘图（二）">
+<meta property="og:url" content="http://yoursite.com/2018/04/13/MATLAB-绘图（二）/index.html">
+<meta property="og:site_name" content="文茂权">
+<meta property="og:description" content="概述本次的内容涉及到除了线图以外的绘图，包括离散绘图、极坐标绘图、曲面绘图和统计绘图。  离散绘图：茎干图、阶梯图和散点图 极坐标绘图：polar前缀 曲面绘图：surf 曲面图和 mesh 网格图 统计绘图：条形图、统计直方图和饼状图">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8078350-b2e3a5c17fe98d58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8078350-3db50d1307370792.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8078350-44b1b44ad66a1c64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8078350-8645080245b3169c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8078350-eb9086dcb346a0fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8078350-665be90818752b79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8078350-04ccb7ddf56e5af2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8078350-e5ae2f4e8eb59f8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8078350-4d96bbabaa0c2ddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/8078350-9b9861192e89d43d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-29T23:14:50.084Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MATLAB 绘图（二）">
+<meta name="twitter:description" content="概述本次的内容涉及到除了线图以外的绘图，包括离散绘图、极坐标绘图、曲面绘图和统计绘图。  离散绘图：茎干图、阶梯图和散点图 极坐标绘图：polar前缀 曲面绘图：surf 曲面图和 mesh 网格图 统计绘图：条形图、统计直方图和饼状图">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/8078350-b2e3a5c17fe98d58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="文茂权" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">文茂权</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个简单的程序员</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-MATLAB-绘图（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/13/MATLAB-绘图（二）/" class="article-date">
+  <time datetime="2018-04-12T21:00:02.000Z" itemprop="datePublished">2018-04-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MATLAB 绘图（二）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>本次的内容涉及到除了线图以外的绘图，包括离散绘图、极坐标绘图、曲面绘图和统计绘图。</p>
+<ul>
+<li>离散绘图：茎干图、阶梯图和散点图</li>
+<li>极坐标绘图：polar前缀</li>
+<li>曲面绘图：surf 曲面图和 mesh 网格图</li>
+<li>统计绘图：条形图、统计直方图和饼状图</li>
+</ul>
+<a id="more"></a>
+<h3 id="子窗口"><a href="#子窗口" class="headerlink" title="子窗口"></a>子窗口</h3><p>subplot 函数指的是将当前图窗划分为 <code>m</code>×<code>n</code> 网格，并在编号 <code>p</code> 指定的位置创建坐标区。</p>
+<p>编号规则为：从第一行自左向右递增。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% subplot(m,n,p);</span></span><br><span class="line"><span class="comment">% 将绘图窗口分为 m 行 n 列的矩形区域</span></span><br><span class="line"><span class="comment">% 并在编号第 p 的区域中绘图</span></span><br><span class="line">figure();</span><br><span class="line"><span class="comment">% 2*2 分割的第一块区域也就是左上角</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>); </span><br><span class="line">x = <span class="built_in">linspace</span>(<span class="number">-3.8</span>,<span class="number">3.8</span>);</span><br><span class="line">y_cos = <span class="built_in">cos</span>(x);</span><br><span class="line">plot(x,y_cos);</span><br><span class="line">title(<span class="string">'Subplot 1: Cosine'</span>)</span><br><span class="line"><span class="comment">% 2*2 分割的第二块区域也就是右上角</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">y_poly = <span class="number">1</span> - x.^<span class="number">2.</span>/<span class="number">2</span> + x.^<span class="number">4.</span>/<span class="number">24</span>;</span><br><span class="line">plot(x,y_poly,<span class="string">'g'</span>);</span><br><span class="line">title(<span class="string">'Subplot 2: Polynomial'</span>)</span><br><span class="line"><span class="comment">% 2*2 分割的第三、四块区域也就是下方</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,[<span class="number">3</span>,<span class="number">4</span>]);</span><br><span class="line"><span class="comment">% 也可以写作 subplot(2,1,2); 指的是同一区域。</span></span><br><span class="line">plot(x,y_cos,<span class="string">'b'</span>,x,y_poly,<span class="string">'g'</span>);</span><br><span class="line">title(<span class="string">'Subplot 3 and 4: Both'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/8078350-b2e3a5c17fe98d58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"></p>
+<h3 id="离散绘图"><a href="#离散绘图" class="headerlink" title="离散绘图"></a>离散绘图</h3><h4 id="茎干图（stem）"><a href="#茎干图（stem）" class="headerlink" title="茎干图（stem）"></a>茎干图（stem）</h4><p>stem 函数的功能是描述离散数据中的冲激函数，以绘图高度反映一维离散序列中脉冲的强度。</p>
+<p>数据值对应每一个脉冲的强度。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">figure(<span class="number">1</span>)</span><br><span class="line">X = <span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">pi</span>,<span class="number">50</span>)';</span><br><span class="line">Y = <span class="built_in">cos</span>(X);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">stem(X);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">stem(X,Y);</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/8078350-3db50d1307370792.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2.png"></p>
+<h4 id="阶梯图（stairs）"><a href="#阶梯图（stairs）" class="headerlink" title="阶梯图（stairs）"></a>阶梯图（stairs）</h4><p>stairs 函数的功能是描述离散数据中的阶跃函数，以绘图高度反映一维阶跃信号中的实时强度。</p>
+<p>数据值为每一个时间周期的高度。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">X = <span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">4</span>*<span class="built_in">pi</span>,<span class="number">40</span>);</span><br><span class="line">Y = <span class="built_in">sin</span>(X);</span><br><span class="line">figure(<span class="number">1</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">stairs(Y);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">stairs(X,Y);<span class="comment">% 这种调用方式应当保证 X 有序</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/8078350-44b1b44ad66a1c64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="3.png"></p>
+<h4 id="散点图（scatter）"><a href="#散点图（scatter）" class="headerlink" title="散点图（scatter）"></a>散点图（scatter）</h4><p>scatter 函数绘制二维平面上的散点图，也就是不绘制曲线的 plot 函数。</p>
+<p>输入参数为散点图的横坐标序列和纵坐标序列。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">3</span>*<span class="built_in">pi</span>,<span class="number">200</span>);</span><br><span class="line">y = <span class="built_in">cos</span>(x) + <span class="built_in">rand</span>(<span class="number">1</span>,<span class="number">200</span>); </span><br><span class="line">M_size = <span class="built_in">linspace</span>(<span class="number">1</span>,<span class="number">100</span>,<span class="number">200</span>);</span><br><span class="line">figure(<span class="number">1</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">scatter(x,y);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">scatter(x,y,M_size);</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/8078350-8645080245b3169c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4.png"></p>
+<h3 id="极坐标绘图"><a href="#极坐标绘图" class="headerlink" title="极坐标绘图"></a>极坐标绘图</h3><blockquote>
+<p>我们直到直角坐标和极坐标系都是常用的坐标系，并且两种坐标系之间存在一定的转换关系，但是用 plot 函数绘制转换后的极坐标系图形总是不美观。</p>
+</blockquote>
+<p><del>polar 函数是 MATLAB 中用于绘制极坐标图的函数。</del> </p>
+<p>polar 函数已经被 MATLAB 官方更替，更推荐使用的是新的函数方法：polarplot （新方法在旧版本的 MATLAB 如 2015b 版本仍不可用）。因此如果你在使用旧版本软件，使用 polar 方法；如果你在使用的版本支持 polarplot 函数，那就使用 polarplot 函数。</p>
+<p>polarplot 函数就是极坐标系下的 plot 函数。以 polarplot(theta,rho) 形式调用。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">theta = <span class="number">0</span>:<span class="number">0.01</span>:<span class="number">2</span>*<span class="built_in">pi</span>; <span class="comment">% 角度</span></span><br><span class="line">rho = <span class="built_in">sin</span>(<span class="number">2</span>*theta).*<span class="built_in">cos</span>(<span class="number">2</span>*theta); <span class="comment">% 幅值</span></span><br><span class="line">figure(<span class="number">1</span>);</span><br><span class="line">polarplot(theta,rho); </span><br><span class="line"><span class="comment">% 此处有版本兼容问题，旧版本无法使用该函数</span></span><br><span class="line"><span class="comment">% 旧版本应当使用 polar(theta,rho);</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/8078350-eb9086dcb346a0fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="5.png"></p>
+<p>同理，也有 polarscatter 函数。</p>
+<h3 id="曲面绘图"><a href="#曲面绘图" class="headerlink" title="曲面绘图"></a>曲面绘图</h3><blockquote>
+<p>曲线上的点是无限的，于是计算机用散点序列代替直线；曲面上由无数曲线构成，自然类比想到使用网格代替平面。</p>
+</blockquote>
+<h4 id="surf-函数"><a href="#surf-函数" class="headerlink" title="surf 函数"></a>surf 函数</h4><p>surf 函数将创建一个三维曲面图。该函数将矩阵 Z 中的值绘制为由 X 和 Y 定义的 x-y 平面中的网格上方的高度；此外，函数将对三维曲面进行渲染，每个区域的颜色与高度成比例。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x0 = <span class="number">1</span>:<span class="number">0.5</span>:<span class="number">10</span>;</span><br><span class="line">y0 = <span class="number">1</span>:<span class="number">20</span>;</span><br><span class="line">[X,Y] = <span class="built_in">meshgrid</span>(x0,y0);</span><br><span class="line"><span class="comment">% meshgrid 函数将创建两个由 x0*y0 构成的二维网格矩阵。</span></span><br><span class="line"><span class="comment">% X 表示网格中对应位置的 x0 值</span></span><br><span class="line"><span class="comment">% Y 表示网格中对应位置的 y0 值</span></span><br><span class="line"><span class="comment">% - 可以预见到对于同一个 y0 ，x0 值相同。</span></span><br><span class="line">Z = <span class="built_in">sin</span>(X) + <span class="built_in">cos</span>(Y);</span><br><span class="line">surf(X,Y,Z);</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/8078350-665be90818752b79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="6.png"></p>
+<p>其他 surf 类型曲面图函数</p>
+<ul>
+<li>surfc 函数：在 surf 函数的基础上，在底部绘制等高线图。</li>
+<li>surfl 函数：在 surf 函数的基础上，用光线为三维图渲染。</li>
+</ul>
+<h4 id="mesh-函数"><a href="#mesh-函数" class="headerlink" title="mesh 函数"></a>mesh 函数</h4><p>surf 函数将创建一个三维曲面图。该函数将矩阵 Z 中的值绘制为由 X 和 Y 定义的 x-y 平面中的网格上方的高度；函数仅对于三维网格进行渲染，每个区域的颜色与高度成比例。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[X,Y] = <span class="built_in">meshgrid</span>(<span class="number">-8</span>:<span class="number">.5</span>:<span class="number">8</span>);</span><br><span class="line">R = <span class="built_in">sqrt</span>(X.^<span class="number">2</span> + Y.^<span class="number">2</span>) + <span class="built_in">eps</span>;</span><br><span class="line">Z = <span class="built_in">sin</span>(R)./R;</span><br><span class="line">figure(<span class="number">1</span>);</span><br><span class="line">mesh(Z);</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/8078350-04ccb7ddf56e5af2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="7.png"></p>
+<p>其他 mesh 类型曲面图函数</p>
+<ul>
+<li>meshc函数：在 mesh 函数的基础上，在底部绘制等高线图。</li>
+<li>meshz 函数：在 mesh 函数的基础上，每个网格高度以柱状反映。</li>
+</ul>
+<h3 id="统计绘图"><a href="#统计绘图" class="headerlink" title="统计绘图"></a>统计绘图</h3><h4 id="bar-函数"><a href="#bar-函数" class="headerlink" title="bar 函数"></a>bar 函数</h4><p>bar 函数顾名思义是绘制条形图的函数。</p>
+<p>由于统计图表有着多种形式的表现需求，这里使用子窗口绘图来实现。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">190</span>:<span class="number">1</span>:<span class="number">200</span>;</span><br><span class="line">y = [<span class="number">75</span> <span class="number">91</span> <span class="number">105</span> <span class="number">123.5</span> <span class="number">131</span> <span class="number">150</span> <span class="number">179</span> <span class="number">203</span> <span class="number">226</span> <span class="number">249</span> <span class="number">281.5</span>];</span><br><span class="line">z = [<span class="number">2</span> <span class="number">2</span> <span class="number">3</span>; <span class="number">2</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">2</span> <span class="number">8</span> <span class="number">9</span>; <span class="number">2</span> <span class="number">11</span> <span class="number">12</span>];</span><br><span class="line">figure(<span class="number">1</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>);</span><br><span class="line">bar(y);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>);</span><br><span class="line">bar(y,<span class="string">'r'</span>)</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>);</span><br><span class="line">bar(x,y);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">bar(y,<span class="number">0.4</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>);</span><br><span class="line">bar(z);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>);</span><br><span class="line">bar(z,<span class="string">'stacked'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/8078350-e5ae2f4e8eb59f8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="8.png"></p>
+<p>其他 bar 类型函数：</p>
+<ul>
+<li>bar3 函数：绘制三维条形图</li>
+<li>barh 函数：绘制水平条形图</li>
+<li>bar3h 函数：绘制三维水平条形图</li>
+</ul>
+<h4 id="histogram-函数"><a href="#histogram-函数" class="headerlink" title="histogram 函数"></a>histogram 函数</h4><p>histogram 函数的功能是根据传入的数据绘制统计直方图。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="built_in">randn</span>(<span class="number">10000</span>,<span class="number">1</span>);</span><br><span class="line"><span class="comment">% 10000 个高斯分布随机数</span></span><br><span class="line">nbins = <span class="number">25</span>; </span><br><span class="line"><span class="comment">% 直方图分布区间数量</span></span><br><span class="line">figure(<span class="number">1</span>);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">h = histogram(x);</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">h = histogram(x,nbins);</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/8078350-4d96bbabaa0c2ddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="9.png"></p>
+<p>其他 histogram 函数：</p>
+<ul>
+<li>histogram2 函数：绘制二元统计直方图；</li>
+<li>pareto 函数：绘制帕累托图</li>
+<li>polarhistogram 函数：在极坐标系上绘制根据角度绘制分布图</li>
+</ul>
+<h4 id="pie-函数"><a href="#pie-函数" class="headerlink" title="pie 函数"></a>pie 函数</h4><p>pie 函数的功能是根据传入的比例序列绘制饼状图。</p>
+<blockquote>
+<p>特别地：如果 pie(x) 中，</p>
+<ul>
+<li>sum(x) &lt; 1，仅绘制部分饼状图。</li>
+<li>sum(x) &gt; 1，先做归一化后绘制饼状图。</li>
+</ul>
+</blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">figure(<span class="number">1</span>);</span><br><span class="line">X = [<span class="number">1</span> <span class="number">3</span> <span class="number">0.5</span> <span class="number">2.5</span> <span class="number">2</span>];</span><br><span class="line">explode = [<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">labels = &#123;<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,<span class="string">'E'</span>&#125;;</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">pie(X);</span><br><span class="line"><span class="comment">% 归一化计算比例</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">pie(X,explode);</span><br><span class="line"><span class="comment">% explode 选中的块会突出显示</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">pie(X,labels);</span><br><span class="line"><span class="comment">% 以标签代替百分数</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>);</span><br><span class="line">x1 = [<span class="number">0.19</span> <span class="number">0.22</span> <span class="number">0.41</span>];</span><br><span class="line">pie(x1);</span><br><span class="line"><span class="comment">% 不足 100% 则绘制部分饼状图</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/8078350-9b9861192e89d43d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="10.png"></p>
+<p>其他 pie 类型函数：</p>
+<ul>
+<li>pie3 函数：绘制三维饼状图；</li>
+</ul>
+<h4 id="其他可视化绘图"><a href="#其他可视化绘图" class="headerlink" title="其他可视化绘图"></a>其他可视化绘图</h4><blockquote>
+<p>这部分内容极少使用，不需要在意。</p>
+</blockquote>
+<p>heatmap 函数：根据数据集绘制热图；</p>
+<p>wordcloud 函数：使用文本数据创建词云图；</p>
+<p>geobubble 函数：以可视方式呈现特定地理位置的数据值</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>本节中提到除了线图以外的另外四种常见绘图：离散绘图、极坐标绘图、曲面绘图和统计绘图。</p>
+<p>值得一提的是，对于极坐标绘图的函数方法，官方已经给出更佳的更新，但旧版本中无法应用，这里给出的为新版本的方案。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/13/MATLAB-绘图（二）/" data-id="cjjmv7nd60008r89ks8to5opk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/04/HTTP学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HTTP学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/03/MATLAB-绘图（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MATLAB 绘图（一）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MATLAB/">MATLAB</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/MATLAB/" style="font-size: 20px;">MATLAB</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/21/佐藤可士和超整理术/">佐藤可士和的超整理术</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/04/HTTP学习笔记/">HTTP学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/MATLAB-绘图（二）/">MATLAB 绘图（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/03/MATLAB-绘图（一）/">MATLAB 绘图（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/18/MATLAB-函数（二）/">MATLAB 函数（二）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 文茂权<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
