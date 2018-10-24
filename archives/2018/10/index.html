@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MATLAB 语法 | 文茂权</title>
+  <title>Archives: 2018/10 | 文茂权</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述上次内容，我们介绍了 MATLAB 中逻辑类型（logical）的变量，这种变量只有两种值： true 和 false。本次介绍的内容是 MATLAB 的一些语法结构包括我们最常用的条件结构和循环结构。条件结构是根据程序的执行结果选择应当执行的命令。循环结构是根据程序重复执行一系列语句的结构。两种结构都是程序结构的基础内容。从这一章开始，所有问题都可以得到理论上的解决了。">
-<meta name="keywords" content="MATLAB">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MATLAB 语法">
-<meta property="og:url" content="http://yoursite.com/2018/03/06/MATLAB-语法/index.html">
+  <meta name="description" content="以笔记作为知识储备">
+<meta name="keywords" content="coder">
+<meta property="og:type" content="website">
+<meta property="og:title" content="文茂权">
+<meta property="og:url" content="http://yoursite.com/archives/2018/10/index.html">
 <meta property="og:site_name" content="文茂权">
-<meta property="og:description" content="概述上次内容，我们介绍了 MATLAB 中逻辑类型（logical）的变量，这种变量只有两种值： true 和 false。本次介绍的内容是 MATLAB 的一些语法结构包括我们最常用的条件结构和循环结构。条件结构是根据程序的执行结果选择应当执行的命令。循环结构是根据程序重复执行一系列语句的结构。两种结构都是程序结构的基础内容。从这一章开始，所有问题都可以得到理论上的解决了。">
+<meta property="og:description" content="以笔记作为知识储备">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-29T23:14:48.518Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MATLAB 语法">
-<meta name="twitter:description" content="概述上次内容，我们介绍了 MATLAB 中逻辑类型（logical）的变量，这种变量只有两种值： true 和 false。本次介绍的内容是 MATLAB 的一些语法结构包括我们最常用的条件结构和循环结构。条件结构是根据程序的执行结果选择应当执行的命令。循环结构是根据程序重复执行一系列语句的结构。两种结构都是程序结构的基础内容。从这一章开始，所有问题都可以得到理论上的解决了。">
+<meta name="twitter:title" content="文茂权">
+<meta name="twitter:description" content="以笔记作为知识储备">
   
   
     <link rel="icon" href="/img/avatar.png">
@@ -173,196 +172,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MATLAB-语法" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      MATLAB 语法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/10/24/初识 Firebase/" class="archive-article-date">
+  	<time datetime="2018-10-24T12:53:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-24</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/10/24/初识 Firebase/">初识 Firebase</a>
     </h1>
   
 
-        
-        <a href="/2018/03/06/MATLAB-语法/" class="archive-article-date">
-  	<time datetime="2018-03-05T19:46:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><p>上次内容，我们介绍了 MATLAB 中逻辑类型（logical）的变量，这种变量只有两种值： true 和 false。本次介绍的内容是 MATLAB 的一些语法结构包括我们最常用的条件结构和循环结构。条件结构是根据程序的执行结果选择应当执行的命令。循环结构是根据程序重复执行一系列语句的结构。两种结构都是程序结构的基础内容。从这一章开始，所有问题都可以得到理论上的解决了。</p>
-<a id="more"></a>
-<h3 id="变量名"><a href="#变量名" class="headerlink" title="变量名"></a><strong>变量名</strong></h3><p>我们之前介绍过变量在使用的时候，可以直接使用诸如 “ a = 1 ” 的方式直接赋值，也特地提到过一些特殊的参数值（如 pi, inf, NaN, i, j）不应当作为变量名使用。那么使用变量名到底有哪些应该注意的点：</p>
-<p>A. 严格规定的变量名的格式：（一定不能做的事，做了会报错的情况）<br>1.MATLAB 变量名必须以<strong>字母</strong>开头<br>2.可以使用的字符为<strong>字母，下划线和数字</strong><br>3.长度不能过大，<strong>31个字符</strong>是最大长度。<br>4.字符是<strong>区分大小写</strong>的。<br>5.不能使用系统预留的关键字（可以使用 iskeyword 命令查看关键字列表）。</p>
-<p>B. 理想的变量名格式：（推荐做的事）<br>1.MATLAB 变量名最好是有意义容易理解的名称如： success_rate<br>2.尽管不能在变量名中使用空格，可以用下划线代替空格连接单词来表达变量意义。<br>3.没有特殊需要时，尽量使用小写字母（ A 和 a 是不同的变量）<br>4.不要重复使用已经使用过的变量名，尽管你之后不再需要使用这个变量。</p>
-<h3 id="条件结构"><a href="#条件结构" class="headerlink" title="条件结构"></a><strong>条件结构</strong></h3><p>条件结构的特点是程序会根据不同条件选择不同的执行命令。MATLAB 中条件结构有两种： if 语句和 switch 语句，其中 if 语句是我们最常见的一种用法。</p>
-<h4 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h4><p>if 语句是根据一个逻辑值加以判断一个语句是否运行的语句，能对逻辑值进行判断，并在该逻辑值为 true 时执行对应的语句。（在上一次内容中我们讲到，一个逻辑值可以是一个数，一个逻辑命题甚至一串复合的逻辑表达式，在这里也适用）。<br>if 语句的标准格式就是：if + 空格 + 逻辑条件 开头，end 结尾，中间行 true 条件下执行的一段代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if 逻辑条件</span><br><span class="line">    true 条件下的代码段;</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<p>if 语句还可以加入两个关键字： <strong>else</strong> 和 <strong>elseif</strong> 。</p>
-<p>else 就是补充 if 判断为 false 的情况。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if 逻辑条件</span><br><span class="line">    true 条件下的代码段;</span><br><span class="line">else</span><br><span class="line">    false 条件下的代码段；</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<p>elseif 是针对嵌套使用 if 语句使用的，在分支较多时优化结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if 逻辑条件 1 </span><br><span class="line">    条件 1 为 true 代码段;</span><br><span class="line">elseif 逻辑条件 2</span><br><span class="line">    条件 1 为 false 且条件 2 为 true 代码段;</span><br><span class="line">    ...</span><br><span class="line">elseif 逻辑条件k  </span><br><span class="line">    先前所有条件为 false ，条件 k 为 true 代码段；</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<h4 id="if-语句实例"><a href="#if-语句实例" class="headerlink" title="if 语句实例"></a>if 语句实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">% if 语句</span><br><span class="line"></span><br><span class="line">% 样例 1</span><br><span class="line">disp(&apos;样例 1 &apos;)</span><br><span class="line">% if 语句仅在逻辑值为 true 是执行对应的命令</span><br><span class="line">a = 1;</span><br><span class="line">b = 2;</span><br><span class="line">if b &gt; a</span><br><span class="line">    disp(&apos;statement 1&apos;);</span><br><span class="line">end</span><br><span class="line">if b &gt; a</span><br><span class="line">    disp(&apos;statement 2&apos;);</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% 样例 2</span><br><span class="line">disp(&apos;样例 2 &apos;)</span><br><span class="line">% if 语句可以使用 else 作为判断条件的补集</span><br><span class="line">% 也就是说，若为 false 则运行。</span><br><span class="line">a = 3;</span><br><span class="line">b = 2;</span><br><span class="line">if b &gt; a</span><br><span class="line">    disp(&apos;statement 3&apos;);</span><br><span class="line">else</span><br><span class="line">    disp(&apos;statement 4&apos;);</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% 样例 3</span><br><span class="line">disp(&apos;样例 3 &apos;)</span><br><span class="line">% if 语句可以嵌套使用，在 if 语句中使用 if 语句</span><br><span class="line">a = 3;</span><br><span class="line">if a &lt; 2</span><br><span class="line">    disp(&apos;statement 5&apos;);</span><br><span class="line">else % 此处可以不必换行</span><br><span class="line">    if a &lt; 5</span><br><span class="line">        disp(&apos;statement 6&apos;);</span><br><span class="line">    else</span><br><span class="line">        disp(&apos;statement 7&apos;);</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% 样例 4</span><br><span class="line">disp(&apos;样例 4 &apos;)</span><br><span class="line">% 观察到样例 3 在区间数量多的时候要嵌套很多次</span><br><span class="line">% 因此可以使用另一个关键字 elseif 简化。</span><br><span class="line">% 以下代码与样例 3 是等价的</span><br><span class="line">a = 3;</span><br><span class="line">if a &lt; 2</span><br><span class="line">    disp(&apos;statement 5&apos;);</span><br><span class="line">elseif a &lt; 5</span><br><span class="line">    disp(&apos;statement 6&apos;);</span><br><span class="line">else</span><br><span class="line">    disp(&apos;statement 7&apos;);</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% 样例5</span><br><span class="line">disp(&apos;样例 5 &apos;)</span><br><span class="line">% elseif 连接的分支条件关系越来越宽松，可以从排分数实例来看</span><br><span class="line">score = 67;</span><br><span class="line">if score == 100</span><br><span class="line">    disp(&apos;满分&apos;);</span><br><span class="line">elseif score &gt; 90</span><br><span class="line">    disp(&apos;优秀&apos;);</span><br><span class="line">elseif score &gt; 80</span><br><span class="line">    disp(&apos;良好&apos;);</span><br><span class="line">elseif score &gt; 70</span><br><span class="line">    disp(&apos;中&apos;);</span><br><span class="line">elseif score &gt; 60</span><br><span class="line">    disp(&apos;及格&apos;);</span><br><span class="line">else</span><br><span class="line">    disp(&apos;不及格&apos;);</span><br><span class="line">end</span><br><span class="line">% 每一级条件都是下一级条件的子集，条件越来越宽松。</span><br></pre></td></tr></table></figure>
-<h4 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">样例 1 </span><br><span class="line">statement 1</span><br><span class="line">statement 2</span><br><span class="line">样例 2 </span><br><span class="line">statement 4</span><br><span class="line">样例 3 </span><br><span class="line">statement 6</span><br><span class="line">样例 4 </span><br><span class="line">statement 6</span><br><span class="line">样例 5 </span><br><span class="line">及格</span><br></pre></td></tr></table></figure>
-<h4 id="if-语句注意的问题"><a href="#if-语句注意的问题" class="headerlink" title="if 语句注意的问题"></a>if 语句注意的问题</h4><p>1.首先是判断条件：判断条件如果是等式，请务必记得等式是用 <strong>‘==’</strong> 连接的。<br>2.使用嵌套 if 语句时，会形成 else if 应当与 elseif 区分开。<br>3.使用嵌套 if 语句时，判断条件之间的相互关系很复杂，应当仔细区分开。<br>4.如果你觉得2，3很麻烦，请无脑使用 elseif<br>5.用 elseif 连接的各个分支条件都是<strong>越来越宽松</strong>，对于多分支条件结构能很好简化。</p>
-<h4 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h4><p>switch 语句需要提供一个变量，针对这个变量可能的值进行选择分支的语句。也就是查这个变量是什么可能值，如果找到了这个值则运行对应命令。特别的，switch 语句只能对<strong>离散值</strong>生效(case 数量有限)，并且每一个 case 都必须不同（否则只执行第一个 case ，并且会给出警告），在给出的下列案例中，尽管用 if 语句理论上也可以实现同等效果，但是 switch 语句的可读性更好。</p>
-<h4 id="switch-语句实例"><a href="#switch-语句实例" class="headerlink" title="switch 语句实例"></a>switch 语句实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">% switch 语句</span><br><span class="line"></span><br><span class="line">% 计算机会这样操作：</span><br><span class="line">% 1.开始查询以下的 case 是否有刚好等于 str 的值</span><br><span class="line">% 2.若有刚好等于 str 的值，则执行对应命令</span><br><span class="line">% 3.若没有，则执行 otherwise 对应命令</span><br><span class="line">% 4.若连 otherwise 也没有，则 switch 语句结束，不做任何事。</span><br><span class="line"></span><br><span class="line">str = &apos;周三&apos;;</span><br><span class="line">switch str</span><br><span class="line">    case &apos;周一&apos;</span><br><span class="line">        disp(&apos;工作日 1&apos;);</span><br><span class="line">    case &apos;周二&apos;</span><br><span class="line">        disp(&apos;工作日 2&apos;);</span><br><span class="line">    case &apos;周三&apos;</span><br><span class="line">        disp(&apos;工作日 3&apos;);</span><br><span class="line">    case &apos;周四&apos;</span><br><span class="line">        disp(&apos;工作日 4&apos;);</span><br><span class="line">    case &apos;周五&apos;</span><br><span class="line">        disp(&apos;工作日 5&apos;);</span><br><span class="line">    otherwise</span><br><span class="line">        disp(&apos;休息&apos;);</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h4 id="测试结果-1"><a href="#测试结果-1" class="headerlink" title="测试结果"></a>测试结果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作日 3</span><br></pre></td></tr></table></figure>
-<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a><strong>循环结构</strong></h3><p>循环结构也分为两种：for 循环和 while 循环。循环结构的目的显而易见：重复多次地执行同一段代码。<br>for   循环用于<strong>按次数循环</strong>，循环次数为指定的向量长度。<br>while 循环用于<strong>按条件循环</strong>，只要逻辑变量为 true 则重复循环。</p>
-<h4 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h4><p>for 循环用于<strong>特定的次数</strong>的循环，最大特点是只要达到次数就会停止。<br>for 使用的格式为：for + 空格 + 索引向量 开头，end 结尾，中间为应循环的一段代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for 索引 = 索引向量</span><br><span class="line">    循环的代码段</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<h4 id="for-循环样例"><a href="#for-循环样例" class="headerlink" title="for 循环样例"></a>for 循环样例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">% 样例 1</span><br><span class="line">disp(&apos;样例 1 &apos;)</span><br><span class="line">% 这个样例说明循环次数取决于你指定向量的长度</span><br><span class="line">a = 0;</span><br><span class="line">% </span><br><span class="line">for index_1 = 2:10</span><br><span class="line">    a = a + 1;</span><br><span class="line">end</span><br><span class="line">disp(a);</span><br><span class="line"></span><br><span class="line">% 样例 2 </span><br><span class="line">disp(&apos;样例 2 &apos;)</span><br><span class="line">% 循环中使用索引（index_2）时</span><br><span class="line">% 每次index_2的值为指定的索引向量对应当前循环次数的值。</span><br><span class="line">b = 0;</span><br><span class="line">% </span><br><span class="line">for index_2 = 2:10</span><br><span class="line">    b = b + index_2;</span><br><span class="line">end</span><br><span class="line">disp(b);</span><br><span class="line"></span><br><span class="line">% 样例 3</span><br><span class="line">disp(&apos;样例 3 &apos;)</span><br><span class="line">% 循环也可以嵌套，但需要使用不同的循环索引</span><br><span class="line">c = zeros(5,5);</span><br><span class="line">for index_3 = 1:5</span><br><span class="line">   for index_4 = 1:5</span><br><span class="line">        c(index_3,index_4) = sqrt(index_3^2 + index_4^2);</span><br><span class="line">   end</span><br><span class="line">end</span><br><span class="line">disp(c);</span><br></pre></td></tr></table></figure>
-<h4 id="测试结果-2"><a href="#测试结果-2" class="headerlink" title="测试结果"></a>测试结果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">样例 1 </span><br><span class="line">     9</span><br><span class="line"></span><br><span class="line">样例 2 </span><br><span class="line">    54</span><br><span class="line"></span><br><span class="line">样例 3 </span><br><span class="line">    1.4142    2.2361    3.1623    4.1231    5.0990</span><br><span class="line">    2.2361    2.8284    3.6056    4.4721    5.3852</span><br><span class="line">    3.1623    3.6056    4.2426    5.0000    5.8310</span><br><span class="line">    4.1231    4.4721    5.0000    5.6569    6.4031</span><br><span class="line">    5.0990    5.3852    5.8310    6.4031    7.0711</span><br></pre></td></tr></table></figure>
-<h4 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a><strong>while 循环</strong></h4><p>while 循环用于<strong>特定条件下</strong>的循环，最大特点是只要出现一次 false 就会停止。<br>while 循环使用的格式为：while + 空格 + 逻辑条件 开头，end 结尾，中间行为循环的代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while 逻辑条件</span><br><span class="line">    循环的代码段</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<h4 id="while-循环样例"><a href="#while-循环样例" class="headerlink" title="while 循环样例"></a>while 循环样例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">% 样例 1</span><br><span class="line">disp(&apos;样例 1 &apos;)</span><br><span class="line">% 求解 1+2+3+...+k&gt;100的最小整数解  </span><br><span class="line">k = 0;</span><br><span class="line">sum = 0;</span><br><span class="line">while sum &lt;= 100</span><br><span class="line">    sum = sum + k;</span><br><span class="line">    k = k + 1;</span><br><span class="line">end</span><br><span class="line">disp(k);</span><br><span class="line"></span><br><span class="line">% 样例 2</span><br><span class="line">disp(&apos;样例 2 &apos;)</span><br><span class="line">% 用泰勒级数逼近自然底数exp(1)，将相对误差控制在10^-4内</span><br><span class="line">k = 0;</span><br><span class="line">sum = 0; </span><br><span class="line">while abs((sum-exp(1))/exp(1)) &gt; 1e-4</span><br><span class="line">    sum = sum + 1/factorial(k);    </span><br><span class="line">    k = k + 1;</span><br><span class="line">end</span><br><span class="line">disp(sum);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 样例 3</span><br><span class="line">disp(&apos;样例 3 &apos;)</span><br><span class="line">% 最简单的死循环: 判断条件永远成立。</span><br><span class="line">% 可以用 Ctrl + C 强制中断运行。</span><br><span class="line">while 1</span><br><span class="line">    ;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h4 id="测试结果-3"><a href="#测试结果-3" class="headerlink" title="测试结果"></a>测试结果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">样例 1 </span><br><span class="line">    15</span><br><span class="line"></span><br><span class="line">样例 2 </span><br><span class="line">    2.7181</span><br></pre></td></tr></table></figure>
-<h4 id="循环的补充"><a href="#循环的补充" class="headerlink" title="循环的补充"></a>循环的补充</h4><p>关于循环还用到另外两个关键字： <strong>continue</strong> 和 <strong>break</strong> 。</p>
-<p>这两个关键字作用很像但有很大区别：</p>
-<p><strong>continue</strong> ：放弃当前<strong>这一次循环</strong>，开始下一次循环（循环次数 +1）</p>
-<p><strong>break</strong> ：放弃当前<strong>这一层循环</strong>，循环直接终止。</p>
-<p>下面来看看这两个关键字的应用：</p>
-<h4 id="continue-break"><a href="#continue-break" class="headerlink" title="continue, break"></a>continue, break</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">% 用循环观察输出</span><br><span class="line">% 当 index == 3 时，执行 continue ,跳过了 3 而到 4；</span><br><span class="line">% 当 index == 5 时，执行 break ,循环直接终止，5 6 7都没有执行；</span><br><span class="line">for index = 1 : 7</span><br><span class="line">    if index == 3 </span><br><span class="line">        continue;</span><br><span class="line">    end</span><br><span class="line">    if index == 5</span><br><span class="line">        break;</span><br><span class="line">    end</span><br><span class="line">    disp(index);</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<h4 id="测试输出"><a href="#测试输出" class="headerlink" title="测试输出"></a>测试输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line"></span><br><span class="line">2</span><br><span class="line"></span><br><span class="line">4</span><br></pre></td></tr></table></figure>
-<h4 id="循环应该注意的问题"><a href="#循环应该注意的问题" class="headerlink" title="循环应该注意的问题"></a>循环应该注意的问题</h4><p>1.每一个 for 循环理论上都可以使用 while 循环实现（在 while 循环添加索引，以索引作为判断条件），实际上这样处理是没有什么意义的，反而会使代码更加晦涩，我们只需要根据需要使用对应的方法即可。<br>2.for 循环需要使用索引向量，请尽可能保证你每次使用的<strong>循环索引变量名都不同</strong>（嵌套循环中必须不同，否则内层循环无法识别，会出现意想不到的错误）。控制变量名不同的好处在于，容易区分每一步循环的意义，并且容易使用查找替换修改。<br>3.使用 while 循环不注意就可能写出死循环，比如判断条件为 A 大于 B ，然而 A-B 却不断增大。<br>4.对于复杂的循环结构，可以使用 continue 和 break 实现简化。<br>5.对于 MATLAB 而言，很多操作使用循环会大大降低运算速度，比如创建很大的零矩阵500×500×500，使用矩阵操作和内置函数能大大提高效率。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h3><p>本节过后，理论上很多问题可以用 MATLAB 来解决了。条件和循环结构也会用于许多实际问题，读者在掌握两种结构的时候也应该注意使用者两种结构可能导致的问题。其中一些问题若没有注意到，可能会导致难以发现的异常，会给自己带来不少麻烦。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Firebase</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/06/MATLAB-语法/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/03/15/MATLAB-函数（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MATLAB 函数（一）
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/03/05/MATLAB-逻辑/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MATLAB 逻辑</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="MATLAB-语法" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cytabldO0",
-        conf: "prod_beb9be0e55a353aec8701c62b6a3fe0b"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -385,8 +248,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
