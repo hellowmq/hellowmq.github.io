@@ -9,6 +9,8 @@ tags: Dart
 > 构造函数既可以与是默认构造函数（函数名与类名同名，最多存在一个），也可以是命名构造函数（函数名以类名.标志符出现）。
 > 在 Dart 开发者本身没有显示提供构造函数时，编译器会自动创建一个无参数的构造函数。需要更多构造函数时就需要命名构造函数来进行实现。
 
+<!--more-->
+
 ```dart
 // Dart developer can user named constructors to create more than one constructors.
 class Person {
