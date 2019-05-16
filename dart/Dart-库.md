@@ -8,20 +8,74 @@ tags: template
 
 Dart 库就是一个 library，是一个模块化的、可共享的代码库。
 
-#### 库的私有性
+Dart 库可以包含一组 import, export 和顶级声明。顶级声明可以是类、类型别名、函数或变量声明。
 
-与其他的编程语言不同的是，Dart 语法中不存在 public, private 和 protected 的关键字，只有将成员标志符加上下划线（_）可以控制成员的访问权限为仅库内部可见。
+<!--more-->
+
+```
+topLevelDefinition:
+classDefinition |
+enumType |
+typeAlias |
+external? functionSignature ';' |
+external? getterSignature ';' |
+external? setterSignature ';' |
+functionSignature functionBody |
+returnType? get identifier functionBody |
+returnType? set identifier formalParameterList functionBody |
+(final | const) type? staticFinalDeclarationList ';' |
+variableDeclaration ';'
+; 
+
+getOrSet:
+get |
+set
+;
+
+libraryDeﬁnition:
+scriptTag? libraryName? importOrExport* partDirective* topLevelDefinition* 
+;
+
+scriptTag:
+‘#!’ (˜NEWLINE)* NEWLINE 
+;
+
+libraryName:
+metadata library identiﬁer (‘.’ identiﬁer)* ‘;’ 
+;
+
+importOrExport:
+libraryImport |
+libraryExport
+;
+```
+
+
+
+
+
+#### 库的访问权限
+
+与其他的编程语言不同的是，Dart 语法中不存在 public, private 和 protected 的关键字。成员标志符如果以下划线（_）开头可以控制成员的访问权限为仅库内部可见。
+
+因此一个库对于外部库可用的部分是有限定的。对于任意的库，总是隐式地导入了 dart:core。
+
+由于顶级私有声明不会被导入，因此也不可能被另一个库中使用。
+
+
+
+
 
 #### Dart 库的命名
 
-Dart 库可以包含一组 import, export 和顶级声明。开发者可以隐式或者显示地命名一个 Dart 库。
+开发者可以隐式或者显示地命名一个 Dart 库。
 
 - 显示命名 Dart 库：使用 library 关键字提供标识符和点的级联来为库命名。
 - 隐式命名 Dart 库：使用空字符串作为库的名称。
 
 #### import ：导入 Dart 库
 
-import 允许将其他的 Dart 文件的非私有内容重用到当前文件。通常来说，import 语句以 URI （Uniform Resource Identifier）字符串来定位一个库的位置。
+import 允许将另一个库的非私有内容重用到当前文件。通常来说，import 语句以 URI （Uniform Resource Identifier）字符串来定位一个库的位置。
 
 ```dart
 import 'dart:core';
