@@ -102,7 +102,7 @@ querySelector('#confirm') // Get an object.
   ..onClick.listen((e) => window.alert('Confirmed!'));
 ```
 
-#### Function 类
+#### Function 的静态调用
 
 在 Dart 中，所有的变量和方法都属于 Object 的子类，而所有的函数就属于 Functoin 类。Function 类提供了一个静态方法：
 
@@ -111,9 +111,9 @@ external static apply(Function function, List positionalArguments,
     [Map<Symbol, dynamic> namedArguments]);
 ```
 
-因此我们可以使用 Function 类的静态方法显式调用函数，在以下的例子中两种调用方式是一致的。
+因此我们可以使用 Function 类的静态方法显式调用函数，在以下的例子中两种调用方式是完全的。
 
-在 Dart 中，只要实现了 call() 方法，相当于以接口形式实现了 Function 类。
+在 Dart 中，只要实现了 call() 方法，就相当于以接口形式实现了 Function 类。
 
 ```dart
 class WannabeFunction {
@@ -131,7 +131,7 @@ main() {
 
 [在 DartPad 上运行此代码](https://dartpad.dartlang.org/27bf2265822a514b5246c400c5a2ac1c)
 
-Function 的对象检查
+#### Function 的对象检查
 函数的 runtimeType 检查在于入参和返回值的检查，如果两个函数的入参和返回值类型一致，根据 runtimeType 会判别为相同值；而相等操作符(==)总是检查是否为同一对象。
 
 ```dart
