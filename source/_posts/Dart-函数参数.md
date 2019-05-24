@@ -33,7 +33,7 @@ external static apply(Function function, List positionalArguments,
 
 位置参数可以是可选的，并且可以为其指定默认值。可选的位置参数必须位于函数原型的末尾并且以中括号([])进行包含。
 
-```
+```dart
 num add(int origin, [int value = 1]) => return origin +value; 
 ```
 
