@@ -14,7 +14,7 @@ tags: Firebase
 
 早在之前的 Google IO 开发者大会上就了解过 Firebase，但是之前还没有机会使用过 Firebase 这样的服务。
 
-由于本人在学习 Web 应用过程中，希望将编写完成的 Web 应用部署到云服务器上，从而考虑将 Firebase 作为 Web 应用后端。本文将介绍从零部署内容至 Firebase 的过程
+由于本人在学习 Web 应用过程中，希望将编写完成的 Web 应用部署到云服务器上，从而考虑将 Firebase 作为 Web 应用后端。本文将介绍从零部署内容至 Firebase 的过程。
 
 ### 开始使用 Firebase
 
@@ -62,7 +62,7 @@ tags: Firebase
 
 鉴于国内的网络环境问题，即使使用了代理，在进入到 login 或者 init 步骤仍然可能出现网络问题，这时需要额外在 cmd 中设置临时代理（该命令仅临时生效）
 
-保持代理服务运行，在 CMD 中执行以下命令
+对于 Windows 系统设置命令行代理服务，在 CMD 中执行以下命令
 
 ```
 set HTTP_PROXY=http://127.0.0.1:1080
