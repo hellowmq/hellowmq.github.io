@@ -13,6 +13,7 @@ Dart 整数的长度是 64bits， 是 num 类的子类。
 
 ### Dart 浮点数
 
+Dart 浮点数是 64bits 的双精度浮点数，是 num 类的子类。
 
 ### Dart 布尔值
 
