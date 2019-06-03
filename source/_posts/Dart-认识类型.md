@@ -18,8 +18,12 @@ Dart 浮点数是 64bits 的双精度浮点数，是 num 类的子类。
 ### Dart 布尔值
 
 
+Dart 的布尔值归属于 Boolean 类，只有 true 和 false 两个值。不使用 1 和 0 来表示，也不能通过其他类型强制转型得到。
+
+
 ### Dart 字符串
 
+单引号，双引号，d
 
 
 ### Dart Symbol 
