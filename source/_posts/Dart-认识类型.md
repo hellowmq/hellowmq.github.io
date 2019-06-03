@@ -23,7 +23,8 @@ Dart 的布尔值归属于 Boolean 类，只有 true 和 false 两个值。不�
 
 ### Dart 字符串
 
-单引号，双引号，d
+单引号，双引号，三个单双引号。字符串插值，字符串转义
+
 
 
 ### Dart Symbol 
