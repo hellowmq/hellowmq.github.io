@@ -22,12 +22,14 @@ Dart 的布尔值归属于 Boolean 类，只有 true 和 false 两个值。不�
 
 
 ### Dart 字符串
-
-单引号，双引号，三个单双引号。字符串插值，字符串转义
+ 
+单引号，双引号，三个单双引号。字符串插值，字符串转义。
 
 
 
 ### Dart Symbol 
+
+Dart symbol 在之前的 Function 类 apply 方法命名参数传递中使用到。
 
 
 ### Dart 列表
