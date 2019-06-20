@@ -14,6 +14,8 @@ tags: Dart
 
 > Dart 并发基于 Isolate，依赖于 future 和 stream。
 
+<!--more-->
+
 ### future 
 
 future 是 Dart 中用于表示异步运算的结果，能用于异步运算中的变量传递。future 可以理解为一个等待运算结果传递至当前对象的容器。dart:async 库的 Future 泛型类用于实现这一过程，Future 类接受类型参数 T 传递future 接受的值类型。
@@ -24,7 +26,7 @@ Future 对象可能以两种情况结束：成功与失败，也可能永远不�
 
 使用 future 类的 API：then() 方法和 catchError() 方法是 future结束调用的方法，方法的参数为一个接受类型参数 T 的闭包，起作用分别是在 future 完成和异常结束操作 future 的值。
 
-```
+```dart
 Future<int> future = getFuture();
 future.then((value) => handleValue(value))
       .catchError((error) => handleError(error));
@@ -41,11 +43,12 @@ async 用来修饰一个异步函数。await 表达式使用的场合是异步�
 - 函数结束
 
     
+
 换言之，强制使用 async 修饰一个没有耗时操作的函数，该函数内部不触发异步执行。与 Future 对象不同的行为是，每一个 await 表达式总是让异步函数进入异步状态。
 
 > (值得一看的文章)[https://juejin.im/post/5c898b4af265da2de25bcc2d]，这篇文章第一个例子中，MethodC 实际上就不是一个异步函数。 
 
-```
+```dart
 // Copyright (c) 2013, the Dart project authors.  Please see the AUTHORS file
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
@@ -98,8 +101,8 @@ Future<String> gatherNewsReports() =>
 //      'https://www.dartlang.org/f/dailyNewsDigest.txt',
 //    );
 ```
-    
-Isolate 
+
+### Isolate 
 
 Dart 代码在一个单独的线程内部执行。
 > isolates: independent workers that are similar to threads but don't share memory, communicating only via messages.
@@ -110,7 +113,7 @@ Isolate 是 Actor 模型的一个实现。每个 isolate 能够接受消息并�
 
 Isolate 能够使用 Isolate.spawn() 方法创建一个新的 Isolate，并与其通过端口(port)进行通信，通过监听 ReceivePort 和为对方指定 sendPort 来进行通信
 
-```
+```dart
 // main.dart
 main() {  // in the main isolate
     ReceivePort r1 = new ReceivePort();
@@ -127,4 +130,4 @@ main(args, SendPort s1) { // in otherIsolate.dart
 ```
 
  
- 
+
