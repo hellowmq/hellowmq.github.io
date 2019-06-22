@@ -1,6 +1,6 @@
 ---
 title: Dart-类型
-date: 2019-06-16 05:57:14
+date: 2019-06-22 17:47:14
 tags: Dart
 ---
 
@@ -138,6 +138,40 @@ void main(){
   }catch(e){
     print(e.toString());
   }
+}
+```
+
+### 接口类型
+
+Dart 没有声明接口的语法，因为 Dart 类都存在隐式接口，任意一个类都可以使用 implements 关键字来实现一个接口。
+
+实现一个接口可以获得一个类的实例成员，但是并不会继承接口的实现，因此实现一个接口意味着需要同时提供所有接口的具体实现。
+
+```dart
+// A person. The implicit interface contains greet().
+class Person {
+  // In the interface, but visible only in this library.
+  final _name;
+
+  // Not in the interface, since this is a constructor.
+  Person(this._name);
+
+  // In the interface.
+  String greet(String who) => 'Hello, $who. I am $_name.';
+}
+
+// An implementation of the Person interface.
+class Impostor implements Person {
+  get _name => '';
+
+  String greet(String who) => 'Hi $who. Do you know who I am?';
+}
+
+String greetBob(Person person) => person.greet('Bob');
+
+void main() {
+  print(greetBob(Person('Kathy')));
+  print(greetBob(Impostor()));
 }
 ```
 
