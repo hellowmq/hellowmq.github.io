@@ -178,30 +178,7 @@ void main() {
 
 标识符的本身标识了一个声明，其作用就是定位相应的声明。编译器从当前作用域向外部块不断递归检索，直到栈顶。
 
-
-
-### final 与 const
-
-final 变量指的是只能进行初始化而不能进行赋值操作的变量；
-const 变量指的必须使用编译时常量进行初始化并且不能进行赋值操作的变量（因此 const 变量总是隐式地具有 final 属性）；
-
-final 变量
-
-在之前的应用中而可以知道，final 变量常见于无需赋值操作的类实例变量。这类变量没有 setter 因此，其初始化要在构造函数启动之前，因此初始化操作可以在构造函数参数或构造函数的初始化列表中。另一方面，由于延迟初始化的行为，初始化又只在第一使用才进行。
-
-const 变量
-
-如果在类的内部使用了常量变量应当在 const 之前加上 static 将其设置为静态常量变量。const 变量总是使用编译时常量进行初始化。
-
-
-编译时常量
+### 编译时常量
 
 编译时常量的严格划分比较复杂，，包括数字字面量、布尔、null、列表、map 常量、顶层函数、静态方法、常量对象和一些编译时常量地组合。总的来说是只依赖于字面量进行计算可以在编译时完全计算得到。
 
-```dart
-const constList_1 = [1]; // const List variable. 
-const constList_2 = const [2]; // const List variable. |use const redundantly
-var constList_3 = const [3]; // List variable. | but [3] is is contant.
-constList_3.add(4); // error
-constList_3 = [5]; // no error
-```
