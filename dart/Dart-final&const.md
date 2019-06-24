@@ -1,6 +1,6 @@
 ---
 title: Dart final & const
-date: 2019-05-24 17:28:46
+date: 2019-06-24 17:28:46
 tags: Dart
 ---
 
