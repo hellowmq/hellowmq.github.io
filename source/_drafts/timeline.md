@@ -19,5 +19,5 @@ tags: timeline
 2019 年 6 月 18 日：Dart 异步事件机制。
 2019 年 6 月 21 日：Dart 类型整理。
 
-
+2019年6月25日：今日根据 Flickr API 测试 Flutter。
 
