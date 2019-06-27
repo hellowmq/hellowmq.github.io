@@ -21,3 +21,7 @@ tags: timeline
 
 2019年6月25日：今日根据 Flickr API 测试 Flutter。
 
+2019年6月27日：今日根据实现 Flickr API 第二个接口，并改写工具类。
+
+ 
+
