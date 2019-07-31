@@ -162,6 +162,92 @@ void main(){
 }
 ```
 
+由于函数本身类型地特殊性，闭包在使用之时，常常由于其本身类型的模糊性而难以入手。
+使用以下这一例子能更好地帮助我们去使用闭包。
+
+
+```dart
+@proxy
+class A {
+  int number;
+  A(this.number);
+}
+
+var independentClosure = () {};
+
+void main() {
+  Function function1 = () {};
+  Function function2 = () {
+    print(function1);
+  };
+  String Function(int, int) function3 = (int a, int b) {
+    print("HelloWorld");
+    return '';
+  };
+  Function function4 = () {};
+  Function function5 = function1;
+  Function function6 = independentClosure;
+
+// The runtimeType of the Function object is differentiated based on input parameters and output parameters.
+  print(
+      "The runtimeType of the function is differentiated based on input parameters and output parameters.");
+  print(independentClosure.runtimeType);
+  print(function1.runtimeType);
+  print(function2.runtimeType);
+  print(function3.runtimeType);
+  print(function4.runtimeType);
+  print(function5.runtimeType);
+  print(function6.runtimeType);
+
+// operator == of Function object depends on whether their addresses are the same
+  print(
+      "operator == of Object object depends on whether their addresses are the same");
+  print(function1 ==
+      function4); // function1 and function4 are at different addresses.
+  print(
+      function1 == function5); // function1 and function5 are at same addresses.
+  print(independentClosure ==
+      function6); // independentClosure and function5 are still at same addresses even int the different Scope.
+
+// operator == of Object object depends on whether their addresses are the same
+  A a1 = new A(1), a2 = a1;
+  print(a1 == a2);
+  print(a1);
+  print(a2);
+
+//
+  print(function1.hashCode == function4.hashCode);
+  print(function1.toString() == function4.toString());
+
+// String Function(int,int) Limit the input parameters and return type of a closure
+  Function.apply(function3, [1, 2]);
+  try {
+    Function.apply(function3, [1]);
+  } catch (e) {
+    print(e);
+  }
+  try {
+    int a = Function.apply(function3, [1, 2]);
+  } catch (e) {
+    print(e);
+  }
+
+//  toString() of closure Depends on its Scope and the order of declaration instead of initialzation
+  print(independentClosure.toString());
+  print(function1.toString());
+  print(function2.toString());
+  print(function3.toString());
+  print(function4.toString());
+  print(function5.toString());
+  // function5 is not a real object but a pointer or reference which points to function4
+  print(function6.toString());
+  // function6 is not a real object but a pointer or reference which points to independentClosure
+
+  print(function1.runtimeType == function4.runtimeType);
+}
+```
+
+
 
 
 
