@@ -16,7 +16,7 @@ requestWindowFeature(Window.REATURE_NO_TITLE);
 Toast.makeText(FirstActivity.this, "Text", Toast.LENGTH_SHORT).show();
 ```
 
-使用 Menu 
+### 使用 Menu 
 
 ```
 Override onCreateOptionMenu(Menu menu)方法来创建菜单。
