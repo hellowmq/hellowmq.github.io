@@ -19,6 +19,3 @@ tags: git
 4. git fetch 拉取最新的代码，并且解决 Conflict;
 
 5. git commit -m "solve Abandoned problem" && git push  提交并推至 Gerrit 
-
-
-
