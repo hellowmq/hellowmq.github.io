@@ -1,7 +1,7 @@
 ---
 title: 解决 Fluuter No toolchains found in the NDK toolchains folder for ABI with prefix： mips64el-linux-android 问题
 date: 2019-07-28 16:50:35
-tags: [flutter,dart]
+tags: [flutter,Dart]
 ---
 
 ### 解决 Flutter No toolchains found in the NDK toolchains folder for ABI with prefix: mips64el-linux-android 问题
