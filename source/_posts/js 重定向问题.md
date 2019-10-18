@@ -8,7 +8,7 @@ tags: JavaScript
 
 处理 TWebCollectDetailsAvtivity 跳转 www.shejiben.com 时，会出现重定向的干扰，这里分析一下这个问题。
 
-
+<!--more-->
 ### HTTP 重定向
 
 > 场景：直接在移动 webView 中访问 www.shejiben.com
