@@ -1,9 +1,9 @@
 ---
 title: git 笔记
-date: 2019-08-19 20:49:00
+date: 2019-10-15 21:40:43
 tags: git
 ---
- 
+
 
 
 ### git 使用规范
@@ -31,8 +31,9 @@ git commit -m "[ADD/EDIT/DELETE/REFACTOR/FIX] 2019-10-11 14:40:48 Add kotlin sup
 git pull 的操作对象是工作区（workspace），会将远程代码的改动直接影响到工作区；
 git fetch 的操作对象是本地仓库（local repository），只是将远程代码更新到本地仓库；
 
-换言之，使用 git fetch 相比之下要安全得多，尤其团队当中使用使用 Code Review 的时候，定期同步本地仓库而不更改工作区的内容是十分必要的，
- 
+换言之，使用 git fetch 相比之下要安全得多，尤其团队当中使用使用 Code Review 的时候，定期同步本地仓库而不更改工作区的内容是十分必要的。
+
+
 
 
 
