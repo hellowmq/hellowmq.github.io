@@ -80,3 +80,11 @@ Content-Length: 485
 
 > 使用 window.location.href 是常见的跳转逻辑的实现；这种方式的问题在于，当前页面作为一个中间页面被存在了浏览记录中。由此会导致自动执行 window.location.href 的页面又会重新跳转至目标页面。
 
+
+
+
+
+
+
+
+
