@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wenmq.cn">
-  <title>git 笔记 | 文茂权</title>
+  <title>什么是 URL | 文茂权</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git 使用规范">
-<meta name="keywords" content="git">
+  <meta name="description" content="URLURL（Uniform Resource Locator，统一资源定位符）访问网页时需要输入的网页地址，表示资源的地点。URL的作用是指向一个特定的互联网资源">
+<meta name="keywords" content="http">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 笔记">
-<meta property="og:url" content="https://wenmq.cn/2019/10/15/git 笔记/index.html">
+<meta property="og:title" content="什么是 URL">
+<meta property="og:url" content="https://wenmq.cn/2020/03/29/HTTP-what_is_a_URL/index.html">
 <meta property="og:site_name" content="文茂权">
-<meta property="og:description" content="git 使用规范">
+<meta property="og:description" content="URLURL（Uniform Resource Locator，统一资源定位符）访问网页时需要输入的网页地址，表示资源的地点。URL的作用是指向一个特定的互联网资源">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-15T21:05:07.243Z">
+<meta property="og:updated_time" content="2020-03-28T23:16:23.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 笔记">
-<meta name="twitter:description" content="git 使用规范">
+<meta name="twitter:title" content="什么是 URL">
+<meta name="twitter:description" content="URLURL（Uniform Resource Locator，统一资源定位符）访问网页时需要输入的网页地址，表示资源的地点。URL的作用是指向一个特定的互联网资源">
   
     <link rel="alternative" href="/atom.xml" title="文茂权" type="application/atom+xml">
   
@@ -157,61 +157,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git 笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-HTTP-what_is_a_URL" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      git 笔记
+      什么是 URL
     </h1>
   
 
         
-        <a href="/2019/10/15/git 笔记/" class="archive-article-date">
-  	<time datetime="2019-10-15T13:40:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
+        <a href="/2020/03/29/HTTP-what_is_a_URL/" class="archive-article-date">
+  	<time datetime="2020-03-28T22:43:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="git-使用规范"><a href="#git-使用规范" class="headerlink" title="git 使用规范"></a>git 使用规范</h3><a id="more"></a>
+        <h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><p>URL（Uniform Resource Locator，统一资源定位符）访问网页时需要输入的网页地址，表示资源的地点。URL的作用是指向一个特定的互联网资源</p>
+<a id="more"></a>
 
-<ol>
-<li><strong><em>请务必在提交信息中提供有价值的内容</em></strong></li>
-</ol>
-<p>git commit 的提交信息应当传达代码修改的目的。一方面应当传达修改的模块和范围，另一方面也可以简要描述编码思路以通过 Code Review。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;[ADD/EDIT/DELETE/REFACTOR/FIX] 2019-10-11 14:40:48 Add kotlin support to this project. / Refactor a algorithm. &quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.example.com:80/path/to/myfile.html?key1=value1&amp;key2=value2#SomewhereInTheDocument</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>尽可能使用英文来进行你的每一次提交</li>
-</ol>
-<p>尽管个人的英文水平不同，但是有一点要注意的是，Github 是一个全球的社区，每个人的代码都有机会被不同语言的使用者看见，做好 in8n 是程序员的本分工作。</p>
-<ol start="3">
-<li>对于需要修复 bug 的情况，应当把相应的 bugId 进行传递</li>
-</ol>
-<p>这将会便于项目对于 bug 的跟踪。特别地一个 bug 被重新打开时，也许就是对指定 bugId 下代码进行重构的时候了。</p>
-<ol start="4">
-<li>区分 git pull 跟 git push 的区别。</li>
-</ol>
-<p>git pull 的操作对象是工作区（workspace），会将远程代码的改动直接影响到工作区；<br>git fetch 的操作对象是本地仓库（local repository），只是将远程代码更新到本地仓库；</p>
-<p>换言之，使用 git fetch 相比之下要安全得多，尤其团队当中使用使用 Code Review 的时候，定期同步本地仓库而不更改工作区的内容是十分必要的，</p>
-<h3 id="急救措施，"><a href="#急救措施，" class="headerlink" title="急救措施，"></a>急救措施，</h3><p>之前使用 Gerrit 时出现过代码被 Abandoned 之后导致代码无法提交到 Gerrit 服务器的情况。</p>
-<p>自救方案：</p>
-<ol>
-<li><p><strong>（非常重要）使用 git stash ，将当前所有代码保存到暂存区。</strong></p>
-</li>
-<li><p>确认被 Abandoned 的 Commit 的时间和 commit Id;</p>
-</li>
-<li><p>Checkout 到某一次 commit （在 Abandoned 之前）;</p>
-</li>
-<li><p>git fetch 拉取最新的代码，并且解决 Conflict;</p>
-</li>
-<li><p>git commit -m “solve Abandoned problem” &amp;&amp; git push  提交并推至 Gerrit </p>
-</li>
-</ol>
+<p>URI 格式依次由：协议方案(scheme，常见的有http,https,ftp,mailto)、登陆信息、服务器地址(常见为域名或者IP地址)、服务器端口号（http协议默认是80端口）、带层次的文件路径（path）、查询字符串（query）和片段标识符构成。</p>
+<ul>
+<li>“http://“是超文本传输协议，这里指明浏览器应当使用的协议。常用的还有 mailto:（打开邮件客户端）和 ftp:（文件传输协议）</li>
+<li>“<a href="http://www.example.com&quot;" target="_blank" rel="noopener">www.example.com&quot;</a> 是域名，标识一台服务器。在知道ip地址时这里也可以替换为IP地址（不方便也不常用）。</li>
+<li>“:80”是端口。特别的 HTTP 协议的默认端口为 80，HTTPS 的默认端口为 443。</li>
+<li>“/path/to/myfile.html” 是资源的路径。既可以是实体路径（存在这个文件）也可以是抽象路径（不存在实际文件，但服务器会提供一种回应方式）。</li>
+<li>“?key1=value1&amp;key2=value2”是用于告知服务器的额外参数，使用 &amp; 间隔凭借的键值对。</li>
+<li>“#SomewhereInTheDocument”锚点参数，告知当前页面的参数。如跳转到指定的标签。</li>
+</ul>
 
       
 
@@ -225,7 +204,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
         		</li>
       		
 		</ul>
@@ -281,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://wenmq.cn/2019/10/15/git 笔记/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://wenmq.cn/2020/03/29/HTTP-what_is_a_URL/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,18 +274,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/18/js 重定向问题/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/29/Chrome-quick-search/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          js 重定向问题
+          Chrome 快捷搜索
         
       </div>
     </a>
   
   
-    <a href="/2019/10/11/Dart-库管理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Dart 库</div>
+    <a href="/2020/03/13/Dart-tear-offs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Dart tear-offs</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -440,7 +419,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">dart</a>
+                <a href="javascript:void(0)" class="js-tag color4">timeline</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -448,7 +427,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">timeline</a>
+                <a href="javascript:void(0)" class="js-tag color5">dart</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,6 +443,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">flutter</a>
               </li>
              
@@ -468,15 +455,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Firebase</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
             
             <div class="clearfix"></div>

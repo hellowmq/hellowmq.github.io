@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wenmq.cn">
-  <title>js 重定向问题 | 文茂权</title>
+  <title>Chrome 快捷搜索 | 文茂权</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="重定向问题处理 TWebCollectDetailsAvtivity 跳转 www.shejiben.com 时，会出现重定向的干扰，这里分析一下这个问题。">
-<meta name="keywords" content="JavaScript">
+  <meta name="description" content="Chrome 快捷搜索Chrome 内核的浏览器是目前市场份额最大的浏览器，本文推荐一个 Chrome 浏览器的强大功能。">
+<meta name="keywords" content="工具,Chrome">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js 重定向问题">
-<meta property="og:url" content="https://wenmq.cn/2019/10/18/js 重定向问题/index.html">
+<meta property="og:title" content="Chrome 快捷搜索">
+<meta property="og:url" content="https://wenmq.cn/2020/03/29/Chrome-quick-search/index.html">
 <meta property="og:site_name" content="文茂权">
-<meta property="og:description" content="重定向问题处理 TWebCollectDetailsAvtivity 跳转 www.shejiben.com 时，会出现重定向的干扰，这里分析一下这个问题。">
+<meta property="og:description" content="Chrome 快捷搜索Chrome 内核的浏览器是目前市场份额最大的浏览器，本文推荐一个 Chrome 浏览器的强大功能。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-15T21:05:07.243Z">
+<meta property="og:updated_time" content="2020-03-28T23:16:11.836Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js 重定向问题">
-<meta name="twitter:description" content="重定向问题处理 TWebCollectDetailsAvtivity 跳转 www.shejiben.com 时，会出现重定向的干扰，这里分析一下这个问题。">
+<meta name="twitter:title" content="Chrome 快捷搜索">
+<meta name="twitter:description" content="Chrome 快捷搜索Chrome 内核的浏览器是目前市场份额最大的浏览器，本文推荐一个 Chrome 浏览器的强大功能。">
   
     <link rel="alternative" href="/atom.xml" title="文茂权" type="application/atom+xml">
   
@@ -157,45 +157,57 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js 重定向问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Chrome-quick-search" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js 重定向问题
+      Chrome 快捷搜索
     </h1>
   
 
         
-        <a href="/2019/10/18/js 重定向问题/" class="archive-article-date">
-  	<time datetime="2019-10-18T05:42:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
+        <a href="/2020/03/29/Chrome-quick-search/" class="archive-article-date">
+  	<time datetime="2020-03-28T23:16:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="重定向问题"><a href="#重定向问题" class="headerlink" title="重定向问题"></a>重定向问题</h2><p>处理 TWebCollectDetailsAvtivity 跳转 <a href="http://www.shejiben.com" target="_blank" rel="noopener">www.shejiben.com</a> 时，会出现重定向的干扰，这里分析一下这个问题。</p>
+        <h3 id="Chrome-快捷搜索"><a href="#Chrome-快捷搜索" class="headerlink" title="Chrome 快捷搜索"></a>Chrome 快捷搜索</h3><p>Chrome 内核的浏览器是目前市场份额最大的浏览器，本文推荐一个 Chrome 浏览器的强大功能。</p>
+<!--分割线-->
+
 <a id="more"></a>
-<h3 id="HTTP-重定向"><a href="#HTTP-重定向" class="headerlink" title="HTTP 重定向"></a>HTTP 重定向</h3><blockquote>
-<p>场景：直接在移动 webView 中访问 <a href="http://www.shejiben.com" target="_blank" rel="noopener">www.shejiben.com</a></p>
-</blockquote>
-<blockquote>
-<p>结果：服务器返回 302 状态码，页面定向到 Location 指定链接</p>
-</blockquote>
-<p>Http 返回的情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 302 Found</span><br><span class="line">Server: openresty/1.13.6.2</span><br><span class="line">Date: Fri, 18 Oct 2019 03:33:01 GMT</span><br><span class="line">Content-Type: text/html; charset=UTF-8</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Connection: keep-alive</span><br><span class="line">X-Powered-By: PHP/7.1.7</span><br><span class="line">Location: https://m.shejiben.com/?channel=to8to123&amp;appversion=7.12.0&amp;systemversion=28&amp;appid=15&amp;version=2.5&amp;appostype=1&amp;appversioncode=17120&amp;cityName=%E6%B7%B1%E5%9C%B3&amp;first_id=97822deafdae9f38fdd5ed2ab0e135b8&amp;isnew=0&amp;cityid=1130&amp;imei=866370030115364&amp;t8t_device_id=866370030115364&amp;pro_sourceid=104&amp;pro_s_sourceid=101&amp;apkPackageName=com.to8to.housekeeper&amp;deviceModel=BND-AL10-BND-AL10&amp;cityId=1130</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line"></span><br><span class="line">0</span><br></pre></td></tr></table></figure>
 
-<h3 id="JavaScript-重定向"><a href="#JavaScript-重定向" class="headerlink" title="JavaScript 重定向"></a>JavaScript 重定向</h3><h3 id="window-location-href"><a href="#window-location-href" class="headerlink" title="window.location.href = ;"></a>window.location.href = ;</h3><p>通过直接改变页面当中 window.location.href 实现跳转</p>
-<blockquote>
-<p>场景通过土巴兔 APP 打开 链接 <a href="http://www.shejiben.com，自动重定向至" target="_blank" rel="noopener">www.shejiben.com，自动重定向至</a> m.shejiben.com</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: openresty/1.13.6.2</span><br><span class="line">Date: Fri, 18 Oct 2019 03:33:08 GMT</span><br><span class="line">Content-Type: text/html; charset=UTF-8</span><br><span class="line">Connection: keep-alive</span><br><span class="line">X-Powered-By: PHP/7.1.7</span><br><span class="line">Set-Cookie: to8to_auth=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_la=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_nick=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_uid=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_ind=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_styleid=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_referer=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_username=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_tbdl_login=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_to8to_tbdl_login=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_app_source=1; expires=Fri, 18-Oct-2019 04:03:08 GMT; Max-Age=1800; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_appversion=7.12.0; expires=Sat, 19-Oct-2019 03:33:08 GMT; Max-Age=86400; path=/; domain=shejiben.com</span><br><span class="line">Set-Cookie: to8to_appostype=1; expires=Sat, 19-Oct-2019 03:33:08 GMT; Max-Age=86400; path=/; domain=shejiben.com</span><br><span class="line">Cache-Control: no-cache,must-revalidate</span><br><span class="line">Pragma: no-cache</span><br><span class="line">Expires: 0</span><br><span class="line">Content-Length: 485</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    window.location.href=&apos;https://m.shejiben.com/?app_source=1&amp;time=1571369588&amp;channel=to8to123&amp;appversion=7.12.0&amp;systemversion=28&amp;appid=15&amp;version=2.5&amp;appostype=1&amp;appversioncode=17120&amp;cityName=%E6%B7%B1%E5%9C%B3&amp;first_id=97822deafdae9f38fdd5ed2ab0e135b8&amp;isnew=0&amp;cityid=1130&amp;imei=866370030115364&amp;t8t_device_id=866370030115364&amp;pro_sourceid=104&amp;pro_s_sourceid=101&amp;apkPackageName=com.to8to.housekeeper&amp;deviceModel=BND-AL10-BND-AL10&amp;cityId=1130&apos;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="window-location-replace"><a href="#window-location-replace" class="headerlink" title="window.location.replace = ;"></a>window.location.replace = ;</h3><blockquote>
-<p>使用 window.location.href 是常见的跳转逻辑的实现；这种方式的问题在于，当前页面作为一个中间页面被存在了浏览记录中。由此会导致自动执行 window.location.href 的页面又会重新跳转至目标页面。</p>
+<h3 id="使用-Chrome-浏览器快捷搜索功能"><a href="#使用-Chrome-浏览器快捷搜索功能" class="headerlink" title="使用 Chrome 浏览器快捷搜索功能"></a>使用 Chrome 浏览器快捷搜索功能</h3><ol>
+<li>打开 Chrome 浏览器，搜索引擎标签</li>
+<li>选择管理搜索引擎，定位到其他搜索引擎</li>
+<li>选择添加搜索引擎</li>
+<li>搜索引擎一栏中填写 “百度翻译英译中”（可以自己定义，用于标志搜索类型）</li>
+<li>关键字一栏中，根据个人习惯填写一个触发搜索的关键字，这里暂时使用：“baidutran“</li>
+<li>网址格式一栏填写这个链接 <a href="https://fanyi.baidu.com/translate#en/zh/%s" target="_blank" rel="noopener">https://fanyi.baidu.com/translate#en/zh/%s</a></li>
+<li>完成添加后再地址栏输入“baidutran”，并按下 Tab 键</li>
+<li>键入需要翻译的内容并回车，可以直接使用百度翻译进行翻译指定内容。</li>
+</ol>
+<blockquote>
+<p>同理这个方法也可以用来，通过指定搜索引擎进行搜索，或者指定关键字的查询。</p>
+</blockquote>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>浏览器做了那些事，在用户输入地址时，对关键字词库进行一次匹配。当用户指定搜索引擎进行搜索时，将对应文本替换到预设的“%s”中，然后进行访问。</p>
+<h3 id="功能特征"><a href="#功能特征" class="headerlink" title="功能特征"></a>功能特征</h3><p>使用频次:显然只有经常使用搜索方式,才有必要使用这一工具.</p>
+<blockquote>
+<p>值得一提的是,大部分搜索操作都会被浏览器智能识别。比如访问过京东，那么就可以通过输入域名来匹配相应的搜索。</p>
+</blockquote>
+<p>需求场景:这个功能并非局限于搜索引擎,只要涉及搜索这个操作都可以使用。</p>
+<blockquote>
+<p>输入“jd.com”按下 Tab 键，就可以在京东上搜索特定的关键字了</p>
+</blockquote>
+<p>URL 替换：Chrome 浏览器做的事其实是 URL 替换，然而这里替换的可以是url的任何部分。</p>
+<blockquote>
+<p>考虑到这里替换的是 URL 的任何部分，一个最直接的方式就是用%s替换无用的锚点参数（#%s）实现书签以外的快捷跳转。</p>
 </blockquote>
 
       
@@ -210,7 +222,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Chrome</a>
         		</li>
       		
 		</ul>
@@ -266,7 +282,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://wenmq.cn/2019/10/18/js 重定向问题/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://wenmq.cn/2020/03/29/Chrome-quick-search/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,18 +296,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/13/Dart-tear-offs/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Dart tear-offs
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/15/git 笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git 笔记</div>
+    <a href="/2020/03/29/HTTP-what_is_a_URL/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">什么是 URL</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -425,7 +432,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">dart</a>
+                <a href="javascript:void(0)" class="js-tag color4">timeline</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -433,7 +440,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">timeline</a>
+                <a href="javascript:void(0)" class="js-tag color5">dart</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -445,6 +456,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">flutter</a>
               </li>
              
@@ -453,15 +468,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Firebase</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
             
             <div class="clearfix"></div>
