@@ -8,6 +8,9 @@ tags: git
 
 ### git 使用规范
 
+
+<!--more-->
+
 1. ***请务必在提交信息中提供有价值的内容***
 
 git commit 的提交信息应当传达代码修改的目的。一方面应当传达修改的模块和范围，另一方面也可以简要描述编码思路以通过 Code Review。
@@ -31,8 +34,7 @@ git commit -m "[ADD/EDIT/DELETE/REFACTOR/FIX] 2019-10-11 14:40:48 Add kotlin sup
 git pull 的操作对象是工作区（workspace），会将远程代码的改动直接影响到工作区；
 git fetch 的操作对象是本地仓库（local repository），只是将远程代码更新到本地仓库；
 
-换言之，使用 git fetch 相比之下要安全得多，尤其团队当中使用使用 Code Review 的时候，定期同步本地仓库而不更改工作区的内容是十分必要的。
-
+换言之，使用 git fetch 相比之下要安全得多，尤其团队当中使用使用 Code Review 的时候，定期同步本地仓库而不更改工作区的内容是十分必要的，
 
 
 
