@@ -1,7 +1,7 @@
 ---
 title: 在 Android studio 中运行 Java
 date: 2020-04-22 20:06:35
-tags: java android 
+tags: [java, android] 
 ---
 
 ### 在 Android studio 中运行 Java

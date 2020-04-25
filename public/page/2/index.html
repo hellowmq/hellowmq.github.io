@@ -158,6 +158,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Dart-泛型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/21/Dart-泛型/">Dart-泛型</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/21/Dart-泛型/" class="archive-article-date">
+  	<time datetime="2019-06-20T16:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Dart-泛型（Generics）"><a href="#Dart-泛型（Generics）" class="headerlink" title="Dart 泛型（Generics）"></a>Dart 泛型（Generics）</h3><p>泛型指的是参数化类型，把类型像参数一样传递。泛型的好处是可以使得类和方法的定义不依赖于具体的类型。List 容器就是一个基于泛型实现的泛型类，其类型为 List<e>。</e></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">EfficientLengthIterable</span>&lt;<span class="title">E</span>&gt;</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>泛型有两个显然的好处：</p>
+<ul>
+<li>对于需要接受特定类型的情况，泛型能控制参数传递的类型合法性；</li>
+<li>对于逻辑上耦合的代码，使用泛型能大大减少重复的代码</li>
+</ul>
+<blockquote>
+<p>对于 Dart 而言，不存在函数的重载机制，但是很多时候能用泛型参数来解决问题。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2019/06/21/Dart-泛型/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Dart</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/21/Dart-泛型/">查看全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="drafts-Dart-控制流语句" class="article article-type-drafts  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -885,85 +971,6 @@
 
 
   
-    <article id="post-Dart-初始化延迟" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/10/Dart-初始化延迟/">Dart-Lazy-Initialization</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/10/Dart-初始化延迟/" class="archive-article-date">
-  	<time datetime="2019-05-09T20:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Dart-语言中类变量的延迟初始化"><a href="#Dart-语言中类变量的延迟初始化" class="headerlink" title="Dart 语言中类变量的延迟初始化"></a>Dart 语言中类变量的延迟初始化</h3><blockquote>
-<p>类变量存在延迟初始化行为，只有第一次调用时，类变量才执行初始化，即第一次尝试读取它时。</p>
-</blockquote>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类变量存在延迟初始化行为，只有第一次调用时，类变量才执行初始化，即第一次尝试读取它时。</span></span><br><span class="line"><span class="comment">// Class variables are initialized lazily; the initializer of a class variable is executed the first time its getter is invoked—that is, the first time one attempts to read the variable.</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  Animal() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Start Lazy Initialization"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">Animal animal = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line"><span class="comment">//   animal; // This statement will call the initializer;</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"Before Initialization"</span>);</span><br><span class="line">  animal;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"After Initialization"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://dartpad.dartlang.org/eab8a6fdc4b5f34008fa5d07f20f3f28" target="_blank" rel="noopener">在 DartPad 运行此代码</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Dart</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/10/Dart-初始化延迟/">查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1053,11 +1060,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">flickr</a>
+                <a href="javascript:void(0)" class="js-tag color5">Dart</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">api</a>
+                <a href="javascript:void(0)" class="js-tag color5">dart</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1066,18 +1073,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">timeline</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Dart</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">dart</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1093,7 +1088,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1105,7 +1104,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Firebase</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">flickr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">api</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">timeline</a>
               </li>
             
             <div class="clearfix"></div>

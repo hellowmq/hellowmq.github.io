@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://wenmq.cn">
-  <title>文茂权</title>
+  <title>在 Android studio 中运行 Java | 文茂权</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以笔记作为知识储备">
-<meta name="keywords" content="coder">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文茂权">
-<meta property="og:url" content="https://wenmq.cn/page/3/index.html">
+  <meta name="description" content="在 Android studio 中运行 Java作为 Android 开发者，尽管很多时候对于 Java 比较熟悉，但是也免不了要独立测试一些纯 Java 的代码。然而对于默认的运行方式 APP，Android Studio 会执行相应的打包程序，因此对于短暂测试而言效率实在不高。">
+<meta name="keywords" content="java,android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Android studio 中运行 Java">
+<meta property="og:url" content="https://wenmq.cn/2020/04/22/Solution-UseJavaInAndroid/index.html">
 <meta property="og:site_name" content="文茂权">
-<meta property="og:description" content="以笔记作为知识储备">
+<meta property="og:description" content="在 Android studio 中运行 Java作为 Android 开发者，尽管很多时候对于 Java 比较熟悉，但是也免不了要独立测试一些纯 Java 的代码。然而对于默认的运行方式 APP，Android Studio 会执行相应的打包程序，因此对于短暂测试而言效率实在不高。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-04-25T17:08:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文茂权">
-<meta name="twitter:description" content="以笔记作为知识储备">
+<meta name="twitter:title" content="在 Android studio 中运行 Java">
+<meta name="twitter:description" content="在 Android studio 中运行 Java作为 Android 开发者，尽管很多时候对于 Java 比较熟悉，但是也免不了要独立测试一些纯 Java 的代码。然而对于默认的运行方式 APP，Android Studio 会执行相应的打包程序，因此对于短暂测试而言效率实在不高。">
   
     <link rel="alternative" href="/atom.xml" title="文茂权" type="application/atom+xml">
   
@@ -156,433 +157,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Dart-初始化延迟" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Solution-UseJavaInAndroid" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/10/Dart-初始化延迟/">Dart-Lazy-Initialization</a>
+    <h1 class="article-title" itemprop="name">
+      在 Android studio 中运行 Java
     </h1>
   
 
         
-        <a href="/2019/05/10/Dart-初始化延迟/" class="archive-article-date">
-  	<time datetime="2019-05-09T20:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-10</time>
+        <a href="/2020/04/22/Solution-UseJavaInAndroid/" class="archive-article-date">
+  	<time datetime="2020-04-22T12:06:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Dart-语言中类变量的延迟初始化"><a href="#Dart-语言中类变量的延迟初始化" class="headerlink" title="Dart 语言中类变量的延迟初始化"></a>Dart 语言中类变量的延迟初始化</h3><blockquote>
-<p>类变量存在延迟初始化行为，只有第一次调用时，类变量才执行初始化，即第一次尝试读取它时。</p>
-</blockquote>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 类变量存在延迟初始化行为，只有第一次调用时，类变量才执行初始化，即第一次尝试读取它时。</span></span><br><span class="line"><span class="comment">// Class variables are initialized lazily; the initializer of a class variable is executed the first time its getter is invoked—that is, the first time one attempts to read the variable.</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  Animal() &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Start Lazy Initialization"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">Animal animal = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main() &#123;</span><br><span class="line"><span class="comment">//   animal; // This statement will call the initializer;</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"Before Initialization"</span>);</span><br><span class="line">  animal;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"After Initialization"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="在-Android-studio-中运行-Java"><a href="#在-Android-studio-中运行-Java" class="headerlink" title="在 Android studio 中运行 Java"></a>在 Android studio 中运行 Java</h3><p>作为 Android 开发者，尽管很多时候对于 Java 比较熟悉，但是也免不了要独立测试一些纯 Java 的代码。然而对于默认的运行方式 APP，Android Studio 会执行相应的打包程序，因此对于短暂测试而言效率实在不高。</p>
+<!--分割线-->
 
-<p><a href="https://dartpad.dartlang.org/eab8a6fdc4b5f34008fa5d07f20f3f28" target="_blank" rel="noopener">在 DartPad 运行此代码</a></p>
+<a id="more"></a>
 
-      
+<h3 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h3><p>独立运行的 Java 类中需要具有静态 main 方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       System.out.println(<span class="string">"ok"</span>);</span><br><span class="line">   &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Dart</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/10/Dart-初始化延迟/">查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-初识-Firebase" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/24/初识-Firebase/">初识 Firebase</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/24/初识-Firebase/" class="archive-article-date">
-  	<time datetime="2018-10-24T12:53:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="初次使用-Firebase"><a href="#初次使用-Firebase" class="headerlink" title="初次使用 Firebase"></a>初次使用 Firebase</h2><h3 id="Firebase-是什么"><a href="#Firebase-是什么" class="headerlink" title="Firebase 是什么"></a>Firebase 是什么</h3><blockquote>
-<p>Firebase 是 Google Cloud Platform 为开发者设计，提供各种工具，解决基础架构的问题。Firebase 提供基础性工作和工具，从而允许开发者专注于开发优质应用和扩大用户群。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/10/24/初识-Firebase/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Firebase</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/24/初识-Firebase/">查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HTTP-学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/04/HTTP-学习笔记/">HTTP学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/05/04/HTTP-学习笔记/" class="archive-article-date">
-  	<time datetime="2018-05-04T03:40:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Web-页面的实现"><a href="#Web-页面的实现" class="headerlink" title="Web 页面的实现"></a>Web 页面的实现</h3><h5 id="Web-基于-HTTP-协议通信"><a href="#Web-基于-HTTP-协议通信" class="headerlink" title="Web 基于 HTTP 协议通信"></a>Web 基于 HTTP 协议通信</h5><blockquote>
-<p>客户端（Client）的 Web 浏览器从 Web 服务器端获取文件资源等信息 。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/05/04/HTTP-学习笔记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTTP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/04/HTTP-学习笔记/">查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MATLAB-绘图（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/13/MATLAB-绘图（二）/">MATLAB 绘图（二）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/13/MATLAB-绘图（二）/" class="archive-article-date">
-  	<time datetime="2018-04-12T21:00:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>本次的内容涉及到除了线图以外的绘图，包括离散绘图、极坐标绘图、曲面绘图和统计绘图。</p>
-<ul>
-<li>离散绘图：茎干图、阶梯图和散点图</li>
-<li>极坐标绘图：polar前缀</li>
-<li>曲面绘图：surf 曲面图和 mesh 网格图</li>
-<li>统计绘图：条形图、统计直方图和饼状图</li>
+<h3 id="两种方法"><a href="#两种方法" class="headerlink" title="两种方法"></a>两种方法</h3><h4 id="方法一：直接依赖-Android-Studio-运行-java-文件"><a href="#方法一：直接依赖-Android-Studio-运行-java-文件" class="headerlink" title="方法一：直接依赖 Android Studio 运行 java 文件"></a>方法一：直接依赖 Android Studio 运行 java 文件</h4><ul>
+<li>右键单击类文件，选择 Run ‘MainClass.main()’ 运行。</li>
+<li>点击类或者 main 方法行号后的绿三角，选择 Run ‘MainClass.main()’ 运行。</li>
 </ul>
-        
-          <a class="article-more-a" href="/2018/04/13/MATLAB-绘图（二）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/13/MATLAB-绘图（二）/">查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MATLAB-绘图（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/03/MATLAB-绘图（一）/">MATLAB 绘图（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/03/MATLAB-绘图（一）/" class="archive-article-date">
-  	<time datetime="2018-04-03T01:07:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>MATLAB 经常用于科学研究中的科学计算，因此 MATLAB 也支持完善的绘图功能，本次主要介绍 MATLAB 中的曲线图的绘制。尽管 MATLAB 中的绘图可以用鼠标交互式操作在本次内容中也会开始使用一些相应的绘图函数。本章的内容可以用于绘制论文中一些相关的图。</p>
-        
-          <a class="article-more-a" href="/2018/04/03/MATLAB-绘图（一）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/03/MATLAB-绘图（一）/">查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MATLAB-函数（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/18/MATLAB-函数（二）/">MATLAB 函数（二）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/18/MATLAB-函数（二）/" class="archive-article-date">
-  	<time datetime="2018-03-18T11:59:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
-<p>尽可能趁有空更一次的 MATLAB 笔记。</p>
+<h4 id="方法二：创建-Java-module"><a href="#方法二：创建-Java-module" class="headerlink" title="方法二：创建 Java module"></a>方法二：创建 Java module</h4><p>方法一比较直接，但是对于原本的项目有侵入性。处于这个情况，可以通过修改启动方式将测试代码分离。</p>
+<ol>
+<li>新建 Java Library </li>
+<li>选择运行的 Edit Configurations </li>
+<li>新建模板类型为 Application 的运行方式</li>
+<li>修改 Use class of module 为新建的 Module</li>
+<li>修改 Main Class 为指定的类。</li>
+</ol>
+<blockquote>
+<p>该方法相对而言将测试代码独立于原有项目，并且同样可以独立运行指定的类，相比于方法一而言自然优雅了许多</p>
 </blockquote>
-<p>这次内容讲讲 MATALB 中的函数的高级部分。</p>
-<ul>
-<li>MATLAB 函数的原理：使用函数的好处在于简化了代码同时增加了代码的可读性。但是在使用函数的时候可能会有一些有偏差的理解，因此需要从机器的尺度上取解释 MATLAB 函数的原理。</li>
-<li>MATLAB 可选参数：同一个可能要求不同的使用方法，如果逐一编写单独的函数实现不仅浪费而且难以使用，因此调用函数的使用要能够自适应不同的输入参数和输出参数。</li>
-<li>MATLAB 函数的其他类型：MATLAB 官方定义 MATLAB 函数有四种其他类型：匿名函数、局部函数、嵌套函数和私有函数。（私以为前两种可能更常用）</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/03/18/MATLAB-函数（二）/#more">more >></a>
-        
+
       
 
       
@@ -595,7 +213,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
         		</li>
       		
 		</ul>
@@ -604,16 +226,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/18/MATLAB-函数（二）/">查看全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://wenmq.cn/2020/04/22/Solution-UseJavaInAndroid/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/29/Chrome-quick-search/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Chrome 快捷搜索</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -633,333 +314,14 @@
 
 
 
-
-  
-    <article id="post-MATLAB-函数（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/15/MATLAB-函数（一）/">MATLAB 函数（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/15/MATLAB-函数（一）/" class="archive-article-date">
-  	<time datetime="2018-03-14T20:24:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><blockquote>
-<p>过了很久才更一次的 MATLAB 笔记。</p>
-</blockquote>
-<p>这次主要讲讲 MATALB 中的函数的基础部分。函数就是有封装的特定功能的代码实现，说白了就是一段可以实现自定义功能的代码。使用函数的好处在于简化了代码同时增加了代码的可读性。</p>
-        
-          <a class="article-more-a" href="/2018/03/15/MATLAB-函数（一）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/15/MATLAB-函数（一）/">查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MATLAB-语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/06/MATLAB-语法/">MATLAB 语法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/06/MATLAB-语法/" class="archive-article-date">
-  	<time datetime="2018-03-05T19:46:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><p>上次内容，我们介绍了 MATLAB 中逻辑类型（logical）的变量，这种变量只有两种值： true 和 false。本次介绍的内容是 MATLAB 的一些语法结构包括我们最常用的条件结构和循环结构。条件结构是根据程序的执行结果选择应当执行的命令。循环结构是根据程序重复执行一系列语句的结构。两种结构都是程序结构的基础内容。从这一章开始，所有问题都可以得到理论上的解决了。</p>
-        
-          <a class="article-more-a" href="/2018/03/06/MATLAB-语法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/06/MATLAB-语法/">查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MATLAB-逻辑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/05/MATLAB-逻辑/">MATLAB 逻辑</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/05/MATLAB-逻辑/" class="archive-article-date">
-  	<time datetime="2018-03-04T19:46:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><p>上一节的内容中，我们介绍了索引的使用方法。索引的目的是为了取出矩阵中的一部分元素，因此我们知道通过元素在矩阵中的位置我们可以实现索引。在本节中，我们将介绍 MATLAB 中的逻辑变量以及通过逻辑变量索引的方法。</p>
-        
-          <a class="article-more-a" href="/2018/03/05/MATLAB-逻辑/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/05/MATLAB-逻辑/">查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MATLAB-矩阵（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/04/MATLAB-矩阵（二）/">MATLAB 矩阵（二）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/04/MATLAB-矩阵（二）/" class="archive-article-date">
-  	<time datetime="2018-03-03T19:46:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h3><p>本次的内容有点多，划一下重点：</p>
-<ul>
-<li><p>size 函数：创建矩阵和确定循环结构的循环次数</p>
-</li>
-<li><p>reshape 函数：重新排列矩阵</p>
-</li>
-<li><p>sort 函数：内置的 sort 函数比自己编写的排序更高效</p>
-</li>
-<li><p>[] 中括号运算符：串联矩阵最重要的步骤</p>
-</li>
-<li><p>repmat 函数：重复矩阵的拼接</p>
-</li>
-<li><p>索引：功能强大，针对性的选取数组元素</p>
-        
-          <a class="article-more-a" href="/2018/03/04/MATLAB-矩阵（二）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MATLAB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/04/MATLAB-矩阵（二）/">查看全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -982,8 +344,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
