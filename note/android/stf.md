@@ -18,8 +18,16 @@ rethink
 
 
 ``` Terminal 2
+nvm install v8.14.1
 nvm use v8.14.1
 stf local
+```
+
+### 若 stf local 命令找不到
+
+使用 cnpm 安装对应文件，再执行 Terminal 2 相关。
+```shell
+sudo cnpm install -g stf
 ```
 
 
