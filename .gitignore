@@ -2,3 +2,5 @@
  /node_modules/
  /.deploy_git/ 
 /themes/yilia/ 
+.deploy_git/ 
+themes/yilia/ 
