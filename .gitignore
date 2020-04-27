@@ -1,6 +1,7 @@
 /.idea/
- /node_modules/
- /.deploy_git/ 
+/node_modules/
+/.deploy_git/ 
 /themes/yilia/ 
+.idea/
 .deploy_git/ 
 themes/yilia/ 

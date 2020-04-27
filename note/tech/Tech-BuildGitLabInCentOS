@@ -41,7 +41,7 @@ systemctl start sshd
 
 #### 配置防火墙 
 
-1. 增加配置项 
+1. 增加配置项 hexo 
 
 在 [/etc/sysctl.conf](/etc/sysctl.conf)文件中末尾添加一行：
 ```shell script
