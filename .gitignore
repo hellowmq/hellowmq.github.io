@@ -8,3 +8,4 @@ themes/yilia/ 
 /themes/yilia/
 /themes/yilia/_config.yml
 /public/
+/.deploy_git/
