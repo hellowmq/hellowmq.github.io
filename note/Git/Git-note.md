@@ -1,7 +1,7 @@
 ---
 title: git 笔记
 date: 2019-10-15 21:40:43
-tags: git
+tags: Git
 ---
 
 
