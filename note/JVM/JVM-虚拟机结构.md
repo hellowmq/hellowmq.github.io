@@ -358,7 +358,7 @@ Java 虚拟机执行的每个方法都关联了零个或多个异常处理器（
 
 在忽略异常处理的情况，可以认为 Java 虚拟机解释器的内部循环是有效的。
 
-```java
+```
  do {
        atomically calculate pc and fetch opcode at pc; // 自增 pc ，取指令
        if (operands) fetch operands;                   // 取操作数
