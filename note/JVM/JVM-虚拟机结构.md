@@ -378,6 +378,31 @@ Java 虚拟机执行的每个方法都关联了零个或多个异常处理器（
 > 从信号编码的角度来讲，对于稳定传输中的内容，压缩冗余用更少的位数表达原有信息，我们进行信源编码；如果需要抗干扰会进行信道编码，将冗余用于对抗噪声；对于操作码的设计则是将冗余用于减少 CPU 流水线的开销（本质上是编解码开销）。
 
 
+#### 类型与 Java 虚拟机（Types and the Java Virtual Machine）
+
+Given the Java Virtual Machine's one-byte opcode size, encoding types into opcodes places pressure on the design of its instruction set. If each typed instruction supported all of the Java Virtual Machine's run-time data types, there would be more instructions than could be represented in a byte. Instead, the instruction set of the Java Virtual Machine provides a reduced level of type support for certain operations. I
+n other words, the instruction set is intentionally not orthogonal. Separate instructions can be used to convert between unsupported and supported data types as necessary.
+
+
+
+Java 虚拟机指令集中的大多数指令都对其操作的类型信息进行编码。例如，`iload` 指令将 `int` 类型局部变量的内容加载到操作数堆栈上。`fload` 指令对 `float` 类型的数值执行相同的操作。两条指令可能具有相同的实现，但具有不同的操作码。
+
+对于大多数类型的指令，指令类型在操作码助记符中用小写字母明确作为前缀表示：`i` 表示 `int` 操作，`l` 表示 `long`，`s` 表示 `short`，`b` 表示 `byte`，`c` 表示 `char`，`f` 表示 `float`，`d` 表示 `double`，`a` 表示引用类型。
+
+> 一些类型明确的指令的助记符中没有类型字母前缀。例如，`arraylength` 始终对作为数组的对象进行操作。某些指令（例如无条件控制转移指令 `goto`）不会对有类型操作数进行运算。（`goto` 操作的是地址）
+
+
+为 Java 虚拟机的限定一字节长度的指令长度，将编码类型转换为指令会给其指令集的设计带来压力。如果每个类型的指令都支持 Java 虚拟机的所有运行时数据类型，那么指令的数量将超过字节中表示的数量。相反，Java 虚拟机的指令集为某些操作提供了降低级别的类型支持。换句话说，指令集有意不正交。必要时，可以使用单独的指令在不受支持的数据类型和受支持的数据类型之间进行转换。
+
+> 正交意味着相互独立，能够把向量空间分散到独立维度，不同类型之间无关联。但是，处于程序设计的角度，不正交有两个好处：1. 避免了指令集膨胀（RISC通病）2.一定程度上允许了类型强转。
+
+
+
+
+
+
+
+
 
 
 
