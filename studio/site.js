@@ -50,9 +50,15 @@
     time += previous ? Math.min((stamp - previous)/1000,.05) : 0;
     previous = stamp; draw(); frame = requestAnimationFrame(tick);
   }
+  function updateLabels() {
+    const t = window.portfolioI18n?.t ?? (key => ({pause:'暂停动画',resume:'继续动画',mode0:'连接',mode1:'信号',mode2:'节奏'})[key]);
+    motion.textContent = t(paused ? 'resume' : 'pause');
+    document.querySelector('#field-name').textContent = t(`mode${mode}`);
+  }
+  document.addEventListener('portfolio:language', updateLabels);
   function sync() {
     cancelAnimationFrame(frame); frame = 0; previous = 0;
-    motion.textContent = paused ? 'Resume motion' : 'Pause motion';
+    updateLabels();
     motion.setAttribute('aria-pressed', String(paused));
     draw(); if (canAnimate()) frame = requestAnimationFrame(tick);
   }
@@ -73,7 +79,7 @@
   modeButtons.forEach(button => button.addEventListener('click',() => {
     mode = Number(button.dataset.mode);
     modeButtons.forEach(b => b.setAttribute('aria-pressed',String(b===button)));
-    document.querySelector('#field-name').textContent = ['CONNECTIONS','SIGNALS','RHYTHM'][mode];draw();
+    updateLabels();draw();
   }));
   motion.addEventListener('click',() => {paused=!paused;sync();});
   reduced.addEventListener('change',() => {paused=reduced.matches;sync();});

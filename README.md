@@ -22,3 +22,9 @@ GitHub Pages serves the root of `master`. Commit focused changes, push normally,
 The `hexo` branch preserves the original blog source and dependencies. Its existing Dependabot findings are **not resolved by this homepage release**. Historical article, archive and pagination pages retain the original theme and scripts. They need a separate migration and runtime dependency review; the new homepage does not load those scripts.
 
 No historic files were removed in this release. The pre-redesign deployment is commit `355ba93833265dd583ac145b1e876bc805942f02`. Revert the redesign commit with a new commit if rollback is needed; do not rewrite history. Source/default-branch reconciliation and historic article modernization remain follow-up work.
+
+## Languages
+
+The homepage and custom 404 default to Simplified Chinese, including their static HTML fallback. The language button switches to English and remembers an explicit choice in localStorage. Storage is optional: blocked storage must not prevent switching. Language changes update document language, title, description, visible copy and accessible labels without resetting the particle mode or pause state.
+
+Translations live in `studio/i18n.js`; `data-i18n` and `data-i18n-aria` identify translated content. Translation HTML is developer-authored only; never insert user content into this dictionary. The validator checks key parity and missing references. Legacy blog pages keep their original language and theme.
