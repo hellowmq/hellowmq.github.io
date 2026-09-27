@@ -45,8 +45,8 @@
     "petTitle": "和桌面上的<br>小伙伴打个招呼。",
     "petDesc": "<strong>PetApp</strong> 让团子和圆头耄耋回应抚摸、喂食与跳跃。先在浏览器里试试它们的互动。",
     "petDemo": "体验互动 Demo ↗",
-    "petCaption": "圆头耄耋 · 动画预览",
-    "petAria": "圆头耄耋的真实动画预览",
+    "petWidgetTitle": "圆头耄耋互动小组件",
+    "petAria": "可以直接互动的圆头耄耋小组件",
     "aboutTag": "02 / 贯穿其中的线索",
     "aboutTitle": "保持好奇，<br>也把它<em>做出来。</em>",
     "aboutBackground": "我从 Android 和 Flutter 开发起步，现在探索 AI Agent 工具与 macOS 原生应用，并持续向面向真实场景的工程交付（FDE）发展。",
@@ -119,8 +119,8 @@
     "petTitle": "Say hello to<br>a little companion.",
     "petDesc": "<strong>PetApp</strong> brings Tuanzi and Roundhead Maodie to life with petting, feeding, and jumping. Try their interactions in your browser.",
     "petDemo": "Try the interactive demo ↗",
-    "petCaption": "ROUNDHEAD MAODIE · ANIMATED PREVIEW",
-    "petAria": "Animated preview of Roundhead Maodie",
+    "petWidgetTitle": "Interactive Roundhead Maodie widget",
+    "petAria": "Interactive Roundhead Maodie widget",
     "aboutTag": "02 / THE THREAD BETWEEN THEM",
     "aboutTitle": "Curiosity, with<br>a <em>working version.</em>",
     "aboutBackground": "My background is in Android and Flutter. Today I’m exploring AI agent tooling and native macOS utilities, with a growing focus on forward-deployed engineering.",
@@ -161,6 +161,7 @@
     document.documentElement.lang = locale;
     document.querySelectorAll('[data-i18n]').forEach(el => {el.innerHTML = t(el.dataset.i18n);});
     document.querySelectorAll('[data-i18n-aria]').forEach(el => {el.setAttribute('aria-label', t(el.dataset.i18nAria));});
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {el.setAttribute('title', t(el.dataset.i18nTitle));});
     document.title = t(document.body.dataset.page === '404' ? 'errorTitle' : 'pageTitle');
     const description = document.querySelector('meta[name="description"]');
     if (description) description.content = t('pageDescription');
