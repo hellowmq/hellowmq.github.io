@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fdf6ec" />
+    <meta name="description" content="认识团子和圆头耄耋，摸摸头、喂食，一起跳起来。" />
+    <title>PetApp · 互动桌宠展示</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍡</text></svg>" />
+    <script type="module" crossorigin src="./assets/index-C05zGtii.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BxIC5k8e.css">
+  </head>
+  <body>
+    <main class="showcase">
+      <header class="intro">
+        <h1>桌面上的小伙伴，<br />先在这里认识一下。</h1>
+        <p class="lead">摸摸头、喂点心，看团子和圆头耄耋怎么回应你。</p>
+      </header>
+
+      <section class="demo" aria-label="桌宠互动展示">
+        <div class="demo-heading">
+          <div>
+            <h2 id="pet-name">团子 <span>Tuanzi</span></h2>
+          </div>
+          <div class="pet-switch" role="group" aria-label="选择宠物">
+            <button type="button" data-pet="tuanzi" aria-pressed="true">🍡 团子</button>
+            <button type="button" data-pet="maodie" aria-pressed="false">🐱 圆头耄耋</button>
+          </div>
+        </div>
+
+        <div class="stage" id="stage">
+          <img class="stage-still" id="stage-still" alt="团子的静态预览" />
+          <div class="pet-canvas" id="pet-canvas" aria-hidden="true"></div>
+          <div class="stage-message" id="stage-message" hidden>
+            <p id="stage-message-text"></p>
+            <button type="button" id="start-demo">开启互动</button>
+          </div>
+        </div>
+
+        <div class="demo-footer">
+          <p class="status" id="status" role="status" aria-live="polite">加载中…</p>
+          <div class="actions" role="group" aria-label="与宠物互动">
+            <button type="button" data-action="pet">摸摸头</button>
+            <button type="button" data-action="feed">喂点心</button>
+            <button type="button" data-action="jump">跳一下</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <span>喜欢它们？把桌宠带到你的电脑上。</span>
+        <a href="https://github.com/hellowmq/pet-apps">查看 PetApp 源码 <span aria-hidden="true">↗</span></a>
+      </footer>
+    </main>
+  </body>
+</html>
