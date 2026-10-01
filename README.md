@@ -2,7 +2,7 @@
 
 Live site: https://tech.wenmq.cn/
 
-The portfolio is hand-authored HTML, CSS and JavaScript. Its interactive Canvas particle field has three selectable modes, an explicit pause control, reduced-motion support, and suspends animation when hidden or off screen. No generated images, external runtime libraries, build tooling or npm installation are required for the new homepage.
+The homepage is hand-authored HTML, CSS and JavaScript. Its interactive Canvas particle field has three selectable modes, an explicit pause control, reduced-motion support, and suspends animation when hidden or off screen. The historical blog is statically generated from 36 original Markdown posts using an adaptation of [AstroPaper](https://github.com/satnaing/astro-paper); its MIT notice is in [ASTROPAPER-LICENSE](ASTROPAPER-LICENSE). New blog pages cover the original article, archive, tag and pagination URLs. No Node runtime is needed to serve the published files.
 
 ## Develop and validate
 
@@ -11,7 +11,7 @@ python3 -m http.server 8765 --bind 127.0.0.1
 python3 scripts/validate-site.py
 ```
 
-Open http://127.0.0.1:8765. Check desktop and mobile layouts, all three particle modes, pause/resume, keyboard focus and the archive link. The validator checks local links, anchor targets, HTTPS URLs, size budgets and byte-for-byte preservation of 36 historic article pages.
+Open http://127.0.0.1:8765. Check desktop and mobile layouts, all three particle modes, pause/resume, keyboard focus, the archive and a few article pages. The validator checks local links, anchor targets, HTTPS URLs, size budgets and coverage of the historical routes. Some older articles still contain third-party image URLs; their availability can change independently of this site.
 
 ## Publish
 
@@ -19,12 +19,12 @@ GitHub Pages serves the root of `master`. Commit focused changes, push normally,
 
 ## Legacy boundary
 
-The `hexo` branch preserves the original blog source and dependencies. Its existing Dependabot findings are **not resolved by this homepage release**. Historical article, archive and pagination pages retain the original theme and scripts. They need a separate migration and runtime dependency review; the new homepage does not load those scripts.
+The `hexo` branch preserves the original blog source and dependencies. Its existing Dependabot findings are **not resolved by this static-site release**. The homepage does not load those scripts. The historical blog pages are now AstroPaper-generated static HTML with the original publication dates and URLs; the default/source branch and its old dependencies remain a separate maintenance task.
 
-No historic files were removed in this release. The pre-redesign deployment is commit `355ba93833265dd583ac145b1e876bc805942f02`. Revert the redesign commit with a new commit if rollback is needed; do not rewrite history. Source/default-branch reconciliation and historic article modernization remain follow-up work.
+No historic files were removed in this release. The immediately preceding Pages state is commit `719adbc134d5ef5ec696f586460f9a3181e1d499`; use a new revert commit for rollback rather than rewriting history. The original Markdown remains available in the `hexo` branch.
 
 ## Languages
 
 The homepage and custom 404 default to Simplified Chinese, including their static HTML fallback. The language button switches to English and remembers an explicit choice in localStorage. Storage is optional: blocked storage must not prevent switching. Language changes update document language, title, description, visible copy and accessible labels without resetting the particle mode or pause state.
 
-Translations live in `studio/i18n.js`; `data-i18n` and `data-i18n-aria` identify translated content. Translation HTML is developer-authored only; never insert user content into this dictionary. The validator checks key parity and missing references. Legacy blog pages keep their original language and theme.
+Translations live in `studio/i18n.js`; `data-i18n` and `data-i18n-aria` identify translated homepage content. Translation HTML is developer-authored only; never insert user content into this dictionary. The blog is Chinese-first and retains the dates and titles of the original posts.
