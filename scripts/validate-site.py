@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = "719adbc134d5ef5ec696f586460f9a3181e1d499"
+PUBLISHED_BLOG = "d1aab1c9c1a4672690f6c8dc3176b016405a0a75"
 
 
 class Page(HTMLParser):
@@ -21,7 +22,7 @@ class Page(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
-        for key in ("data-i18n", "data-i18n-aria"):
+        for key in ("data-i18n", "data-i18n-aria", "data-i18n-title"):
             if key in attrs:
                 self.keys.add(attrs[key])
         if attrs.get("id"):
@@ -62,7 +63,24 @@ for link in home_page.links:
         assert parts.fragment in home_page.ids, link
 for file in (home, ROOT / "studio/site.css", ROOT / "studio/site.js", ROOT / "studio/i18n.js"):
     assert file.stat().st_size < 35000, f"Unexpectedly large homepage file: {file.name}"
-assert home.read_bytes() == subprocess.check_output(["git", "show", f"{BASELINE}:index.html"], cwd=ROOT), "Homepage changed"
+# The portfolio update intentionally changes the homepage. Keep the published
+# archive and the interactive pet intact instead of freezing the old homepage.
+protected = subprocess.check_output(
+    ["git", "ls-tree", "-rz", "--name-only", PUBLISHED_BLOG], cwd=ROOT
+).decode().split("\0")
+for name in protected:
+    if name.startswith(("2018/", "2019/", "2020/", "archives/", "tags/", "page/", "petapp/")):
+        assert (ROOT / name).read_bytes() == subprocess.check_output(
+            ["git", "show", f"{PUBLISHED_BLOG}:{name}"], cwd=ROOT
+        ), f"Unrelated published content changed: {name}"
+
+for name in ("index.html", "notes/displaydj/index.html"):
+    text = (ROOT / name).read_text()
+    assert 'https://github.com/hellowmq/displaydj/releases/latest' in text, name
+    assert 'https://tech.wenmq.cn/studio/share-card.png' in text, name
+    assert 'summary_large_image' in text, name
+assert (ROOT / "studio/share-card.png").read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+assert (ROOT / "studio/favicon.svg").is_file()
 
 assert (ROOT / ".nojekyll").is_file(), "GitHub Pages must serve _astro assets"
 assert (ROOT / "CNAME").read_text().strip() == "tech.wenmq.cn"
@@ -95,8 +113,8 @@ for file in ROOT.rglob("*.html"):
 ET.parse(ROOT / "rss.xml")
 sitemap = ET.parse(ROOT / "sitemap-0.xml")
 locations = {unquote(x.text or "") for x in sitemap.iter() if x.tag.endswith("}loc")}
-for name in articles + lists:
+for name in articles + lists + ["notes/displaydj/index.html"]:
     url = "https://tech.wenmq.cn/" + name.removesuffix("index.html")
     assert url in locations, f"Missing sitemap route: {url}"
 
-print(f"PASS: homepage preserved, local links, RSS, sitemap, {len(articles)} articles, {len(lists)} legacy lists")
+print(f"PASS: portfolio, translations, share assets, local links, RSS, sitemap; {len(articles)} articles, {len(lists)} legacy lists and PetApp preserved")

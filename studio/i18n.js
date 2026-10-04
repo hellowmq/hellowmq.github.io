@@ -7,9 +7,9 @@
     "navWork": "作品",
     "navAbout": "关于",
     "navNotes": "笔记 ↗",
-    "heroTag": "<span class=\"dot\"></span> 软件开发 / AI 工具 / 创意编程",
+    "heroTag": "<span class=\"dot\"></span> macOS 实用工具 / 互动产品",
     "heroTitle": "让想法<br>成为<em>现实。</em>",
-    "heroIntro": "我是文茂权，也叫 DaftKen。我开发连接 AI Agent 的工具，探究日常工作中的难题，也为一点好玩留出空间。",
+    "heroIntro": "我是文茂权，也叫 DaftKen。我开发解决日常问题的 macOS 工具与互动产品：让显示器更好用，让桌面更有趣，也让输入问题更容易排查。",
     "explore": "探索我的作品 <span>↘</span>",
     "experiment": "网站交互 · AI 辅助实现",
     "connect": "01 连接",
@@ -22,9 +22,9 @@
     "workIntro": "工具小而专注。<br>实现细节，源码里见。",
     "displayTag": "显示控制 / SWIFT",
     "displayTitle": "让显示器，<br>更顺手一点。",
-    "displayDesc": "<strong>DisplayDJ</strong> 用菜单栏、独立 CLI 和可选本地 API 管理显示器亮度及自动化任务。公开版仍是预览，硬件支持取决于显示器、连接与 macOS。",
-    "displayEvidence": "公开提供 v0.3.0 预览；v1.0.0 仍是本地候选版本。",
-    "displayCaption": "菜单栏 · CLI · 本地 API",
+    "displayDesc": "<strong>DisplayDJ</strong> 让你调节亮度、切换显示模式，或不拔线就从 Mac 桌面断开、重新连接一块显示器。菜单栏 App 与独立 CLI 都可使用。",
+    "displayEvidence": "已提供 Apple Silicon ZIP / DMG 下载；ad-hoc 签名，未公证。硬件支持取决于显示器、连接与 macOS。",
+    "displayCaption": "功能示意 · 菜单栏 / CLI / 可选 API",
     "displayAria": "DisplayDJ 显示器亮度控制示意",
     "validation": "验证记录 ↗",
     "adapterTag": "AI AGENT 工具 / PYTHON",
@@ -56,7 +56,7 @@
     "petAria": "可以直接互动的圆头耄耋小组件",
     "aboutTag": "02 / 贯穿其中的线索",
     "aboutTitle": "保持好奇，<br>也把它<em>做出来。</em>",
-    "aboutBackground": "我从 Android 和 Flutter 开发起步，现在探索 AI Agent 工具与 macOS 原生应用，并持续向面向真实场景的工程交付（FDE）发展。",
+    "aboutBackground": "我从 Android 和 Flutter 开发起步，现在专注于 macOS 实用工具和互动产品，也在探索可复用的 AI 工作流与面向真实场景的工程交付。",
     "aboutWorkflow": "我关心完整的过程：理解工作流，构建聚焦的解决方案，评估效果，再从实际使用中学习。",
     "aboutNote": "立足中国大陆的开发实践，连接更广阔的开发者社区。",
     "archive": "早期笔记与实验 <span>↗</span>",
@@ -73,14 +73,26 @@
     "fieldAria": "粒子交互实验",
     "adapterAria": "技能包适配不同编程工具",
     "traceAria": "键盘、指针与焦点事件关联示意",
-    "pageTitle": "文茂权 DaftKen — AI 工具、工程与创意实验",
-    "pageDescription": "文茂权 DaftKen 的个人作品网站：显示器工具、互动桌宠、本地诊断与开发者工作流。探索 DisplayDJ、PetApp、FocusTrace 和更多工程实践。",
+    "pageTitle": "文茂权 DaftKen — macOS 实用工具与互动产品",
+    "pageDescription": "让显示器更好用，让桌面更有趣。下载 DisplayDJ，在线体验 PetApp，了解 FocusTrace 输入诊断与更多实用工具。",
     "errorTitle": "页面未找到 — 文茂权 DaftKen",
     "pause": "暂停动画",
     "resume": "继续动画",
     "mode0": "连接",
     "mode1": "信号",
-    "mode2": "节奏"
+    "mode2": "节奏",
+    "download": "下载 macOS 版 ↗",
+    "heroDownload": "下载 DisplayDJ ↗",
+    "heroDemo": "体验 PetApp ↗",
+    "moreTitle": "更多可以动手试的工具",
+    "mcrDesc": "国标麻将计番与 81 番种参考，可离线使用。",
+    "mcrDemo": "打开计番工具 ↗",
+    "emojiDesc": "从 emoji 或视觉参考制作动画宠物候选包的可恢复工作流。",
+    "emojiLink": "查看制作流程 ↗",
+    "noteTag": "工程笔记 / DISPLAYDJ",
+    "noteTitle": "显示器控制，如何做到可验证？",
+    "noteDesc": "从免拔线断开，到手动亮度优先：一条操作如何确认结果、保留恢复路径，并说清验证范围。",
+    "noteLink": "阅读案例（中文） ↗"
   },
   "en": {
     "skip": "Skip to projects",
@@ -88,9 +100,9 @@
     "navWork": "Work",
     "navAbout": "About",
     "navNotes": "Notes ↗",
-    "heroTag": "<span class=\"dot\"></span> SOFTWARE / AI TOOLING / CREATIVE CODE",
+    "heroTag": "<span class=\"dot\"></span> macOS UTILITIES / INTERACTIVE PRODUCTS",
     "heroTitle": "Ideas into<br>working <em>things.</em>",
-    "heroIntro": "I’m DaftKen. I build tools that connect AI agents, investigate everyday friction, and make room for a little play.",
+    "heroIntro": "I’m DaftKen. I build practical macOS tools and playful desktop experiences: easier display control, small companions, and clearer input diagnostics.",
     "explore": "Explore selected work <span>↘</span>",
     "experiment": "SITE INTERACTION · AI-ASSISTED",
     "connect": "01 Connect",
@@ -103,9 +115,9 @@
     "workIntro": "Small, focused tools.<br>Source code you can inspect.",
     "displayTag": "DISPLAY CONTROL / SWIFT",
     "displayTitle": "Make every display<br>easier to manage.",
-    "displayDesc": "<strong>DisplayDJ</strong> combines a menu bar app, standalone CLI, and optional local API for display brightness and automation. The public build is still a preview, and hardware support varies by display, connection, and macOS version.",
-    "displayEvidence": "v0.3.0 is the public preview; v1.0.0 remains a local candidate.",
-    "displayCaption": "MENU BAR · CLI · LOCAL API",
+    "displayDesc": "<strong>DisplayDJ</strong> controls brightness, switches display modes, and disconnects or reconnects a display from your Mac desktop without unplugging it. Use the menu bar app or standalone CLI.",
+    "displayEvidence": "Apple Silicon ZIP / DMG downloads are available. Ad-hoc signed, not notarized; hardware support varies by display, connection, and macOS version.",
+    "displayCaption": "ILLUSTRATION · MENU BAR / CLI / OPTIONAL API",
     "displayAria": "DisplayDJ display brightness control illustration",
     "validation": "Validation notes ↗",
     "adapterTag": "AI AGENT TOOLING / PYTHON",
@@ -137,7 +149,7 @@
     "petAria": "Interactive Roundhead Maodie widget",
     "aboutTag": "02 / THE THREAD BETWEEN THEM",
     "aboutTitle": "Curiosity, with<br>a <em>working version.</em>",
-    "aboutBackground": "My background is in Android and Flutter. Today I’m exploring AI agent tooling and native macOS utilities, with a growing focus on forward-deployed engineering.",
+    "aboutBackground": "My background is in Android and Flutter. Today I focus on practical macOS tools and interactive products, while exploring reusable AI workflows and real-world engineering delivery.",
     "aboutWorkflow": "I’m interested in the whole path: understand a workflow, build something focused, evaluate what happens, and learn from actual use.",
     "aboutNote": "Based in mainland China, connected to a wider developer community.",
     "archive": "Earlier notes & experiments <span>↗</span>",
@@ -154,14 +166,26 @@
     "fieldAria": "Particle experiment",
     "adapterAria": "Skill packages adapt to different coding tools",
     "traceAria": "Illustration of keyboard, pointer and focus event correlation",
-    "pageTitle": "DaftKen — tools, systems & experiments",
-    "pageDescription": "DaftKen builds display utilities, interactive desktop pets, local diagnostics, and developer workflows. Explore DisplayDJ, PetApp, FocusTrace, and more.",
+    "pageTitle": "DaftKen — practical macOS tools & interactive products",
+    "pageDescription": "Easier display control and a more playful desktop. Download DisplayDJ, try PetApp in your browser, and explore FocusTrace and more practical tools.",
     "errorTitle": "Page not found — DaftKen",
     "pause": "Pause motion",
     "resume": "Resume motion",
     "mode0": "CONNECTIONS",
     "mode1": "SIGNALS",
-    "mode2": "RHYTHM"
+    "mode2": "RHYTHM",
+    "download": "Download for macOS ↗",
+    "heroDownload": "Download DisplayDJ ↗",
+    "heroDemo": "Try PetApp ↗",
+    "moreTitle": "More tools to explore",
+    "mcrDesc": "An offline-capable MCR scoring tool and 81-pattern reference.",
+    "mcrDemo": "Try the calculator ↗",
+    "emojiDesc": "A resumable workflow for animated-pet candidate packages from an emoji or visual reference.",
+    "emojiLink": "Explore the workflow ↗",
+    "noteTag": "ENGINEERING NOTES / DISPLAYDJ",
+    "noteTitle": "Display control you can verify.",
+    "noteDesc": "From disconnecting without unplugging to manual brightness priority: checking results, preserving recovery paths, and documenting the tested boundary.",
+    "noteLink": "Read the case study (Chinese) ↗"
   }
 };
   let locale = 'zh-CN';
@@ -179,6 +203,16 @@
     document.title = t(document.body.dataset.page === '404' ? 'errorTitle' : 'pageTitle');
     const description = document.querySelector('meta[name="description"]');
     if (description) description.content = t('pageDescription');
+    for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) {
+      const meta = document.querySelector(selector);
+      if (meta) meta.content = document.title;
+    }
+    for (const selector of ['meta[property="og:description"]', 'meta[name="twitter:description"]']) {
+      const meta = document.querySelector(selector);
+      if (meta) meta.content = t('pageDescription');
+    }
+    const ogLocale = document.querySelector('meta[property="og:locale"]');
+    if (ogLocale) ogLocale.content = locale === 'zh-CN' ? 'zh_CN' : 'en_US';
     if (toggle) {
       toggle.hidden = false;
       toggle.textContent = locale === 'zh-CN' ? 'English' : '中文';

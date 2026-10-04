@@ -2,7 +2,9 @@
 
 Live site: https://tech.wenmq.cn/
 
-The homepage is hand-authored HTML, CSS and JavaScript. Its interactive Canvas particle field has three selectable modes, an explicit pause control, reduced-motion support, and suspends animation when hidden or off screen. The historical blog is statically generated from 36 original Markdown posts using an adaptation of [AstroPaper](https://github.com/satnaing/astro-paper); its MIT notice is in [ASTROPAPER-LICENSE](ASTROPAPER-LICENSE). New blog pages cover the original article, archive, tag and pagination URLs. No Node runtime is needed to serve the published files.
+The homepage is hand-authored HTML, CSS and JavaScript. Its interactive Canvas particle field has three selectable modes, an explicit pause control, reduced-motion support, and suspends animation when hidden or off screen. The current DisplayDJ case study is hand-authored at `notes/displaydj/index.html` and linked from the homepage, RSS and sitemap. Its versioned sources distinguish implementation from recorded hardware evidence.
+
+The historical blog is statically generated from 36 original Markdown posts using an adaptation of [AstroPaper](https://github.com/satnaing/astro-paper); its MIT notice is in [ASTROPAPER-LICENSE](ASTROPAPER-LICENSE). New blog pages cover the original article, archive, tag and pagination URLs. No Node runtime is needed to serve the published files.
 
 ## Develop and validate
 
@@ -11,7 +13,7 @@ python3 -m http.server 8765 --bind 127.0.0.1
 python3 scripts/validate-site.py
 ```
 
-Open http://127.0.0.1:8765. Check desktop and mobile layouts, all three particle modes, pause/resume, keyboard focus, the archive and a few article pages. The validator checks local links, anchor targets, HTTPS URLs, size budgets and coverage of the historical routes. Some older articles still contain third-party image URLs; their availability can change independently of this site.
+Open http://127.0.0.1:8765. Check desktop and mobile layouts, all three particle modes, pause/resume, keyboard focus, the archive and a few article pages. The validator checks local links, anchor targets, HTTPS URLs, size budgets, sharing assets and coverage of the historical routes. The October 2026 portfolio changes intentionally update the homepage; the validator keeps the published historical article/list and PetApp files byte-identical to `d1aab1c`. Some older articles still contain third-party image URLs; their availability can change independently of this site.
 
 ## Publish
 
