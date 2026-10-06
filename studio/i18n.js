@@ -24,8 +24,12 @@
     "displayTitle": "让显示器，<br>更顺手一点。",
     "displayDesc": "<strong>DisplayDJ</strong> 让你调节亮度、切换显示模式，或不拔线就从 Mac 桌面断开、重新连接一块显示器。菜单栏 App 与独立 CLI 都可使用。",
     "displayEvidence": "已提供 Apple Silicon ZIP / DMG 下载；ad-hoc 签名，未公证。硬件支持取决于显示器、连接与 macOS。",
-    "displayCaption": "本机界面 · 1.0.2 开发版 · 点击查看原图 ↗",
-    "displayAria": "查看 DisplayDJ 显示设置窗口原图，本机 1.0.2 开发版",
+    "displayCaption": "本机界面 · 1.0.2 开发版 · 点击页内预览",
+    "displayAria": "DisplayDJ 显示设置与预设窗口，本机 1.0.2 开发版",
+    "previewTitle": "DisplayDJ 显示设置与预设 · 本机 1.0.2 开发版",
+    "previewClose": "关闭",
+    "previewCloseAria": "关闭图片预览",
+    "previewOriginal": "在新标签页打开原图 ↗",
     "validation": "验证记录 ↗",
     "adapterTag": "AI AGENT 工具 / PYTHON",
     "adapterTitle": "一份技能，<br>连接不同工具。",
@@ -117,8 +121,12 @@
     "displayTitle": "Make every display<br>easier to manage.",
     "displayDesc": "<strong>DisplayDJ</strong> controls brightness, switches display modes, and disconnects or reconnects a display from your Mac desktop without unplugging it. Use the menu bar app or standalone CLI.",
     "displayEvidence": "Apple Silicon ZIP / DMG downloads are available. Ad-hoc signed, not notarized; hardware support varies by display, connection, and macOS version.",
-    "displayCaption": "ON THIS MAC · 1.0.2 DEV BUILD · VIEW FULL SIZE ↗",
-    "displayAria": "View the DisplayDJ settings window at full size, local 1.0.2 development build",
+    "displayCaption": "ON THIS MAC · 1.0.2 DEV BUILD · CLICK TO PREVIEW",
+    "displayAria": "DisplayDJ display settings and presets, local 1.0.2 development build",
+    "previewTitle": "DisplayDJ settings and presets · Local 1.0.2 development build",
+    "previewClose": "Close",
+    "previewCloseAria": "Close image preview",
+    "previewOriginal": "Open original in a new tab ↗",
     "validation": "Validation notes ↗",
     "adapterTag": "AI AGENT TOOLING / PYTHON",
     "adapterTitle": "One skill.<br>Different ecosystems.",
@@ -200,6 +208,7 @@
     document.querySelectorAll('[data-i18n]').forEach(el => {el.innerHTML = t(el.dataset.i18n);});
     document.querySelectorAll('[data-i18n-aria]').forEach(el => {el.setAttribute('aria-label', t(el.dataset.i18nAria));});
     document.querySelectorAll('[data-i18n-title]').forEach(el => {el.setAttribute('title', t(el.dataset.i18nTitle));});
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {el.setAttribute('alt', t(el.dataset.i18nAlt));});
     document.title = t(document.body.dataset.page === '404' ? 'errorTitle' : 'pageTitle');
     const description = document.querySelector('meta[name="description"]');
     if (description) description.content = t('pageDescription');

@@ -1,4 +1,20 @@
 (() => {
+  const preview = document.querySelector('#displaydj-preview');
+  const previewLink = document.querySelector('.displaydj-screenshot');
+  if (preview && previewLink) {
+    const close = preview.querySelector('.image-preview-close');
+    previewLink.addEventListener('click', event => {
+      if (typeof preview.showModal !== 'function') return;
+      event.preventDefault();
+      preview.showModal();
+      close?.focus();
+    });
+    close?.addEventListener('click', () => preview.close());
+    preview.addEventListener('click', event => {
+      if (event.target === preview) preview.close();
+    });
+  }
+
   const canvas = document.querySelector('#field');
   const ctx = canvas?.getContext('2d');
   if (!ctx) return;
