@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = "719adbc134d5ef5ec696f586460f9a3181e1d499"
 PUBLISHED_BLOG = "d1aab1c9c1a4672690f6c8dc3176b016405a0a75"
+ANALYTICS_TAG = b'<script src="/studio/analytics.js?v=1" defer data-wenmq-analytics></script>'
 
 
 class Page(HTMLParser):
@@ -70,7 +71,10 @@ protected = subprocess.check_output(
 ).decode().split("\0")
 for name in protected:
     if name.startswith(("2018/", "2019/", "2020/", "archives/", "tags/", "page/", "petapp/")):
-        assert (ROOT / name).read_bytes() == subprocess.check_output(
+        current = (ROOT / name).read_bytes()
+        if name.endswith('.html'):
+            current = current.replace(ANALYTICS_TAG, b'')
+        assert current == subprocess.check_output(
             ["git", "show", f"{PUBLISHED_BLOG}:{name}"], cwd=ROOT
         ), f"Unrelated published content changed: {name}"
 
@@ -105,6 +109,9 @@ for name in articles + lists:
 for file in ROOT.rglob("*.html"):
     if ".git" in file.parts:
         continue
+    content = file.read_bytes()
+    head = content.split(b'<head>', 1)[1].split(b'</head>', 1)[0]
+    assert head.count(ANALYTICS_TAG) == 1 and content.count(ANALYTICS_TAG) == 1, f"Missing or duplicate analytics: {file}"
     for link in parse(file).links:
         target = local_target(file, link)
         if target is not None:
