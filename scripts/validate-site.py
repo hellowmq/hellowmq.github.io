@@ -4,6 +4,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 import json
+import hashlib
 import subprocess
 import xml.etree.ElementTree as ET
 
@@ -71,6 +72,8 @@ protected = subprocess.check_output(
 ).decode().split("\0")
 for name in protected:
     if name.startswith(("2018/", "2019/", "2020/", "archives/", "tags/", "page/", "petapp/")):
+        if name == "petapp/index.html":
+            continue  # Updated entry HTML is checked against the build manifest below.
         current = (ROOT / name).read_bytes()
         if name.endswith('.html'):
             current = current.replace(ANALYTICS_TAG, b'')
@@ -89,6 +92,13 @@ assert (ROOT / "studio/favicon.svg").is_file()
 assert (ROOT / ".nojekyll").is_file(), "GitHub Pages must serve _astro assets"
 assert (ROOT / "CNAME").read_text().strip() == "tech.wenmq.cn"
 assert (ROOT / "petapp/index.html").is_file()
+pet_build = json.loads((ROOT / "petapp/build-manifest.json").read_text())
+assert pet_build["source"] == "pet-apps/apps/showcase"
+assert {"index.html", "companion.html"} <= set(pet_build["files"])
+assert len(pet_build["sourceCommit"]) == 40
+for name, digest in pet_build["files"].items():
+    assert not Path(name).is_absolute() and ".." not in Path(name).parts, name
+    assert hashlib.sha256((ROOT / "petapp" / name).read_bytes()).hexdigest() == digest, name
 
 old = subprocess.check_output(
     ["git", "-c", "core.quotePath=false", "ls-tree", "-rz", "--name-only", BASELINE],
@@ -124,4 +134,4 @@ for name in articles + lists + ["notes/displaydj/index.html"]:
     url = "https://tech.wenmq.cn/" + name.removesuffix("index.html")
     assert url in locations, f"Missing sitemap route: {url}"
 
-print(f"PASS: portfolio, translations, share assets, local links, RSS, sitemap; {len(articles)} articles, {len(lists)} legacy lists and PetApp preserved")
+print(f"PASS: portfolio, translations, share assets, local links, RSS, sitemap; {len(articles)} articles, {len(lists)} legacy lists and old PetApp assets preserved; updated component build verified")
