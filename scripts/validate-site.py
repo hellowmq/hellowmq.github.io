@@ -130,8 +130,24 @@ for file in ROOT.rglob("*.html"):
 ET.parse(ROOT / "rss.xml")
 sitemap = ET.parse(ROOT / "sitemap-0.xml")
 locations = {unquote(x.text or "") for x in sitemap.iter() if x.tag.endswith("}loc")}
-for name in articles + lists + ["notes/displaydj/index.html"]:
+notes = [str(p.relative_to(ROOT)) for p in (ROOT / "notes").rglob("index.html")]
+for name in articles + lists + notes:
     url = "https://tech.wenmq.cn/" + name.removesuffix("index.html")
     assert url in locations, f"Missing sitemap route: {url}"
+
+rss_links = {item.findtext("link") for item in ET.parse(ROOT / "rss.xml").iter("item")}
+for name in notes:
+    path = ROOT / name
+    page = parse(path)
+    body = path.read_text()
+    url = "https://tech.wenmq.cn/" + name.removesuffix("index.html")
+    assert f'<link rel="canonical" href="{url}">' in body, name
+    assert body.count("<h1") == 1, name
+    for link in page.links:
+        parts = urlsplit(link)
+        if not parts.path and parts.fragment:
+            assert unquote(parts.fragment) in page.ids, f"Broken note anchor: {name}: {link}"
+    if name != "notes/index.html":
+        assert url in rss_links, f"Missing note in RSS: {url}"
 
 print(f"PASS: portfolio, translations, share assets, local links, RSS, sitemap; {len(articles)} articles, {len(lists)} legacy lists and old PetApp assets preserved; updated component build verified")

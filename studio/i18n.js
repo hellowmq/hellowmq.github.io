@@ -93,7 +93,10 @@
     "noteTag": "工程笔记 / DISPLAYDJ",
     "noteTitle": "显示器控制，如何做到可验证？",
     "noteDesc": "从免拔线断开，到手动亮度优先：一条操作如何确认结果、保留恢复路径，并说清验证范围。",
-    "noteLink": "阅读案例（中文） ↗"
+    "noteLink": "阅读案例（中文） ↗",
+    "petNoteTag": "工程笔记 / PETAPP · 2026-10-17",
+    "petNoteTitle": "桌宠卡在加载中：一次 CSP 与跨设备调试复盘",
+    "petNoteDesc": "从本机 Google 能运行，到另一台设备上的 X 被拦截：怎样找准安全策略、改成自包含书签，再验证真正发布的版本。"
   },
   "en": {
     "skip": "Skip to projects",
@@ -187,7 +190,10 @@
     "noteTag": "ENGINEERING NOTES / DISPLAYDJ",
     "noteTitle": "Display control you can verify.",
     "noteDesc": "From disconnecting without unplugging to manual brightness priority: checking results, preserving recovery paths, and documenting the tested boundary.",
-    "noteLink": "Read the case study (Chinese) ↗"
+    "noteLink": "Read the case study (Chinese) ↗",
+    "petNoteTag": "ENGINEERING NOTES / PETAPP · 2026-10-17",
+    "petNoteTitle": "A pet stuck loading: CSP and cross-device debugging.",
+    "petNoteDesc": "From a local Google success to a blocked X frame on another device: finding the host policy, bundling an offline bookmark, and testing the published build."
   }
 };
   let locale = 'zh-CN';

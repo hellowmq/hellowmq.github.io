@@ -2,7 +2,7 @@
 
 Live site: https://tech.wenmq.cn/
 
-The homepage is hand-authored HTML, CSS and JavaScript. Its interactive Canvas particle field has three selectable modes, an explicit pause control, reduced-motion support, and suspends animation when hidden or off screen. The current DisplayDJ case study is hand-authored at `notes/displaydj/index.html` and linked from the homepage, RSS and sitemap. Its versioned sources distinguish implementation from recorded hardware evidence.
+The homepage is hand-authored HTML, CSS and JavaScript. Its interactive Canvas particle field has three selectable modes, an explicit pause control, reduced-motion support, and suspends animation when hidden or off screen. Engineering notes reuse the hand-authored DisplayDJ reading template and shared `studio/note.css`. The index is at `notes/index.html`; DisplayDJ and the PetApp CSP/cross-device debugging case study have their own `notes/<slug>/index.html`, homepage links, RSS items and sitemap entries. Article HTML is the editable publication source; this change does not rerun or overwrite the historical AstroPaper build. Its versioned sources distinguish implementation from recorded hardware evidence.
 
 The historical blog is statically generated from 36 original Markdown posts using an adaptation of [AstroPaper](https://github.com/satnaing/astro-paper); its MIT notice is in [ASTROPAPER-LICENSE](ASTROPAPER-LICENSE). New blog pages cover the original article, archive, tag and pagination URLs. No Node runtime is needed to serve the published files.
 
@@ -33,8 +33,14 @@ Translations live in `studio/i18n.js`; `data-i18n` and `data-i18n-aria` identify
 
 ## Visit statistics
 
-All 98 static HTML pages load `/studio/analytics.js?v=1`. GA4 uses measurement ID `G-NK7HHE8WXB` on top-level `tech.wenmq.cn` pages only; local previews and embedded PetApp frames do not collect. The matching stream has enhanced measurement disabled. Normal page loads and Astro article route changes count once; hash/query-only changes do not. Page and referrer addresses exclude queries and fragments. No tool input is sent. Removing queries also means UTM campaign parameters are not collected by this setup. Google signals and ad personalization are disabled for this stream's site configuration. The public notice is on `/about/#analytics`.
+All 101 static HTML pages load `/studio/analytics.js?v=1`. GA4 uses measurement ID `G-NK7HHE8WXB` on top-level `tech.wenmq.cn` pages only; local previews and embedded PetApp frames do not collect. The matching stream has enhanced measurement disabled. Normal page loads and Astro article route changes count once; hash/query-only changes do not. Page and referrer addresses exclude queries and fragments. No tool input is sent. Removing queries also means UTM campaign parameters are not collected by this setup. Google signals and ad personalization are disabled for this stream's site configuration. The public notice is on `/about/#analytics`.
 
 The shared runtime is generated from private `tool-sites/src/analytics.mjs`, which also injects the calculator deployment. Keep both copies aligned. The calculator is published separately by tool-sites and shares this tech stream. Blogger retains its existing stream and settings in the same GA4 property; compare sites by hostname and stream, rather than interpreting separate stream sessions as one uninterrupted cross-site journey.
 
 Release this change from an annotated `deploy/tech-analytics/v0.1.0` tag with a normal, atomic push of that tag and its commit to `master`. Future updates use new tags; do not move existing tags or run Hexo over the published branch.
+
+## PetApp incident note (2026-10-17)
+
+`notes/petapp-csp-cross-device/index.html` records the host CSP diagnosis, the self-contained bookmark trade-offs, independent Windows/Linux checks, production bookmark readback and the author’s separate-device confirmation. Its two screenshots come from the fresh, logged-out production verification run [38942221891](https://github.com/hellowmq/pet-apps/actions/runs/38942221891). The X response was HTTP 403 in that run; it is not presented as a logged-in X acceptance test. The underlying pet source is pinned to `6d4b3403f3b63da871c66f46282c6dc18de7442c`.
+
+Keep the topic brief and Markdown authoring copy in the existing editorial workspace; the published canonical belongs to this TECH site. For subsequent notes, reuse the note shell/styles, add the entry to `/notes/`, the homepage (including translations), RSS and sitemap, then run the validator and check desktop/mobile rendering before publishing. Preserve the historical archive and generated tag routes.
