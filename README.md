@@ -15,6 +15,20 @@ python3 scripts/validate-site.py
 
 Open http://127.0.0.1:8765. Check desktop and mobile layouts, all three particle modes, pause/resume, keyboard focus, the archive and a few article pages. The validator checks local links, anchor targets, HTTPS URLs, size budgets, sharing assets and coverage of the historical routes. The October 2026 portfolio changes intentionally update the homepage; the validator keeps the published historical article/list and PetApp files byte-identical to `d1aab1c` after removing only the exact shared analytics script tag. Some older articles still contain third-party image URLs; their availability can change independently of this site.
 
+### Automatic checks
+
+The `Site checks` workflow runs on pushes to `master` and pull requests targeting
+`master`. It runs the existing Python validator and checks the syntax of the
+hand-authored `studio/*.js` files using Python 3.12 and Node 24. No npm packages,
+Hexo commands, secrets, or write permissions are needed. A full-history checkout
+is required because preservation checks read historical Git commits.
+
+These are static content checks, not browser, hardware, or external-service
+acceptance tests. Pages deployment remains separate: a check failure reports a
+failure but does not block a direct push or the existing Pages deployment.
+Repository rules and Pages settings are not changed by this workflow. Propose
+site changes in a PR targeting `master` to see the result before publishing.
+
 ## Publish
 
 GitHub Pages serves the root of `master`. Commit focused changes, push normally, then verify the Pages build commit and the actual public site. `CNAME` remains `tech.wenmq.cn`. Do not run the legacy Hexo deployer over this branch.
