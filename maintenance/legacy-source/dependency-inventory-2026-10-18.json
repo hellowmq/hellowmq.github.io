@@ -1,0 +1,451 @@
+{
+  "date": "2026-10-18",
+  "directExternalScripts": {},
+  "directLocalScripts": {
+    "_astro/ClientRouter.astro_astro_type_script_index_0_lang.2i1RQzKf.js": {
+      "htmlPages": 95,
+      "sha256": "8821281a5030a391f64ba767523cca6d27b1e97bdbc9cf1c3baa50a72ca2c619"
+    },
+    "_astro/search.astro_astro_type_script_index_0_lang.j6KQ11Iq.js": {
+      "htmlPages": 1,
+      "sha256": "e06019b694148855b53120a3b901dacd819deb337eca54ea749f23bf39c202f7"
+    },
+    "petapp/assets/companion-L2NiyABv.js": {
+      "htmlPages": 1,
+      "sha256": "8b0991096a4d509f55541492068f966af5b0250ef59e4a28a11145fe3c9bfad3"
+    },
+    "petapp/assets/showcase-DsWslyV8.js": {
+      "htmlPages": 1,
+      "sha256": "7a2ea81259e71fba8c342771522294f6e46b4e345a73d0008075ad852c352295"
+    },
+    "studio/analytics.js": {
+      "htmlPages": 101,
+      "sha256": "51ca121265b00f5a0abf61c2a40853a1799ad772f23597c35b30fdf1e31fa5ac"
+    },
+    "studio/i18n.js": {
+      "htmlPages": 1,
+      "sha256": "2d9b3837fbd3e9ae9ff4bf03d2f68f85e8889e92ee73269b98907053a2799e85"
+    },
+    "studio/site.js": {
+      "htmlPages": 1,
+      "sha256": "8512e8d3e8e93db31b2f97a1b2239f6a2568499d5e08a06e86a6186d23be21e5"
+    }
+  },
+  "legacyManifestDependencies": {
+    "package.json": {
+      "dependencies": {
+        "hexo": "^5.2.0",
+        "hexo-deployer-git": "^2.1.0",
+        "hexo-generator-archive": "^0.1.4",
+        "hexo-generator-category": "^0.1.3",
+        "hexo-generator-index": "^0.2.0",
+        "hexo-generator-json-content": "^3.0.1",
+        "hexo-generator-tag": "^0.2.0",
+        "hexo-renderer-ejs": "^0.3.0",
+        "hexo-renderer-marked": "^2.0.0",
+        "hexo-renderer-stylus": "^0.3.1",
+        "hexo-server": "^0.2.2"
+      },
+      "devDependencies": {}
+    },
+    "themes/landscape/package.json": {
+      "dependencies": {},
+      "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-clean": "~0.5.0",
+        "grunt-contrib-copy": "~0.4.1",
+        "grunt-git": "~0.2.2",
+        "load-grunt-tasks": "~0.2.0"
+      }
+    }
+  },
+  "limits": [
+    "Static HTML script-src inventory only; inline modules, dynamic imports, workers and transitive bundle contents are not fully analyzed.",
+    "An unreferenced root script is a review candidate, not authorization to delete it.",
+    "Legacy manifest advisories are not a count of exploitable production vulnerabilities."
+  ],
+  "openDependabotAlerts": {
+    "alerts": [
+      {
+        "manifest": "package-lock.json",
+        "number": 78,
+        "package": "compression",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 77,
+        "package": "braces",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 76,
+        "package": "brace-expansion",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 75,
+        "package": "brace-expansion",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 74,
+        "package": "brace-expansion",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 73,
+        "package": "morgan",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 72,
+        "package": "js-yaml",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 71,
+        "package": "morgan",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 70,
+        "package": "decode-uri-component",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 69,
+        "package": "js-yaml",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 68,
+        "package": "brace-expansion",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 67,
+        "package": "brace-expansion",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 65,
+        "package": "js-yaml",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 64,
+        "package": "brace-expansion",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 63,
+        "package": "morgan",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 62,
+        "package": "js-yaml",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 60,
+        "package": "picomatch",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 59,
+        "package": "picomatch",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 58,
+        "package": "brace-expansion",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 56,
+        "package": "underscore",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 55,
+        "package": "minimatch",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 54,
+        "package": "minimatch",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 53,
+        "package": "minimatch",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 51,
+        "package": "semver",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 50,
+        "package": "js-yaml",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package.json",
+        "number": 48,
+        "package": "hexo",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 47,
+        "package": "hexo",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 46,
+        "package": "brace-expansion",
+        "severity": "low"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 45,
+        "package": "on-headers",
+        "severity": "low"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 44,
+        "package": "prismjs",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 42,
+        "package": "cross-spawn",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 41,
+        "package": "cross-spawn",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 39,
+        "package": "send",
+        "severity": "low"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 38,
+        "package": "serve-static",
+        "severity": "low"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 37,
+        "package": "micromatch",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 36,
+        "package": "braces",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 35,
+        "package": "ejs",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 34,
+        "package": "semver",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 30,
+        "package": "minimist",
+        "severity": "critical"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 29,
+        "package": "swig-templates",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 28,
+        "package": "minimist",
+        "severity": "critical"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 27,
+        "package": "decode-uri-component",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 25,
+        "package": "minimatch",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 23,
+        "package": "moment-timezone",
+        "severity": "low"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 22,
+        "package": "moment-timezone",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 21,
+        "package": "moment",
+        "severity": "high"
+      },
+      {
+        "manifest": "themes/landscape/package.json",
+        "number": 20,
+        "package": "grunt",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 19,
+        "package": "ejs",
+        "severity": "critical"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 18,
+        "package": "ansi-regex",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 17,
+        "package": "minimist",
+        "severity": "medium"
+      },
+      {
+        "manifest": "themes/landscape/package.json",
+        "number": 15,
+        "package": "grunt",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 11,
+        "package": "moment",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 9,
+        "package": "prismjs",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 8,
+        "package": "marked",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 7,
+        "package": "marked",
+        "severity": "high"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 6,
+        "package": "hexo",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 5,
+        "package": "striptags",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 3,
+        "package": "underscore",
+        "severity": "critical"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 2,
+        "package": "highlight.js",
+        "severity": "medium"
+      },
+      {
+        "manifest": "package-lock.json",
+        "number": 1,
+        "package": "underscore.string",
+        "severity": "medium"
+      }
+    ],
+    "manifests": {
+      "package-lock.json": 57,
+      "package.json": 1,
+      "themes/landscape/package.json": 2
+    },
+    "severity": {
+      "critical": 4,
+      "high": 32,
+      "low": 5,
+      "medium": 19
+    },
+    "total": 60
+  },
+  "publishedBaseline": "562a08eb0d8a17eb13eda65675ff47fe6c89c18d",
+  "rootScriptsNotDirectlyReferencedByHTML": [
+    "main.0cf68a.js",
+    "mobile.992cbe.js",
+    "slider.e37972.js"
+  ],
+  "sourceCommit": "7fdc838a0d09c23cec232ad6af76494731466eb8",
+  "trackedLegacyNodeModulesFiles": 3437
+}

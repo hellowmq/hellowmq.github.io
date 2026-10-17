@@ -1,0 +1,2 @@
+# Recovery originals must retain their exact whitespace and line endings.
+maintenance/legacy-source/posts/*.md -text -whitespace

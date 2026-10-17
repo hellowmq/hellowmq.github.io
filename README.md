@@ -6,6 +6,11 @@ The homepage is hand-authored HTML, CSS and JavaScript. Its interactive Canvas p
 
 The historical blog is statically generated from 36 original Markdown posts using an adaptation of [AstroPaper](https://github.com/satnaing/astro-paper); its MIT notice is in [ASTROPAPER-LICENSE](ASTROPAPER-LICENSE). New blog pages cover the original article, archive, tag and pagination URLs. No Node runtime is needed to serve the published files.
 
+The published historical HTML is currently frozen. The 36 public Markdown
+originals and their path/hash manifest are preserved in
+[`maintenance/legacy-source`](maintenance/legacy-source/README.md). Current
+checks and static packaging do not execute the legacy Hexo stack.
+
 ## Develop and validate
 
 ```sh
@@ -18,7 +23,8 @@ Open http://127.0.0.1:8765. Check desktop and mobile layouts, all three particle
 ### Automatic checks
 
 The `Site checks` workflow runs on pushes to `master` and pull requests targeting
-`master`. It runs the existing Python validator and checks the syntax of the
+`master`. It runs the existing Python validator, verifies the recovered public
+Markdown, compares two static package manifests, and checks the syntax of the
 hand-authored `studio/*.js` files using Python 3.12 and Node 24. No npm packages,
 Hexo commands, secrets, or write permissions are needed. A full-history checkout
 is required because preservation checks read historical Git commits.
@@ -28,6 +34,20 @@ acceptance tests. Pages deployment remains separate: a check failure reports a
 failure but does not block a direct push or the existing Pages deployment.
 Repository rules and Pages settings are not changed by this workflow. Propose
 site changes in a PR targeting `master` to see the result before publishing.
+
+### Offline static packaging
+
+```sh
+build_root="$(mktemp -d)"
+python3 scripts/build-site.py --output "$build_root/site" --manifest "$build_root/site.json"
+```
+
+The command copies validated, tracked publication files to a new directory
+outside the checkout. Add new site files to the Git index before packaging;
+classify new top-level routes in the script before including them. Tooling,
+maintenance snapshots and CI files are excluded from the artifact. The command
+does not deploy or regenerate historical HTML from Markdown. See the recovered
+source README for the remaining source-retirement steps.
 
 ## Publish
 

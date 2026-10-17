@@ -43,3 +43,12 @@ jobs:
           for script in studio/*.js; do
             node --check "$script"
           done
+
+      - name: Verify recovered public Markdown
+        run: python3 scripts/verify-legacy-source.py
+
+      - name: Verify reproducible static packaging
+        run: |
+          python3 scripts/build-site.py --output "$RUNNER_TEMP/site-a" --manifest "$RUNNER_TEMP/site-a.json"
+          python3 scripts/build-site.py --output "$RUNNER_TEMP/site-b" --manifest "$RUNNER_TEMP/site-b.json"
+          cmp "$RUNNER_TEMP/site-a.json" "$RUNNER_TEMP/site-b.json"
