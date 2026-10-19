@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-19",
+  "publicationBaseline": "254ff6ef1e572df7ae034ef34acb4fb90e51624c",
+  "deletionApproved": false,
+  "assets": [
+    {
+      "path": "main.0cf68a.js",
+      "bytes": 70640,
+      "sha256": "93028bb016126bffac953bb9e845ceb70671751cea91c6a752fce90593309c82",
+      "state": "retained-pending-review"
+    },
+    {
+      "path": "mobile.992cbe.js",
+      "bytes": 106824,
+      "sha256": "6ae4ffd8bda454becf6f261fd884c21fd7ecdb64815a7fee9eb912462d3510b4",
+      "state": "retained-pending-review"
+    },
+    {
+      "path": "slider.e37972.js",
+      "bytes": 53386,
+      "sha256": "332f44df344d417e5200a17e901ff4ea5232bd38b0c8750293809c3902379b30",
+      "state": "retained-pending-review"
+    },
+    {
+      "path": "main.0cf68a.css",
+      "bytes": 60610,
+      "sha256": "b0d7ccb28e00e916f5b7ea2c3e6c3fa3e204fef3a447f4de8415f8d7c9d869cd",
+      "state": "retained-pending-review"
+    },
+    {
+      "path": "content.json",
+      "bytes": 7355,
+      "sha256": "0b93242a591784e7097f808a297570030ed34bf0ad9557375f947ccd862491ea",
+      "state": "retained-pending-review"
+    }
+  ],
+  "internalReferences": [
+    {
+      "from": "slider.e37972.js",
+      "to": "content.json",
+      "kind": "fetch with yiliaConfig.root prefix"
+    }
+  ],
+  "legacyDeployment": {
+    "sourceBranch": "hexo",
+    "retirementCommit": "a08907d33dadbde8a726e1e2b5628a55a6a20532",
+    "configFiles": [
+      {
+        "path": "_config.yml",
+        "sha256": "219e20bb5675eb4f641725fb8df4df6078876f72bf24e7a9554d1b51bcb742cf"
+      },
+      {
+        "path": "config_copy/_config.yml",
+        "sha256": "a3823d501b556f9a58add58a74c77399747610ce9d41ca5d22c83ac30d759b5a"
+      }
+    ]
+  },
+  "limits": [
+    "Literal reference isolation is not a complete proof of runtime unreachability.",
+    "The five exact asset basenames are reserved; active references, including encoded strings and literal concatenation, require review.",
+    "Arbitrary computed names, eval, external pages and third-party clients are not fully analyzed.",
+    "No asset deletion or repository settings change is authorized by this manifest."
+  ]
+}

@@ -63,6 +63,11 @@ dependencies were executed, upgraded, dismissed or declared fixed.
 
 ## Remaining retirement gate
 
+2026-10-19 follow-up: both historical deployment configurations are now disabled
+and protected by CI. The exact five retained output candidates, bounded static
+reference scan and remaining authorization scope are recorded in
+[`retirement-review.md`](retirement-review.md). No deletion has been performed.
+
 The source recovery and the independent static packaging path are in place.
 The following are separate repository maintenance decisions:
 

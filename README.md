@@ -11,6 +11,10 @@ originals and their path/hash manifest are preserved in
 [`maintenance/legacy-source`](maintenance/legacy-source/README.md). Current
 checks and static packaging do not execute the legacy Hexo stack.
 
+Both historical Hexo deployment configurations now set `deploy: false`.
+The [retirement review](maintenance/legacy-source/retirement-review.md) records
+the five retained legacy output files and the current source-branch safeguard.
+
 ## Develop and validate
 
 ```sh
@@ -34,6 +38,13 @@ acceptance tests. Pages deployment remains separate: a check failure reports a
 failure but does not block a direct push or the existing Pages deployment.
 Repository rules and Pages settings are not changed by this workflow. Propose
 site changes in a PR targeting `master` to see the result before publishing.
+
+The legacy-isolation step scans active HTML/SVG references, JavaScript string
+literals (including simple concatenation and encoded markers), CSS resource
+URLs and JSON configuration for the five reserved legacy asset names. It also
+checks that both historical deployment configurations in `origin/hexo` remain
+disabled. This bounded static guard does not prove arbitrary computed code
+cannot reach an old URL. The legacy files remain present pending deletion review.
 
 ### Offline static packaging
 

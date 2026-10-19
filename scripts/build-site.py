@@ -11,20 +11,8 @@ from pathlib import Path
 import subprocess
 import sys
 
+from site_files import ROOT, publication_paths
 
-ROOT = Path(__file__).resolve().parents[1]
-PUBLISHED_DIRECTORIES = {
-    "2018", "2019", "2020", "_astro", "about", "archives", "fonts", "img",
-    "notes", "page", "pagefind", "petapp", "posts", "search", "studio", "tags",
-}
-PUBLISHED_ROOT_FILES = {
-    ".nojekyll", "404.html", "ASTROPAPER-LICENSE", "CNAME", "ads.txt",
-    "content.json", "favicon.svg", "index.html", "main.0cf68a.css",
-    "main.0cf68a.js", "mobile.992cbe.js", "robots.txt", "rss.xml",
-    "sitemap-0.xml", "sitemap-index.xml", "slider.e37972.js",
-}
-MAINTENANCE_DIRECTORIES = {".github", "maintenance", "scripts"}
-MAINTENANCE_ROOT_FILES = {"README.md", ".gitattributes"}
 
 
 def main():
@@ -44,23 +32,11 @@ def main():
     for script in ("validate-site.py", "verify-legacy-source.py"):
         subprocess.run([sys.executable, str(ROOT / "scripts" / script)], cwd=ROOT, check=True)
 
-    entries = subprocess.check_output(["git", "ls-files", "--stage", "-z"], cwd=ROOT).decode().split("\0")
     files = {}
-    for entry in sorted(filter(None, entries)):
-        metadata, name = entry.split("\t", 1)
-        mode, _, stage = metadata.split()
-        path = Path(name)
-        if name in MAINTENANCE_ROOT_FILES or path.parts[0] in MAINTENANCE_DIRECTORIES:
-            continue
-        if name not in PUBLISHED_ROOT_FILES and path.parts[0] not in PUBLISHED_DIRECTORIES:
-            raise ValueError(f"Classify this tracked path before packaging: {name}")
-        if stage != "0" or mode != "100644" or (ROOT / name).is_symlink():
-            raise ValueError(f"Unsupported publication entry: {name}")
+    for name in publication_paths():
         raw = (ROOT / name).read_bytes()
         files[name] = {"sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw)}
 
-    if not PUBLISHED_ROOT_FILES <= files.keys():
-        raise ValueError("Required publication root files are missing from the Git index")
     output.mkdir(parents=True, exist_ok=False)
     for name, details in files.items():
         target = output / name
