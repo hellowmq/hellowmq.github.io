@@ -79,10 +79,8 @@ theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: git@github.com:hellowmq/hellowmq.github.io.git
-  branch: master  
+# Historical Hexo deployment is retired; use the maintained master workflow.
+deploy: false
 
   
 server:

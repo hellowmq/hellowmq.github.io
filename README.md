@@ -9,6 +9,13 @@ For normal site updates, use the [maintained static site on `master`](https://gi
 and its [development, checks and packaging instructions](https://github.com/hellowmq/hellowmq.github.io/blob/master/README.md).
 Do not run the old Hexo installer or deployer as part of that workflow.
 
+As of 2026-10-19, both `_config.yml` and `config_copy/_config.yml` explicitly
+set `deploy: false`. They no longer configure the legacy Git deployer to write
+over the maintained `master` site. Other configuration values and original
+source files are preserved. No old dependency installation or deployment was
+executed to make this change; arbitrary custom configuration or a manual Git
+push is outside this configuration safeguard.
+
 The 36 public Markdown originals have a byte-preserving
 [recovery snapshot and route/hash manifest](https://github.com/hellowmq/hellowmq.github.io/tree/master/maintenance/legacy-source).
 The `Site checks` workflow verifies that snapshot, the historical published
