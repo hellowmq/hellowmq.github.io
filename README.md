@@ -42,8 +42,10 @@ site changes in a PR targeting `master` to see the result before publishing.
 The legacy-isolation step scans active HTML/SVG references, JavaScript string
 literals (including simple concatenation and encoded markers), CSS resource
 URLs and JSON configuration for the five reserved legacy asset names. It also
-checks that both historical deployment configurations in `origin/hexo` remain
-disabled. This bounded static guard does not prove arbitrary computed code
+checks the pinned `maintenance/hexo-deploy-retirement/v0.1.0` archive tag and its
+two disabled deployment configurations. If `origin/hexo` exists, its configurations
+must still match the reviewed hashes; the branch itself is optional. A missing or
+moved archive tag fails validation. This bounded static guard does not prove arbitrary computed code
 cannot reach an old URL. The five approved legacy files were removed on
 2026-10-20; the check rejects their reintroduction as well as references to them.
 
@@ -67,7 +69,7 @@ GitHub Pages serves the root of `master`. Commit focused changes, push normally,
 
 ## Legacy boundary
 
-The `hexo` branch preserves the original blog source and dependencies. Its existing Dependabot findings are **not resolved by this static-site release**. The homepage does not load those scripts. The historical blog pages are now AstroPaper-generated static HTML with the original publication dates and URLs; the default/source branch and its old dependencies remain a separate maintenance task.
+The `hexo` branch preserves the original blog source and dependencies. Its old dependency versions are **not fixed by this static-site release**. The homepage does not load those scripts. The historical blog pages are now AstroPaper-generated static HTML with the original publication dates and URLs. The approved 2026-10-20 governance sequence publishes the archive-based CI guard first, then changes the default branch to `master` while preserving `hexo` and its retirement tag. Pages continues to serve `master` root; the final Dependabot state must be verified after GitHub recalculates it.
 
 The 2026-10-20 cleanup removed only the five approved legacy outputs listed in
 the retirement review. Historical article/list pages, recovered Markdown, and

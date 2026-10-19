@@ -25,9 +25,12 @@ Validation here was YAML inspection and upstream code review, not execution of
 the legacy command or dependency stack. Custom configuration overrides and
 manual Git pushes are outside this safeguard.
 
-`check_legacy_assets.py` verifies the current remote-tracking `origin/hexo`
-configurations against their reviewed hashes. A future configuration change
-requires reviewing and updating that policy.
+`check_legacy_assets.py` verifies the archive tag
+`maintenance/hexo-deploy-retirement/v0.1.0` resolves to the reviewed retirement
+commit and checks both configurations against their hashes. While `origin/hexo`
+exists, its configurations are checked too. The branch is optional, so retiring
+it does not break the guard; a missing or moved archive tag still fails. A future
+configuration change requires reviewing and updating that policy.
 
 ## Exact removed outputs
 
@@ -84,7 +87,10 @@ history still contains all five outputs and all historical source. The original
 36-public-post snapshot remains pinned to its original immutable source commit.
 Rollback uses a new revert commit and a new deployment tag, never a force push.
 
-Default branch `hexo`, Pages source `master` root, repository rules, legacy npm
-manifests and vendored dependencies remain unchanged. Open dependency alerts
-have not been dismissed or declared fixed. Removing five unused output
-candidates would not itself resolve the old manifest findings.
+At the five-output removal milestone, default branch `hexo`, Pages source
+`master` root, repository rules, legacy npm manifests and vendored dependencies
+were unchanged. Open dependency alerts were not dismissed or declared fixed.
+Removing those outputs did not itself resolve the old manifest findings.
+The separately approved governance sequence changes the default branch to
+`master` after the archive-based CI guard is published, retaining `hexo` and
+the retirement tag. See the source README for that sequence and its limits.

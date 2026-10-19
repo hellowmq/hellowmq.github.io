@@ -43,9 +43,9 @@ Current branch-based Pages hosting still serves `master` directly.
 ## Dependency inventory and limits
 
 `dependency-inventory-2026-10-18.json` pins the inspected Git commits and records
-the legacy manifests, current open alerts and direct HTML script references.
+the legacy manifests, the alerts open on that date and direct HTML script references.
 
-- Default/source branch `hexo` still has **60 open alerts**: 4 critical,
+- At that inventory date, default/source branch `hexo` had **60 open alerts**: 4 critical,
   32 high, 19 medium, 5 low. They affect `package-lock.json` (57),
   `package.json` (1), and `themes/landscape/package.json` (2).
 - That immutable legacy tree tracks 3,437 files under root `node_modules/`.
@@ -71,18 +71,31 @@ configurations remain disabled. Details and the original 2026-10-19 reference
 sample are recorded in [`retirement-review.md`](retirement-review.md).
 
 The source recovery and the independent static packaging path are in place.
+The guard now pins the existing `maintenance/hexo-deploy-retirement/v0.1.0`
+archive tag to commit `a08907d33dadbde8a726e1e2b5628a55a6a20532`. It validates
+the disabled deployment configurations in that snapshot and, while present,
+`origin/hexo`. A full-history clone with the archive tag no longer requires
+the legacy branch. The guard itself changes no repository settings or branches.
+
+The user separately approved the 2026-10-20 governance sequence: publish this
+guard, change the default branch from `hexo` to `master`, close the three obsolete
+Hexo dependency PRs (#23, #24, #25), and re-read Dependabot. Keep the `hexo`
+branch and its retirement tag. Pages continues to publish `master` root.
+Do not describe alert removal after a dependency-graph change as patched legacy
+code, or assert a final alert count before checking GitHub.
+
 The following are separate repository maintenance decisions:
 
 1. Confirm the frozen historical HTML maintenance model before retiring the
    original generator, or complete the Astro regeneration pipeline above.
 2. Prepare an exact file inventory before any legacy file deletion. Keep the
    original branch history and recovery manifest; do not rewrite Git history.
-3. Obtain explicit authorization before changing the default branch, Pages
-   source or repository rules. The default branch is still `hexo`, and Pages
-   still publishes `master` root.
+3. Keep default-branch governance separate from Pages source or repository rules.
+   The approved transition above does not change Pages source or repository rules.
 4. Re-read Dependabot after the approved retirement changes. Do not dismiss
    alerts merely to reduce the count.
 
 The 2026-10-18 recovery phase removed no files or settings. The later approved
 cleanup removed only five legacy output files; original source, manifests,
-branches and repository settings remain preserved.
+branches and tags remain preserved. The default-branch transition is separately
+authorized as described above.

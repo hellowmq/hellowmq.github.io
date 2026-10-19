@@ -140,13 +140,22 @@ def main():
             violations[name] = found
     assert not violations, f"Retired asset referenced by active publication input: {violations}"
 
-    # Read the current remote-tracking source branch. Never execute its tooling.
+    # Preserve the retired snapshot even after its branch is removed. While the
+    # branch exists, also reject changes that re-enable either deploy target.
     deployment = policy["legacyDeployment"]
-    for entry in deployment["configFiles"]:
-        raw = subprocess.check_output(["git", "show", f'refs/remotes/origin/hexo:{entry["path"]}'], cwd=ROOT)
-        assert hashlib.sha256(raw).hexdigest() == entry["sha256"], entry["path"]
-        values = re.findall(r"(?m)^deploy:([^\r\n]*)$", raw.decode())
-        assert len(values) == 1 and values[0].split("#", 1)[0].strip() == "false", entry["path"]
+    archive_ref = f'refs/tags/{deployment["archiveTag"]}'
+    archived_commit = subprocess.check_output(["git", "rev-parse", f"{archive_ref}^{{commit}}"], cwd=ROOT, text=True).strip()
+    assert archived_commit == deployment["retirementCommit"], "Legacy archive tag no longer matches retirement commit"
+    sources = [archive_ref]
+    branch_ref = f'refs/remotes/origin/{deployment["sourceBranch"]}'
+    if subprocess.run(["git", "show-ref", "--verify", "--quiet", branch_ref], cwd=ROOT, check=False).returncode == 0:
+        sources.append(branch_ref)
+    for source in sources:
+        for entry in deployment["configFiles"]:
+            raw = subprocess.check_output(["git", "show", f'{source}:{entry["path"]}'], cwd=ROOT)
+            assert hashlib.sha256(raw).hexdigest() == entry["sha256"], f'{source}:{entry["path"]}'
+            values = re.findall(r"(?m)^deploy:([^\r\n]*)$", raw.decode())
+            assert len(values) == 1 and values[0].split("#", 1)[0].strip() == "false", f'{source}:{entry["path"]}'
     print("PASS: five removed legacy assets remain absent and unreferenced; both historical deploy targets remain disabled")
 
 

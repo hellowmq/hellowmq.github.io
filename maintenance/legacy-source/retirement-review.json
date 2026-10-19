@@ -44,6 +44,7 @@
   ],
   "legacyDeployment": {
     "sourceBranch": "hexo",
+    "archiveTag": "maintenance/hexo-deploy-retirement/v0.1.0",
     "retirementCommit": "a08907d33dadbde8a726e1e2b5628a55a6a20532",
     "configFiles": [
       {
