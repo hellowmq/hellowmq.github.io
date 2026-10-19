@@ -2,37 +2,37 @@
   "schemaVersion": 1,
   "reviewDate": "2026-10-19",
   "publicationBaseline": "254ff6ef1e572df7ae034ef34acb4fb90e51624c",
-  "deletionApproved": false,
+  "deletionApproved": true,
   "assets": [
     {
       "path": "main.0cf68a.js",
       "bytes": 70640,
       "sha256": "93028bb016126bffac953bb9e845ceb70671751cea91c6a752fce90593309c82",
-      "state": "retained-pending-review"
+      "state": "removed"
     },
     {
       "path": "mobile.992cbe.js",
       "bytes": 106824,
       "sha256": "6ae4ffd8bda454becf6f261fd884c21fd7ecdb64815a7fee9eb912462d3510b4",
-      "state": "retained-pending-review"
+      "state": "removed"
     },
     {
       "path": "slider.e37972.js",
       "bytes": 53386,
       "sha256": "332f44df344d417e5200a17e901ff4ea5232bd38b0c8750293809c3902379b30",
-      "state": "retained-pending-review"
+      "state": "removed"
     },
     {
       "path": "main.0cf68a.css",
       "bytes": 60610,
       "sha256": "b0d7ccb28e00e916f5b7ea2c3e6c3fa3e204fef3a447f4de8415f8d7c9d869cd",
-      "state": "retained-pending-review"
+      "state": "removed"
     },
     {
       "path": "content.json",
       "bytes": 7355,
       "sha256": "0b93242a591784e7097f808a297570030ed34bf0ad9557375f947ccd862491ea",
-      "state": "retained-pending-review"
+      "state": "removed"
     }
   ],
   "internalReferences": [
@@ -60,6 +60,10 @@
     "Literal reference isolation is not a complete proof of runtime unreachability.",
     "The five exact asset basenames are reserved; active references, including encoded strings and literal concatenation, require review.",
     "Arbitrary computed names, eval, external pages and third-party clients are not fully analyzed.",
-    "No asset deletion or repository settings change is authorized by this manifest."
-  ]
+    "This record covers the five explicitly approved output files only; no repository settings change is included."
+  ],
+  "approvalDate": "2026-10-20",
+  "authorizationSource": "Explicit user approval in this chat to delete only the five listed files and publish after validation",
+  "removalDate": "2026-10-20",
+  "removalBaseline": "004d15a79e75d0ebe9ac532168233d6be371b9a8"
 }

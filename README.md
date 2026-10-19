@@ -13,7 +13,7 @@ checks and static packaging do not execute the legacy Hexo stack.
 
 Both historical Hexo deployment configurations now set `deploy: false`.
 The [retirement review](maintenance/legacy-source/retirement-review.md) records
-the five retained legacy output files and the current source-branch safeguard.
+the five removed legacy output files and the current source-branch safeguard.
 
 ## Develop and validate
 
@@ -44,7 +44,8 @@ literals (including simple concatenation and encoded markers), CSS resource
 URLs and JSON configuration for the five reserved legacy asset names. It also
 checks that both historical deployment configurations in `origin/hexo` remain
 disabled. This bounded static guard does not prove arbitrary computed code
-cannot reach an old URL. The legacy files remain present pending deletion review.
+cannot reach an old URL. The five approved legacy files were removed on
+2026-10-20; the check rejects their reintroduction as well as references to them.
 
 ### Offline static packaging
 
@@ -68,7 +69,12 @@ GitHub Pages serves the root of `master`. Commit focused changes, push normally,
 
 The `hexo` branch preserves the original blog source and dependencies. Its existing Dependabot findings are **not resolved by this static-site release**. The homepage does not load those scripts. The historical blog pages are now AstroPaper-generated static HTML with the original publication dates and URLs; the default/source branch and its old dependencies remain a separate maintenance task.
 
-No historic files were removed in this release. The immediately preceding Pages state is commit `719adbc134d5ef5ec696f586460f9a3181e1d499`; use a new revert commit for rollback rather than rewriting history. The original Markdown remains available in the `hexo` branch.
+The 2026-10-20 cleanup removed only the five approved legacy outputs listed in
+the retirement review. Historical article/list pages, recovered Markdown, and
+the active site assets are preserved. Its preceding Pages state is commit
+`004d15a79e75d0ebe9ac532168233d6be371b9a8`; use a new revert commit and a new
+deployment tag for rollback rather than rewriting history. The original
+Markdown remains available in the `hexo` branch and the recovery snapshot.
 
 ## Languages
 

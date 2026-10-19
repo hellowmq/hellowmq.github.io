@@ -1,4 +1,4 @@
-"""Keep retained legacy assets out of active references; verify deploy retirement.
+"""Keep removed legacy assets absent and unreferenced; verify deploy retirement.
 
 This is a static reference guard, not a full JavaScript reachability analysis.
 It does not execute legacy bundles, alter repository settings or delete files.
@@ -118,17 +118,22 @@ def markers(name, text, assets):
 def main():
     policy = json.loads((ROOT / "maintenance/legacy-source/retirement-review.json").read_text())
     assert policy["schemaVersion"] == 1
-    assert policy["deletionApproved"] is False
+    assert policy["deletionApproved"] is True
     assets = {entry["path"] for entry in policy["assets"]}
     assert len(assets) == len(policy["assets"]) == 5
     for entry in policy["assets"]:
         assert entry["path"] == Path(entry["path"]).name
-        raw = (ROOT / entry["path"]).read_bytes()
+        assert entry["state"] == "removed", entry["path"]
+        path = ROOT / entry["path"]
+        assert not path.exists() and not path.is_symlink(), f"Removed legacy asset reintroduced: {entry['path']}"
+        raw = subprocess.check_output(["git", "show", f'{policy["removalBaseline"]}:{entry["path"]}'], cwd=ROOT)
         assert len(raw) == entry["bytes"] and hashlib.sha256(raw).hexdigest() == entry["sha256"], entry["path"]
 
+    published = publication_paths()
+    assert assets.isdisjoint(published), "Removed legacy asset remains in publication inventory"
     violations = {}
-    for name in publication_paths():
-        if name in assets or Path(name).suffix not in {".html", ".svg", ".js", ".css", ".json", ".webmanifest"}:
+    for name in published:
+        if Path(name).suffix not in {".html", ".svg", ".js", ".css", ".json", ".webmanifest"}:
             continue
         found = markers(name, (ROOT / name).read_text(), assets)
         if found:
@@ -142,7 +147,7 @@ def main():
         assert hashlib.sha256(raw).hexdigest() == entry["sha256"], entry["path"]
         values = re.findall(r"(?m)^deploy:([^\r\n]*)$", raw.decode())
         assert len(values) == 1 and values[0].split("#", 1)[0].strip() == "false", entry["path"]
-    print("PASS: five retained legacy assets have no active literal references; both historical deploy targets remain disabled")
+    print("PASS: five removed legacy assets remain absent and unreferenced; both historical deploy targets remain disabled")
 
 
 if __name__ == "__main__":

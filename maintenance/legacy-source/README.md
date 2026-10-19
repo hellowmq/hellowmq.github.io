@@ -52,8 +52,9 @@ the legacy manifests, current open alerts and direct HTML script references.
   None are needed or executed by the new checks or static packaging.
 - Current HTML directly names seven local scripts. Root scripts
   `main.0cf68a.js`, `mobile.992cbe.js` and `slider.e37972.js` are not named by
-  any tracked HTML `script src`; they remain in the artifact pending review of
-  inline modules, dynamic imports, workers and transitive references.
+  any tracked HTML `script src`. They remained in that dated inventory; the
+  separately approved 2026-10-20 cleanup removes them and the other two reviewed
+  outputs. The isolation guard continues to check active references.
 - No direct external `script src` was found. This does **not** imply no external
   runtime requests: for example, the preserved analytics runtime loads GA4.
 
@@ -63,10 +64,11 @@ dependencies were executed, upgraded, dismissed or declared fixed.
 
 ## Remaining retirement gate
 
-2026-10-19 follow-up: both historical deployment configurations are now disabled
-and protected by CI. The exact five retained output candidates, bounded static
-reference scan and remaining authorization scope are recorded in
-[`retirement-review.md`](retirement-review.md). No deletion has been performed.
+2026-10-20 follow-up: the user approved removal of the five reviewed legacy
+output files. They are now absent from `master` and its package, and CI rejects
+their reintroduction and active references. Both historical deployment
+configurations remain disabled. Details and the original 2026-10-19 reference
+sample are recorded in [`retirement-review.md`](retirement-review.md).
 
 The source recovery and the independent static packaging path are in place.
 The following are separate repository maintenance decisions:
@@ -81,4 +83,6 @@ The following are separate repository maintenance decisions:
 4. Re-read Dependabot after the approved retirement changes. Do not dismiss
    alerts merely to reduce the count.
 
-No files, branches, manifests or repository settings were removed in this work.
+The 2026-10-18 recovery phase removed no files or settings. The later approved
+cleanup removed only five legacy output files; original source, manifests,
+branches and repository settings remain preserved.

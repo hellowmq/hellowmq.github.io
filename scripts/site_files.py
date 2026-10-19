@@ -11,9 +11,8 @@ PUBLISHED_DIRECTORIES = {
 }
 PUBLISHED_ROOT_FILES = {
     ".nojekyll", "404.html", "ASTROPAPER-LICENSE", "CNAME", "ads.txt",
-    "content.json", "favicon.svg", "index.html", "main.0cf68a.css",
-    "main.0cf68a.js", "mobile.992cbe.js", "robots.txt", "rss.xml",
-    "sitemap-0.xml", "sitemap-index.xml", "slider.e37972.js",
+    "favicon.svg", "index.html", "robots.txt", "rss.xml",
+    "sitemap-0.xml", "sitemap-index.xml",
 }
 MAINTENANCE_DIRECTORIES = {".github", "maintenance", "scripts"}
 MAINTENANCE_ROOT_FILES = {"README.md", ".gitattributes", ".gitignore"}
