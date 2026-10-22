@@ -2,7 +2,7 @@
 
 Live site: https://tech.wenmq.cn/
 
-The homepage is hand-authored HTML, CSS and JavaScript. Its interactive Canvas particle field has three selectable modes, an explicit pause control, reduced-motion support, and suspends animation when hidden or off screen. Engineering notes reuse the hand-authored DisplayDJ reading template and shared `studio/note.css`. The index is at `notes/index.html`; DisplayDJ and the PetApp CSP/cross-device debugging case study have their own `notes/<slug>/index.html`, homepage links, RSS items and sitemap entries. Article HTML is the editable publication source; this change does not rerun or overwrite the historical AstroPaper build. Its versioned sources distinguish implementation from recorded hardware evidence.
+The homepage is hand-authored HTML, CSS and JavaScript. The current local redesign leads with the real DisplayDJ window, followed by PetApp, MCR scoring and FocusTrace. It links to the personal Blogger site for non-technical writing. The screenshot opens in a native dialog with Escape, backdrop dismissal and focus restoration; the former decorative particle field has been removed. Engineering notes reuse the hand-authored DisplayDJ reading template and shared `studio/note.css`. The index is at `notes/index.html`; DisplayDJ and the PetApp CSP/cross-device debugging case study have their own `notes/<slug>/index.html`, homepage links, RSS items and sitemap entries. Article HTML is the editable publication source; this change does not rerun or overwrite the historical AstroPaper build. Its versioned sources distinguish implementation from recorded hardware evidence.
 
 The historical blog is statically generated from 36 original Markdown posts using an adaptation of [AstroPaper](https://github.com/satnaing/astro-paper); its MIT notice is in [ASTROPAPER-LICENSE](ASTROPAPER-LICENSE). New blog pages cover the original article, archive, tag and pagination URLs. No Node runtime is needed to serve the published files.
 
@@ -22,7 +22,7 @@ python3 -m http.server 8765 --bind 127.0.0.1
 python3 scripts/validate-site.py
 ```
 
-Open http://127.0.0.1:8765. Check desktop and mobile layouts, all three particle modes, pause/resume, keyboard focus, the archive and a few article pages. The validator checks local links, anchor targets, HTTPS URLs, size budgets, sharing assets and coverage of the historical routes. The October 2026 portfolio changes intentionally update the homepage; the validator keeps the published historical article/list and PetApp files byte-identical to `d1aab1c` after removing only the exact shared analytics script tag. Some older articles still contain third-party image URLs; their availability can change independently of this site.
+Open http://127.0.0.1:8765. Check desktop and mobile layouts, Chinese/English switching and persistence, screenshot preview and focus restoration, keyboard focus, the archive and a few article pages. The validator checks local links, anchor targets, HTTPS URLs, size budgets, sharing assets and coverage of the historical routes. The October 2026 portfolio changes intentionally update the homepage; the validator keeps the published historical article/list and PetApp files byte-identical to `d1aab1c` after removing only the exact shared analytics script tag. Some older articles still contain third-party image URLs; their availability can change independently of this site.
 
 ### Automatic checks
 
@@ -80,7 +80,7 @@ Markdown remains available in the `hexo` branch and the recovery snapshot.
 
 ## Languages
 
-The homepage and custom 404 default to Simplified Chinese, including their static HTML fallback. The language button switches to English and remembers an explicit choice in localStorage. Storage is optional: blocked storage must not prevent switching. Language changes update document language, title, description, visible copy and accessible labels without resetting the particle mode or pause state.
+The homepage defaults to Simplified Chinese, including its static HTML fallback. The language button switches to English and remembers an explicit choice in localStorage. Storage is optional: blocked storage must not prevent switching. Language changes update document language, title, description, visible copy and accessible labels without changing the current page position or open image dialog. The about and 404 pages are Chinese-first and use the same shared style. The public analytics notice remains at `/about/#analytics`.
 
 Translations live in `studio/i18n.js`; `data-i18n` and `data-i18n-aria` identify translated homepage content. Translation HTML is developer-authored only; never insert user content into this dictionary. The blog is Chinese-first and retains the dates and titles of the original posts.
 

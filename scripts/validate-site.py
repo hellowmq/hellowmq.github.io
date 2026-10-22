@@ -54,6 +54,7 @@ assert set(messages["en"]) == set(messages["zh-CN"]), "Translation key mismatch"
 
 home = ROOT / "index.html"
 home_page = parse(home)
+assert "analytics" in parse(ROOT / "about/index.html").ids, "Preserve the public analytics notice anchor"
 assert '<html lang="zh-CN">' in home.read_text(), "Chinese homepage fallback required"
 assert home_page.keys <= set(messages["zh-CN"]), home_page.keys - set(messages["zh-CN"])
 for key in home_page.keys:
