@@ -8,6 +8,8 @@ import hashlib
 import subprocess
 import xml.etree.ElementTree as ET
 
+from site_files import publication_paths
+
 
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = "719adbc134d5ef5ec696f586460f9a3181e1d499"
@@ -117,8 +119,9 @@ for name in articles + lists:
     assert 'lang="zh-CN"' in text, f"Missing language: {name}"
     assert 'property="og:image"' not in text, f"Unusable OG image: {name}"
 
-for file in ROOT.rglob("*.html"):
-    if ".git" in file.parts:
+for name in publication_paths():
+    file = ROOT / name
+    if file.suffix != ".html":
         continue
     content = file.read_bytes()
     head = content.split(b'<head>', 1)[1].split(b'</head>', 1)[0]

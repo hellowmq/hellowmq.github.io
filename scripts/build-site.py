@@ -29,6 +29,7 @@ def main():
     if output == manifest_path or output in manifest_path.parents or manifest_path in output.parents:
         parser.error("Output directory and manifest must be separate")
 
+    subprocess.run([sys.executable, str(ROOT / "scripts/sync_notes.py"), "--check"], cwd=ROOT, check=True)
     for script in ("validate-site.py", "verify-legacy-source.py"):
         subprocess.run([sys.executable, str(ROOT / "scripts" / script)], cwd=ROOT, check=True)
 

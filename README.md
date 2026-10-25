@@ -125,4 +125,28 @@ Release this change from an annotated `deploy/tech-analytics/v0.1.0` tag with a 
 
 `notes/petapp-csp-cross-device/index.html` records the host CSP diagnosis, the self-contained bookmark trade-offs, independent Windows/Linux checks, production bookmark readback and the author’s separate-device confirmation. Its two screenshots come from the fresh, logged-out production verification run [38942221891](https://github.com/hellowmq/pet-apps/actions/runs/38942221891). The X response was HTTP 403 in that run; it is not presented as a logged-in X acceptance test. The underlying pet source is pinned to `6d4b3403f3b63da871c66f46282c6dc18de7442c`.
 
-Keep the topic brief and Markdown authoring copy in the existing editorial workspace; the published canonical belongs to this TECH site. For subsequent notes, reuse the note shell/styles, add the entry to `/notes/`, the homepage (including translations), RSS and sitemap, then run the validator and check desktop/mobile rendering before publishing. Preserve the historical archive and generated tag routes.
+Keep the topic brief and Markdown authoring copy in the existing editorial
+workspace; the published canonical belongs to this TECH site. For subsequent
+reviewed notes, reuse the note shell/styles and edit the article HTML under
+`notes/<slug>/index.html`. Add its metadata once in `maintenance/notes.json`, then:
+
+```sh
+python3 scripts/sync_notes.py
+python3 scripts/sync_notes.py --check
+python3 scripts/validate-site.py
+```
+
+The metadata owns the note title, date, topics, index summary, RSS copy and
+optional bilingual homepage feature. Select exactly one `featured` slug, with
+both language variants. Synchronization updates the marked homepage card,
+translation values and cache version, notes index, RSS items and note sitemap
+entries. It validates all inputs before writing; `--check` writes nothing and
+fails when outputs are stale. CI and local packaging require this check.
+
+Article bodies and their evidence remain hand-authored and are not rewritten.
+Keep drafts outside `notes/`; every published article needs a metadata entry
+and its matching canonical URL. A metadata change still needs review and a
+normal tagged release to become public. Do not hand-edit generated regions.
+The personal-blog card is separate and remains hand-authored. Historical
+article bodies, all 36 historical RSS items and non-note sitemap routes are
+preserved. No Hexo or Markdown-to-Astro regeneration is introduced.

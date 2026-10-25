@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "featured": "petapp-csp-cross-device",
+  "entries": [
+    {
+      "slug": "petapp-csp-cross-device",
+      "title": "桌宠卡在加载中：一次 CSP 与跨设备调试复盘",
+      "publishedAt": "2026-10-16T18:06:18+00:00",
+      "topics": [
+        "浏览器",
+        "CSP",
+        "跨设备调试"
+      ],
+      "summary": "为什么本机 Google 能跑，换到另一台设备上的 X 却一直等待？从嵌入方向、控制台证据到自包含书签，以及独立环境与生产回读的验证方法。",
+      "feedTitle": "桌宠卡在加载中：一次 CSP 与跨设备调试复盘",
+      "feedSummary": "从 Google 本机通过、X 宿主 CSP 拦截，到自包含桌宠书签：记录实现取舍、跨设备调试与生产回读的验证方法。",
+      "feedCategories": [
+        "浏览器",
+        "CSP",
+        "跨设备调试"
+      ],
+      "lastModified": "2026-10-17",
+      "home": {
+        "zh-CN": {
+          "tag": "工程笔记 / PETAPP · 2026-10-17",
+          "title": "桌宠卡在加载中：一次 CSP 与跨设备调试复盘",
+          "summary": "从本机 Google 能运行，到另一台设备上的 X 被拦截：怎样找准安全策略、改成自包含书签，再验证真正发布的版本。"
+        },
+        "en": {
+          "tag": "ENGINEERING NOTES / PETAPP · 2026-10-17",
+          "title": "A pet stuck loading: CSP and cross-device debugging.",
+          "summary": "From a local Google success to a blocked X frame on another device: finding the host policy, bundling an offline bookmark, and testing the published build."
+        }
+      }
+    },
+    {
+      "slug": "displaydj",
+      "title": "显示器控制，如何做到可验证？",
+      "publishedAt": "2026-10-03T00:00:00+08:00",
+      "topics": [
+        "macOS",
+        "显示器控制",
+        "工程实践"
+      ],
+      "summary": "DisplayDJ 的免拔线断开、手动亮度优先、结果回读与恢复路径，以及已经验证和仍未覆盖的范围。",
+      "feedTitle": "显示器控制，如何做到可验证？ — DisplayDJ 工程笔记",
+      "feedSummary": "从免拔线断开到手动亮度优先：检查结果，保留恢复路径，说清验证范围。",
+      "feedCategories": []
+    }
+  ]
+}

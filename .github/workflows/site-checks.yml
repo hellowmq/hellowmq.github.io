@@ -36,6 +36,11 @@ jobs:
         with:
           node-version: '24'
 
+      - name: Check generated note entry points
+        run: |
+          python3 scripts/sync_notes.py --check
+          python3 -m unittest discover -s scripts -p test_notes_sync.py -v
+
       - name: Validate pages, translations and preserved content
         run: python3 scripts/validate-site.py
 

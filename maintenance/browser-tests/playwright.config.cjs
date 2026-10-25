@@ -31,8 +31,9 @@ module.exports = defineConfig({
     { name: 'mobile-320', use: { viewport: { width: 320, height: 720 }, isMobile: true, hasTouch: true } }
   ],
   webServer: {
-    command: `python3 -m http.server ${port} --bind 127.0.0.1`,
-    cwd: path.resolve(process.env.SITE_ROOT),
+    command: `python3 serve.py ${port}`,
+    cwd: __dirname,
+    env: { SITE_ROOT: path.resolve(process.env.SITE_ROOT) },
     url: baseURL,
     reuseExistingServer: false,
     stdout: 'ignore',
