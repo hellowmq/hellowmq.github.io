@@ -29,9 +29,29 @@ Open http://127.0.0.1:8765. Check desktop and mobile layouts, Chinese/English sw
 The `Site checks` workflow runs on pushes to `master` and pull requests targeting
 `master`. It runs the existing Python validator, verifies the recovered public
 Markdown, compares two static package manifests, and checks the syntax of the
-hand-authored `studio/*.js` files using Python 3.12 and Node 24. No npm packages,
-Hexo commands, secrets, or write permissions are needed. A full-history checkout
-is required because preservation checks read historical Git commits.
+hand-authored `studio/*.js` files using Python 3.12 and Node 24. Browser checks
+use the exact Playwright version and lock file in `maintenance/browser-tests`;
+these development dependencies are excluded from the publication artifact.
+Validation needs no Hexo commands, secrets or repository write permissions.
+A full-history checkout is required because preservation checks read historical
+Git commits.
+
+Browser checks run against the packaged site, using Chromium at 1440, 390 and
+320px. They cover language persistence and blocked storage, image-dialog
+keyboard/close/backdrop behavior and restored focus, real Pagefind results and
+empty search, and overflow on key pages. Application errors and missing local
+resources fail the run. Run them locally after creating a static package:
+
+```sh
+npm ci --prefix maintenance/browser-tests --ignore-scripts
+cd maintenance/browser-tests
+npx --no-install playwright install --no-shell chromium
+SITE_ROOT=/absolute/path/to/site npm test
+```
+
+Screenshots and traces are saved outside the checkout on failure; CI retains
+them as a separate failure artifact for seven days. These checks
+cover Chromium only, not Safari or real mobile-device behavior.
 
 The workflow packages the site twice, compares the manifests and uploads that
 verified directory as the Pages artifact. The production deploy job requires the

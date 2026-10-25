@@ -12,13 +12,13 @@ permissions:
 
 concurrency:
   group: site-checks-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   validate:
     name: Validate published site
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Check out site and preservation baselines
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
@@ -58,6 +58,28 @@ jobs:
           python3 scripts/build-site.py --output "$RUNNER_TEMP/site-a" --manifest "$RUNNER_TEMP/site-a.json"
           python3 scripts/build-site.py --output "$RUNNER_TEMP/site-b" --manifest "$RUNNER_TEMP/site-b.json"
           cmp "$RUNNER_TEMP/site-a.json" "$RUNNER_TEMP/site-b.json"
+
+      - name: Install locked browser test dependencies
+        run: npm ci --prefix maintenance/browser-tests --ignore-scripts
+
+      - name: Install test Chromium
+        working-directory: maintenance/browser-tests
+        run: npx --no-install playwright install --with-deps --no-shell chromium
+
+      - name: Check interactions in the packaged site
+        env:
+          SITE_ROOT: ${{ runner.temp }}/site-a
+          PLAYWRIGHT_OUTPUT_DIR: ${{ runner.temp }}/browser-results
+        run: npm test --prefix maintenance/browser-tests
+
+      - name: Retain browser failure evidence
+        if: failure()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: browser-failure-evidence
+          path: ${{ runner.temp }}/browser-results
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: Upload the verified Pages artifact
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
