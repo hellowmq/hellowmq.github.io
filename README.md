@@ -33,11 +33,15 @@ hand-authored `studio/*.js` files using Python 3.12 and Node 24. No npm packages
 Hexo commands, secrets, or write permissions are needed. A full-history checkout
 is required because preservation checks read historical Git commits.
 
-These are static content checks, not browser, hardware, or external-service
-acceptance tests. Pages deployment remains separate: a check failure reports a
-failure but does not block a direct push or the existing Pages deployment.
-Repository rules and Pages settings are not changed by this workflow. Propose
-site changes in a PR targeting `master` to see the result before publishing.
+The workflow packages the site twice, compares the manifests and uploads that
+verified directory as the Pages artifact. The production deploy job requires the
+validation job to succeed. Pull requests run validation without deployment or
+Pages write permissions. Pushes to `master` and manual runs on `master` may
+deploy; failures leave the previous production deployment in place.
+Pages must use the GitHub Actions publishing source rather than the independent
+branch-based publisher. Domain and HTTPS settings stay the same. These checks
+do not replace hardware or external-service acceptance. Propose changes in a PR
+targeting `master` to see the result before publishing.
 
 The legacy-isolation step scans active HTML/SVG references, JavaScript string
 literals (including simple concatenation and encoded markers), CSS resource
@@ -65,7 +69,12 @@ source README for the remaining source-retirement steps.
 
 ## Publish
 
-GitHub Pages serves the root of `master`. Commit focused changes, push normally, then verify the Pages build commit and the actual public site. `CNAME` remains `tech.wenmq.cn`. Do not run the legacy Hexo deployer over this branch.
+GitHub Pages deploys the verified static artifact from `master` through the
+`Site checks` workflow. Commit focused changes and publish with a new annotated
+tag, then verify both jobs and the actual public site. A tag alone does not
+trigger production deployment. `CNAME` remains `tech.wenmq.cn`. Do not run the
+legacy Hexo deployer over this branch. Roll back with a new revert commit and a
+new tag; never move an existing release tag.
 
 ## Legacy boundary
 

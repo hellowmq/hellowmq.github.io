@@ -38,7 +38,8 @@ New publication inputs must be added to the Git index before packaging.
 Maintenance files, CI files, and scripts are excluded from that artifact.
 The output is a local artifact; this command does not upload or deploy it.
 The manifest is stored beside the output, and existing destinations are refused.
-Current branch-based Pages hosting still serves `master` directly.
+The Pages workflow deploys the verified static package from `master` only after
+validation succeeds; Pages uses the GitHub Actions publishing source.
 
 ## Dependency inventory and limits
 
