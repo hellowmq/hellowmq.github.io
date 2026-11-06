@@ -85,6 +85,42 @@ test('historical search returns real results and handles an empty result', async
   await expect(page.locator('.pagefind-ui__result')).toHaveCount(0);
 });
 
+test('DisplayDJ previews and current downloads, and Tact Taste links work in both languages', async ({ page }) => {
+  await page.goto('/');
+  const dialog = page.getByRole('dialog');
+  for (const language of ['zh-CN', 'en']) {
+    if (language === 'en') await page.getByRole('button', { name: 'Switch to English', exact: true }).click();
+    for (const product of [
+      { button: language === 'en' ? 'Enlarge the actual DisplayDJ window' : '放大查看 DisplayDJ 真实窗口', image: '/studio/displaydj-full-1.0.2-2026-10-25.jpg', title: 'Full 1.0.2' },
+      { button: language === 'en' ? 'Enlarge the actual DisplayDJ Lite window' : '放大查看 DisplayDJ Lite 真实窗口', image: '/studio/displaydj-lite-0.1.0-2026-10-25.jpg', title: 'Lite 0.1.0' }
+    ]) {
+      const opener = page.getByRole('button', { name: product.button, exact: true });
+      await opener.click();
+      await expect(dialog).toBeVisible();
+      await expect(dialog.locator('#preview-title')).toContainText(product.title);
+      await expect(dialog.locator('img')).toHaveAttribute('src', new URL(product.image, page.url()).href);
+      await expect(dialog.locator('.image-preview-original')).toHaveAttribute('href', new URL(product.image, page.url()).href);
+      await expect.poll(() => dialog.locator('img').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+      await expect(dialog.locator('img')).toHaveAttribute('alt', /2026-10-25/);
+      await page.keyboard.press('Escape');
+      await expect(dialog).not.toBeVisible();
+      await expect(opener).toBeFocused();
+    }
+    const links = page.locator('.hero-actions');
+    await expect(links.getByRole('link', { name: language === 'en' ? 'Download Full stable ↗' : '下载 Full 稳定版 ↗' })).toHaveAttribute('href', 'https://github.com/hellowmq/displaydj/releases/latest');
+    await expect(links.getByRole('link', { name: language === 'en' ? 'Download Lite 0.3.0 prerelease ↗' : '下载 Lite 0.3.0 预发布版 ↗' })).toHaveAttribute('href', 'https://github.com/hellowmq/displaydj/releases/tag/lite-v0.3.0');
+    await expect(page.locator('#displaydj .product-label')).toHaveText(language === 'en'
+      ? ['Full 1.2.0 · stable', 'Lite 0.3.0 · prerelease']
+      : ['Full 1.2.0 · 稳定版', 'Lite 0.3.0 · 预发布']);
+    await expect(page.locator('#displaydj .caption')).toContainText(/FULL 1\.0\.2 \/ LITE 0\.1\.0/i);
+    const tact = page.locator('.more-grid article').filter({ has: page.getByRole('heading', { name: 'Tact Taste', exact: true }) });
+    await expect(tact.getByRole('link', { name: language === 'en' ? 'Try the examples ↗' : '在线体验 ↗' })).toHaveAttribute('href', 'https://tech.wenmq.cn/tact-taste/');
+    await expect(tact.getByRole('link', { name: language === 'en' ? 'Watch the showreel ↗' : '看演示短片 ↗' })).toHaveAttribute('href', 'https://tech.wenmq.cn/tact-taste/showreel.html');
+    const size = await page.evaluate(() => ({ content: document.documentElement.scrollWidth, viewport: window.innerWidth }));
+    expect(size.content, `${language} homepage overflow`).toBeLessThanOrEqual(size.viewport);
+  }
+});
+
 test('key pages render without horizontal overflow', async ({ page }) => {
   for (const route of ['/', '/notes/', '/about/', '/search/', '/404.html']) {
     await page.goto(route);

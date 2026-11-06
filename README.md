@@ -2,7 +2,16 @@
 
 Live site: https://tech.wenmq.cn/
 
-The homepage is hand-authored HTML, CSS and JavaScript. The current local redesign leads with the real DisplayDJ window, followed by PetApp, MCR scoring and FocusTrace. It links to the personal Blogger site for non-technical writing. The screenshot opens in a native dialog with Escape, backdrop dismissal and focus restoration; the former decorative particle field has been removed. Engineering notes reuse the hand-authored DisplayDJ reading template and shared `studio/note.css`. The index is at `notes/index.html`; DisplayDJ and the PetApp CSP/cross-device debugging case study have their own `notes/<slug>/index.html`, homepage links, RSS items and sitemap entries. Article HTML is the editable publication source; this change does not rerun or overwrite the historical AstroPaper build. Its versioned sources distinguish implementation from recorded hardware evidence.
+The 2026-11-07 homepage update distinguishes Full 1.2.0 stable from Lite 0.3.0
+prerelease, and links to the Tact Taste live examples and showreel. The two
+DisplayDJ JPEGs show earlier builds (Full 1.0.2 and Lite 0.1.0) and are copied
+unchanged from public source commit `9fc69face0da2cbbecf899aa324217b3db551450`,
+under `Assets/Previews/` in `hellowmq/displaydj`; their Git blob hashes were
+checked against GitHub. They show the built-in display, with an offline saved
+HP entry in Lite, and do not establish external DDC compatibility. Each opens
+the existing dialog with its own image, original link and restored trigger focus.
+
+The homepage is hand-authored HTML, CSS and JavaScript. The homepage leads with real DisplayDJ windows, followed by PetApp, MCR scoring and FocusTrace. It links to the personal Blogger site for non-technical writing. The screenshot opens in a native dialog with Escape, backdrop dismissal and focus restoration; the former decorative particle field has been removed. Engineering notes reuse the hand-authored DisplayDJ reading template and shared `studio/note.css`. The index is at `notes/index.html`; DisplayDJ and the PetApp CSP/cross-device debugging case study have their own `notes/<slug>/index.html`, homepage links, RSS items and sitemap entries. Article HTML is the editable publication source; this change does not rerun or overwrite the historical AstroPaper build. Its versioned sources distinguish implementation from recorded hardware evidence.
 
 The historical blog is statically generated from 36 original Markdown posts using an adaptation of [AstroPaper](https://github.com/satnaing/astro-paper); its MIT notice is in [ASTROPAPER-LICENSE](ASTROPAPER-LICENSE). New blog pages cover the original article, archive, tag and pagination URLs. No Node runtime is needed to serve the published files.
 
